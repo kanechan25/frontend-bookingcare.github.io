@@ -1,0 +1,68 @@
+
+@mixin logo-social-login {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 4px;
+    cursor: pointer;
+}
+.login-bg {
+    height: 100vh;
+    background: linear-gradient(135deg, rgb(8, 8, 8) 0%, rgb(77, 63, 63) 100%);
+    color: aliceblue;
+    .login-container {
+        width: 280px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 500px;
+        .login-content {
+            border-radius: 8px;
+            border: 1px solid #fff;
+            margin: 0 auto;
+            padding: 16px;
+            .text-title {
+                font-size: 22px;
+            }
+            .btn-login {
+                width: 80%;
+                border-radius: 10px;
+                background: linear-gradient(45deg, rgb(20, 155, 155) 0%,  rgb(100, 50, 50) 100% );
+            }
+            .fab {
+                &.gg {
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    background: rgb(170, 24, 24);
+                    @include logo-social-login();
+                }
+                &.fb {
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    background: rgb(92, 78, 211);
+                    @include logo-social-login();
+         
+                }
+            }
+
+            .input-password {
+                position: relative;
+                .eye-password {
+                    position: absolute;
+                    right: 5px;
+                    top: 10px;
+                    color: #000;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
