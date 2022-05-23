@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
 import './Login.scss';
-import { FormattedMessage } from 'react-intl';
 
-
+import { handleLoginApi } from '../../services/userService.js'
 
 class Login extends Component {
     constructor(props) {
@@ -14,6 +13,7 @@ class Login extends Component {
             username: '',
             password: '',
             isShowPassword: false,
+            errMessage: '',
         }
     }
 
@@ -28,9 +28,40 @@ class Login extends Component {
             password: e.target.value,
         })
     }
-    handleLogin = () => {
-        console.log(`username ${this.state.username}`)
-        console.log(`password ${this.state.password}`)
+    enterLogin =(e) => {
+        if (e.keyCode === 13) {
+            this.handleLogin();
+        }
+    }
+
+    handleLogin = async () => {
+        this.setState({
+            errMessage: ''
+        })
+        try {
+            let data = await handleLoginApi(this.state.username, this.state.password);
+            
+            if (data && data.errCode !== 0) {
+                this.setState({
+                    errMessage: data.message,
+                })
+            }
+            if (data && data.errCode === 0) {
+                //login successful => to go to sth...
+                this.props.userLoginSuccess(data.user);
+            }
+
+        } catch (error) {
+            if(error.response) {
+                if(error.response.data) {
+                    this.setState({
+                        errMessage: error.response.data.message
+                    })
+                }
+            }
+            console.log(error.response)
+
+        }
     }
 
     handleShowHidePassword = () => {
@@ -58,11 +89,15 @@ class Login extends Component {
                                 <div className='input-password'>
                                     <input type={this.state.isShowPassword ? 'text' : 'password'} className="form-control " placeholder="Enter your password" 
                                         onChange={(e) => this.handleOnChangePassword(e)}
+                                        onKeyDown={(e) => this.enterLogin(e)}
                                     />
                                     <span onClick={() => {this.handleShowHidePassword()}}>
                                         <i className={ this.state.isShowPassword ? 'far fa-eye eye-password' : 'far fa-eye-slash eye-password'}></i>
                                     </span>
                                 </div>
+                            </div>
+                            <div className='col-12 mt-2' style={{ color: 'red' }}>
+                                {this.state.errMessage}
                             </div>
                             <div className='mt-3 mb-3 text-center'>
                                 <button type="submit" className="btn btn-primary btn-login"
@@ -96,8 +131,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         navigate: (path) => dispatch(push(path)),
-        adminLoginSuccess: (adminInfo) => dispatch(actions.adminLoginSuccess(adminInfo)),
-        adminLoginFail: () => dispatch(actions.adminLoginFail()),
+        // adminLoginSuccess: (adminInfo) => dispatch(actions.adminLoginSuccess(adminInfo)),
+        // userLoginFail: () => dispatch(actions.userLoginFail()),
+        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
     };
 };
 

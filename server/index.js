@@ -1,8 +1,11 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors')
 
-const app = express();
-
+let app = express();
+app.use(cors({
+    origin: true 
+   }));
 const buildDir = path.join(__dirname, '../build');
 console.log('Using files in ' + buildDir);
 
@@ -28,6 +31,7 @@ app.get('*', (req, res) => {
     }
     res.sendFile(path.join(buildDir, 'index.html'));
 });
+
 
 const port = process.env.PORT || 3000;
 app.listen(port);
