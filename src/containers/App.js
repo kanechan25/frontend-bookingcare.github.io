@@ -35,6 +35,8 @@ class App extends Component {
     };
 
     componentDidMount() {
+        document.body.style.backgroundColor = "#343a40"
+        
         this.handlePersistorState();
     }
 

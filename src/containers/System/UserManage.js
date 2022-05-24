@@ -27,21 +27,27 @@ class UserManage extends Component {
     render() {
         let arrUsers = this.state.arrUsers;
         return (
-            <div className="user-container">
+            <div className="user-container ">
                 <div className='title text-center'>
-                    Manage users Autodesk Constrcution Cloud from API
+                    Manage users Autodesk Construction Cloud from API
+                </div>
+                <div className='mx-2'>
+                    <button className=' btn btn-light px-3'>
+                        <i className="fas fa-plus pe-3"></i>
+                        Add a new User
+                    </button>
                 </div>
                 <div className='user-table'>
-                <table class="table table-bordered mt-4 mx-1">
+                <table class="table table-bordered mt-4 mx-1 text-white-50">
                     <thead>
                         <tr>
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>Last Name</th>
-                        <th>First Name</th>
-                        <th>Gender</th>
-                        <th>Role</th>
-                        <th>Action</th>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Gender</th>
+                            <th>Role</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
