@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { getAllUser } from '../../services/userService'
-
+import ModalUser from './ModalUser';
 
 class UserManage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            arrUsers: []
+            arrUsers: [],
+            isOpenModalUser: false,
         }
     }
 
@@ -23,18 +24,36 @@ class UserManage extends Component {
         }
     }
 
+    handleClickAddNewUser = () => {
+        this.setState({
+            isOpenModalUser: true,
+        })
+    }
+
+    toggleUserModal = () => {
+        this.setState({
+            isOpenModalUser: !this.state.isOpenModalUser,
+        })
+    }
 
     render() {
         let arrUsers = this.state.arrUsers;
         return (
             <div className="user-container ">
+                <ModalUser 
+                    isOpen = {this.state.isOpenModalUser}
+                    toggleFromParent={this.toggleUserModal}
+                />
                 <div className='title text-center'>
                     Manage users Autodesk Construction Cloud from API
                 </div>
+                
                 <div className='mx-2'>
-                    <button className=' btn btn-light px-3'>
+                    <button className=' btn btn-info px-3'
+                        onClick={() => this.handleClickAddNewUser()}
+                    >
                         <i className="fas fa-plus pe-3"></i>
-                        Add a new User
+                        Add a new user
                     </button>
                 </div>
                 <div className='user-table'>
