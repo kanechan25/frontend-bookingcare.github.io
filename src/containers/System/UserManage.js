@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+
 import { getAllUser } from '../../services/userService'
 import ModalUser from './ModalUser';
 
@@ -64,6 +65,8 @@ class UserManage extends Component {
                             <th>Email</th>
                             <th>Last Name</th>
                             <th>First Name</th>
+                            <th>Address</th>
+                            <th>Phone Number</th>
                             <th>Gender</th>
                             <th>Role</th>
                             <th>Action</th>
@@ -80,13 +83,15 @@ class UserManage extends Component {
                                                 <td>{item.email}</td>
                                                 <td>{item.lastName}</td>
                                                 <td>{item.firstName}</td>
+                                                <td>{item.address}</td>
+                                                <td>{item.phoneNum}</td>
                                                 <td>{item.gender}</td>
                                                 <td>{item.roleId}</td>
                                                 <td>
-                                                    <button className="btn btn-link ps-2 pe-2">
+                                                    <button className="btn btn-link px-2">
                                                         <i className="fas fa-pencil-alt" ></i>
                                                     </button>
-                                                    <button className="btn btn-link ms-2 ps-2 pe-2">
+                                                    <button className="btn btn-link ms-2 px-2">
                                                         <i className="fas fa-trash"></i>
                                                     </button>
                                                 </td>
