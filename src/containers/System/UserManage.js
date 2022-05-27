@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { addSyntheticLeadingComment } from 'typescript';
 
-import { getAllUser } from '../../services/userService'
+import { getAllUser, createNewUserService, deleteUserService, } from '../../services/userService'
 import ModalUser from './ModalUser';
+import ModalPopupConfirm from './ModalPopupConfirm';
+import ModalEditUser from './ModalEditUser';
+import { emitter } from "../../utils/emitter";
 
 class UserManage extends Component {
 
@@ -11,12 +15,33 @@ class UserManage extends Component {
         super(props);
         this.state = {
             arrUsers: [],
-            isOpenModalUser: false,
-        }
+            isOpenCreateModal: false,
+            isOpenDeleteConfirm: false,
+            isOpenEditModal: false,
+            userData: {},
+        };
+        this.escFunction = this.escFunction.bind(this);
     }
 
 
     async componentDidMount() {
+        await this.getAllUserForReact();
+        document.addEventListener("keydown", this.escFunction, false);
+
+    }
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.escFunction, false);
+    }
+
+    escFunction(event) {
+        if (event.key === "Escape") {
+            this.setState({
+                isOpenCreateModal: false,
+                isOpenDeleteConfirm: false,
+            })
+        }
+    }
+    getAllUserForReact = async () => {
         let response = await getAllUser('ALL');
         if (response && response.errCode === 0) {
             this.setState({
@@ -27,13 +52,74 @@ class UserManage extends Component {
 
     handleClickAddNewUser = () => {
         this.setState({
-            isOpenModalUser: true,
+            isOpenCreateModal: true,
         })
     }
 
     toggleUserModal = () => {
         this.setState({
-            isOpenModalUser: !this.state.isOpenModalUser,
+            isOpenCreateModal: !this.state.isOpenCreateModal,
+        })
+    }
+
+    createNewUser = async (data) => {
+        try {
+            let response = await createNewUserService(data);
+            if (response && response.errCode !== 0) {
+                alert(response.message)
+            } else {
+                await this.getAllUserForReact();
+                this.setState({
+                    isOpenCreateModal: false,
+                })
+            }
+            emitter.emit('EVENT_CLEAR_MODAL_DATA', data )
+            
+        } catch (error) {
+            console.log('It have a tiny error: ', error)
+        }
+    }
+
+    toggleConfirmDelete = () => {
+        this.setState({
+            isOpenDeleteConfirm: !this.state.isOpenDeleteConfirm,
+        })
+    }
+
+    handleClickDeleteUser = (userData) => {
+        this.setState({
+            isOpenDeleteConfirm: true,
+            userData: userData,
+        })
+    }
+
+    handleDeleteUser = async (userData) => {
+        try {
+            let response = await deleteUserService(userData.id);
+            if (response && response.errCode === 0) {
+                await this.getAllUserForReact();
+                this.setState({
+                    isOpenDeleteConfirm: false,
+                })
+            } else {
+                alert(response.message)
+            }
+        } catch (error) {
+            console.log('It have a tiny error: ', error)
+        }
+    }
+
+    handleClickEditUser = (userData) => {
+        console.log('edit data of: ', userData)
+        this.setState({
+            isOpenEditModal: true,
+            userData: userData,
+        })
+    }
+
+    toggleEditUserModal = () => {
+        this.setState({
+            isOpenEditModal: !this.state.isOpenEditModal,
         })
     }
 
@@ -42,8 +128,21 @@ class UserManage extends Component {
         return (
             <div className="user-container ">
                 <ModalUser 
-                    isOpen = {this.state.isOpenModalUser}
+                    isOpenCreateModal = {this.state.isOpenCreateModal}
                     toggleFromParent={this.toggleUserModal}
+                    createNewUser={this.createNewUser}
+                />
+                <ModalPopupConfirm
+                    isOpenDeleteConfirm = {this.state.isOpenDeleteConfirm}
+                    userData = {this.state.userData}
+                    toggleFromParent={this.toggleConfirmDelete}
+                    handleDeleteUser={this.handleDeleteUser}
+                />
+                <ModalEditUser 
+                    isOpenCreateModal = {this.state.isOpenEditModal}
+                    toggleFromParent={this.toggleEditUserModal}
+                    EditUser={this.state.userData}
+                    // createNewUser={this.createNewUser}
                 />
                 <div className='title text-center'>
                     Manage users Autodesk Construction Cloud from API
@@ -58,7 +157,7 @@ class UserManage extends Component {
                     </button>
                 </div>
                 <div className='user-table'>
-                <table class="table table-bordered mt-4 mx-1 text-white-50">
+                <table className="table table-bordered mt-4 mx-1 text-white-50">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -88,10 +187,14 @@ class UserManage extends Component {
                                                 <td>{item.gender}</td>
                                                 <td>{item.roleId}</td>
                                                 <td>
-                                                    <button className="btn btn-link px-2">
+                                                    <button className="btn btn-link px-2"
+                                                        onClick={() => this.handleClickEditUser(item)}
+                                                    >
                                                         <i className="fas fa-pencil-alt" ></i>
                                                     </button>
-                                                    <button className="btn btn-link ms-2 px-2">
+                                                    <button className="btn btn-link ms-2 px-2"
+                                                        onClick={() => this.handleClickDeleteUser(item)}
+                                                    >
                                                         <i className="fas fa-trash"></i>
                                                     </button>
                                                 </td>

@@ -13,7 +13,7 @@ class Login extends Component {
             username: '',
             password: '',
             isShowPassword: false,
-            errMessage: '',
+            message: '',
         }
     }
 
@@ -36,14 +36,14 @@ class Login extends Component {
 
     handleLogin = async () => {
         this.setState({
-            errMessage: ''
+            message: ''
         })
         try {
             let data = await handleLoginApi(this.state.username, this.state.password);
             
             if (data && data.errCode !== 0) {
                 this.setState({
-                    errMessage: data.message,
+                    message: data.message,
                 })
             }
             if (data && data.errCode === 0) {
@@ -55,7 +55,7 @@ class Login extends Component {
             if(error.response) {
                 if(error.response.data) {
                     this.setState({
-                        errMessage: error.response.data.message
+                        message: error.response.data.message
                     })
                 }
             }
@@ -97,7 +97,7 @@ class Login extends Component {
                                 </div>
                             </div>
                             <div className='col-12 mt-2' style={{ color: 'red' }}>
-                                {this.state.errMessage}
+                                {this.state.message}
                             </div>
                             <div className='mt-3 mb-3 text-center'>
                                 <button type="submit" className="btn btn-primary btn-login"
@@ -111,8 +111,8 @@ class Login extends Component {
                                 <span>Or Login with</span>
                             </div>
                             <div className='col-12 social-login d-flex mt-3'>
-                                <i class="fab fa-google-plus-g gg"></i>
-                                <i class="fab fa-facebook-f fb"></i>
+                                <i className="fab fa-google-plus-g gg"></i>
+                                <i className="fab fa-facebook-f fb"></i>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@ import './ModalUser.scss'
 import { emitter } from "../../utils/emitter";
 
 
-class ModalUser extends Component {
+class ModalEditUser extends Component {
 
     constructor(props) {
         super(props);
@@ -46,15 +46,7 @@ class ModalUser extends Component {
     }
 
     handleOnChangeInput = (e, inputId) => {
-        //bad code (should not use)
-            // this.state[inputId] = e.target.value;
-            // this.setState({
-            //     ...this.state
-            // }, () => {
-            //     console.log('check bad state: ', this.state)
-            // })
 
-        //good code
             let copyState = { ...this.state };
             copyState[inputId] = e.target.value;
             this.setState({
@@ -87,6 +79,7 @@ class ModalUser extends Component {
     }
 
     render() {
+        console.log('user is edited: ', this.props.EditUser)
         return (
             <div>
                 <Modal
@@ -96,7 +89,7 @@ class ModalUser extends Component {
                     toggle={this.toggle}
                 >
                     <ModalHeader toggle={this.toggle}>
-                        Create a new user
+                        Edit the user
                     </ModalHeader>
 
                     <ModalBody>
@@ -108,13 +101,14 @@ class ModalUser extends Component {
                                             <input type="email" className="form-control " name="email" placeholder="Enter email: youremail@gmail.com" 
                                                 onChange={(e) => {this.handleOnChangeInput(e, 'email')}}
                                                 value={this.state.email}
+                                                disabled
                                             />
                                         </div>
                                         <div className="form-group mt-3">
                                             <input type="password" className="form-control " name="password" placeholder="Enter you password" 
                                                 onChange={(e) => {this.handleOnChangeInput(e, 'password')}}
                                                 value={this.state.password}
-
+                                                disabled
                                             />
                                         </div>
                                     </div>
@@ -184,7 +178,7 @@ class ModalUser extends Component {
                             className={'px-3'}
                             onClick={() => {this.handleAddNewUser()}}
                         >
-                            Create
+                            Edit
                         </Button>
                         
                         <Button
@@ -211,7 +205,7 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalUser);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalEditUser);
 
 
 
