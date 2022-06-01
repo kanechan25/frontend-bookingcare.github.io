@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { addSyntheticLeadingComment } from 'typescript';
 
-import { getAllUser, createNewUserService, deleteUserService, } from '../../services/userService'
+import { getAllUser, createNewUserService, deleteUserService, editUserService } from '../../services/userService'
 import ModalUser from './ModalUser';
 import ModalPopupConfirm from './ModalPopupConfirm';
 import ModalEditUser from './ModalEditUser';
@@ -110,11 +110,26 @@ class UserManage extends Component {
     }
 
     handleClickEditUser = (userData) => {
-        console.log('edit data of: ', userData)
         this.setState({
             isOpenEditModal: true,
             userData: userData,
         })
+    }
+
+    handleSaveChangesUser = async (userData) => {
+        try {
+            let res = await editUserService(userData);
+            if (res && res.errCode === 0) {
+                this.setState({
+                    isOpenEditModal: false
+                })
+                await this.getAllUserForReact();
+            } else {
+                alert(res.errCode)
+            }
+        } catch (error) {
+            console.log('It have a tiny error: ', error)
+        }
     }
 
     toggleEditUserModal = () => {
@@ -138,12 +153,16 @@ class UserManage extends Component {
                     toggleFromParent={this.toggleConfirmDelete}
                     handleDeleteUser={this.handleDeleteUser}
                 />
-                <ModalEditUser 
-                    isOpenCreateModal = {this.state.isOpenEditModal}
-                    toggleFromParent={this.toggleEditUserModal}
-                    EditUser={this.state.userData}
-                    // createNewUser={this.createNewUser}
-                />
+                {
+                    this.state.isOpenEditModal && 
+                    <ModalEditUser 
+                        isOpenCreateModal = {this.state.isOpenEditModal}
+                        toggleFromParent={this.toggleEditUserModal}
+                        editUserData={this.state.userData}
+                        saveEditUser={this.handleSaveChangesUser}
+                    />
+                }
+
                 <div className='title text-center'>
                     Manage users Autodesk Construction Cloud from API
                 </div>
@@ -189,6 +208,7 @@ class UserManage extends Component {
                                                 <td>
                                                     <button className="btn btn-link px-2"
                                                         onClick={() => this.handleClickEditUser(item)}
+                                                        
                                                     >
                                                         <i className="fas fa-pencil-alt" ></i>
                                                     </button>

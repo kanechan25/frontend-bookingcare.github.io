@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './ModalUser.scss'
 import { emitter } from "../../utils/emitter";
-
+import lodash from 'lodash';
 
 class ModalEditUser extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             email: '',
             password: '',
             lastName: '',
@@ -23,8 +24,27 @@ class ModalEditUser extends Component {
     }
 
     componentDidMount() {
-
+        let user = this.props.editUserData;
+        if (user && !lodash.isEmpty(user)) {
+            this.setState({
+                id: user.id,
+                email: user.email,
+                password: "password",
+                lastName: user.lastName,
+                firstName: user.firstName,
+                address: user.address,
+                phoneNum: user.phoneNum,
+                gender: user.gender,
+                roleId: user.roleId,
+            })
+        }
     }
+
+
+
+    //Neu muon ngay khi mo len, component duoc cap nhat, ngoai cach tren
+    //co the su dung componentDidUpdate
+
 
     listenToEmitter() {
         emitter.on('EVENT_CLEAR_MODAL_DATA', (data) => {
@@ -66,12 +86,13 @@ class ModalEditUser extends Component {
         return isValid;
     }
 
-    handleAddNewUser = () => {
+    handleSaveUser = () => {
         let isValid = this.checkValidateInput();
 
         if(isValid === true) {
-            //call api
-            this.props.createNewUser(this.state);
+            //call api edit user
+            this.props.saveEditUser(this.state);
+            
         } else {
             alert('Please enter the information completely!')
         }
@@ -79,7 +100,6 @@ class ModalEditUser extends Component {
     }
 
     render() {
-        console.log('user is edited: ', this.props.EditUser)
         return (
             <div>
                 <Modal
@@ -176,9 +196,9 @@ class ModalEditUser extends Component {
                         <Button
                             color="primary"
                             className={'px-3'}
-                            onClick={() => {this.handleAddNewUser()}}
+                            onClick={() => {this.handleSaveUser()}}
                         >
-                            Edit
+                            Save Changes
                         </Button>
                         
                         <Button

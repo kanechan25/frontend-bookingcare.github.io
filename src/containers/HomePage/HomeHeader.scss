@@ -1,0 +1,68 @@
+@import '../../styles/_variables.scss';
+.home-header-container {
+    height: 50px;
+    width: 100%;
+    &.text-low-light {
+        color: $text-color-light;
+    }
+    .home-header-content {
+        width: 1200px;
+        height: 100%;
+        display: flex;
+        margin: auto;
+        .left-content {
+            border: 1px solid rgb(78, 78, 78);
+            display: flex;
+            align-items: center;
+            i {
+                font-size: 30px;
+                color: green;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .header-logo {
+                background: url('../../assets/images/1_header/bookingcare-logo.svg') center center no-repeat;
+                height: 90%;
+                width: 100%;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        .center-content {
+            border: 1px solid rgb(63, 63, 71);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .child-content {
+                .header-title {
+                    cursor: pointer;
+                }
+                .header-sub-title {
+                    font-weight: 200;
+                    font-size: 12px;
+                }
+            }
+
+        }
+        .right-content {
+            border: 1px solid rgb(70, 26, 28);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .languages {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                .header-lang-img {
+                    height: 24px;
+                    width: 24px;
+                    background: url('../../assets/images/1_header/flag_of_vietnam.svg') center center no-repeat;
+                    background-size: 155%;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
