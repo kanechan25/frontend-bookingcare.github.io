@@ -1,4 +1,29 @@
 {
+    "homeheader": {
+        "speciality": "Speciality",
+        "speciality-sub": "Search doctors by specialities",
+        "medical-central": "Health centre",
+        "medical-central-sub": "Chose the hospital or clinics",
+        "doctors": "Doctors",
+        "doctors-sub": "Find the best doctors",
+        "package": "Healthcare package",
+        "package-sub": "General health check",
+        "help": "Help"
+    },
+    "homebanner": {
+        "title1": "MEDICAL PLATFORM",
+        "title2": "TAKE CARE HEALTH COMPREHENSIVELY",
+        "search": "Search for Doctors, Centre or Specialities",
+        "speciality": "Health check on specialities",
+        "remote": "Remote health check",
+        "general": "General health check",
+        "test": "Medical test",
+        "mental": "Mental health",
+        "dentist": "dentistry",
+        "surgery": "Surgery packages",
+        "product": "Medical Products"
+    },
+
     "common": {
         "add": "Add",
         "edit": "Edit",

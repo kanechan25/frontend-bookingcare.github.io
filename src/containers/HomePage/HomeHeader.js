@@ -1,82 +1,183 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeHeader.scss';
+import { FormattedMessage, useIntl, injectIntl, intlShape } from 'react-intl';
+import { LANGUAGES } from '../../utils/constant'
+
+import google_play from '../../assets/images/2_banner/google_play.svg'
+import app_store from '../../assets/images/2_banner/app_store.svg'
+
+import speciality from '../../assets/images/2_banner/speciality.png'
+import remote from '../../assets/images/2_banner/remote.png'
+import general from '../../assets/images/2_banner/general.png'
+import test from '../../assets/images/2_banner/test.png'
+import mental from '../../assets/images/2_banner/mental.png'
+import dentist from '../../assets/images/2_banner/dentist.png'
+import surgery from '../../assets/images/2_banner/surgery.png'
+import product from '../../assets/images/2_banner/product.png'
+
+import { changeLanguageApp } from '../../store/actions/appActions'
 
 class HomeHeader extends Component {
 
-    render() {
+    changeLanguage = (language) => {
+        this.props.toggleLanguage(language);
+    }
 
+    render() {
+        let language = this.props.language;
         return (
             <React.Fragment>
-                <div className='home-header-container text-low-light'>
-                    <div className='home-header-content row '>
-                        <div className='left-content col-3'>
-                            <i className="fas fa-bars"></i>
-                            <div className='header-logo'></div>
-                        </div>
-                        <div className='center-content col-7'>
-                            <div className='child-content'>
-                                <div className='header-title'><b>Chuyên khoa</b></div>
-                                <div className='header-sub-title'>Tìm bác sĩ theo chuyên khoa</div>
+                <header className='header'>
+                    <div className='home-header-container text-light-white'>
+                        <div className='home-header-content row '>
+                            <div className='left-content col-2'>
+                                <i className="fas fa-bars"></i>
+                                <div className='header-logo'></div>
                             </div>
-                            <div className='child-content'>
-                                <div className='header-title'><b>Cơ sở y tế</b></div>
-                                <div className='header-sub-title'>Chọn bệnh viện, phòng khám</div>
+                            <div className='center-content col-7'>
+                                <div className='child-content'>
+                                    <div className='header-title'><b><FormattedMessage id="homeheader.speciality"/></b></div>
+                                    <div className='header-sub-title'><FormattedMessage id="homeheader.speciality-sub"/></div>
+                                </div>
+                                <div className='child-content'>
+                                    <div className='header-title'><b><FormattedMessage id="homeheader.medical-central"/></b></div>
+                                    <div className='header-sub-title'><FormattedMessage id="homeheader.medical-central-sub"/></div>
+                                </div>
+                                <div className='child-content'>
+                                    <div className='header-title'><b><FormattedMessage id="homeheader.doctors"/></b></div>
+                                    <div className='header-sub-title'><FormattedMessage id="homeheader.doctors-sub"/></div>
+                                </div>
+                                <div className='child-content'>
+                                    <div className='header-title'><b><FormattedMessage id="homeheader.package"/></b></div>
+                                    <div className='header-sub-title'><FormattedMessage id="homeheader.package-sub"/></div>
+                                </div>
                             </div>
-                            <div className='child-content'>
-                                <div className='header-title'><b>Bác sĩ</b></div>
-                                <div className='header-sub-title'>Chọn bác sĩ giỏi</div>
-                            </div>
-                            <div className='child-content'>
-                                <div className='header-title'><b>Gói khám</b></div>
-                                <div className='header-sub-title'>Khám sức khỏe tổng quát</div>
-                            </div>
-                        </div>
-                        <div className='right-content col-2'>
-                            <div><i className="fas fa-question-circle"></i> Hỗ trợ</div>
-                            <div className='languages'>
-                                <button className='btn header-lang-img'></button>
-                                VIE
+                            <div className='right-content col-3'>
+                                <div><i className="fas fa-question-circle"></i><FormattedMessage id="homeheader.help"/></div>
+
+                                <div className='dark-mode'>
+                                    <button className='btn'>
+                                        <i class="fas fa-adjust dark-mode-icon active"></i>
+                                    </button>
+                                </div>
+
+                                <div className='languages'>
+                                    <div className='language'>
+                                        <button className={
+                                            language === LANGUAGES.VI ? 'btn lang-logo-vi active' : 'btn lang-logo-vi'
+                                        }
+                                            onClick={() => this.changeLanguage(LANGUAGES.VI)}>
+                                        </button>
+                                    </div>
+                                    <div className='language'>
+                                        <button className={
+                                            language === LANGUAGES.EN ? 'btn lang-logo-en active' : 'btn lang-logo-en'
+                                        } 
+                                            onClick={() => this.changeLanguage(LANGUAGES.EN)}>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className='home-header-banner'>
-                    <div className='banner-upper'>
-                        <div className='banner-title'>
-
-                        </div>
-                        <div className='banner-search'>
-
-                        </div>
-                        <div className='banner-download'>
-
-                        </div>
-                    </div>
-                    <div className='banner-lower'>
-                        <div className='banner-options'>
-                            <div className='banner-option'>
-                                <div className='icon-option'></div>
-                                <div className='text-option'></div>
+                    <div className='home-header-banner text-light-white'>
+                        <div className='banner-upper'>
+                            <div className='banner-title'>
+                                <span><FormattedMessage id="homebanner.title1"/></span>
+                                <span><FormattedMessage id="homebanner.title2"/></span>
+                            </div>
+                            <div className='banner-search'>
+                                <div class="search-wrap">
+                                    <svg class="search-icon " xmlns="http://www.w3.org/2000/svg" fill="none">
+                                        <path class="search-icon-logo" stroke-linecap="round" stroke-width="1.5" 
+                                            d="M15.028 15.334l4.644 4.644m-2.889-8.88a5.99 5.99 0 01-5.991 5.991 5.99 5.99 0 110-11.983 5.99 5.99 0 015.991 5.992z">
+                                        </path>
+                                    </svg>
+                                    <input class="search-input" type="text" placeholder="Search......" />
+                                </div>
+                            </div>
+                            <div className='banner-download'>
+                                <a href='' className='app-mobile google-play'>
+                                    <img className='img' src={ google_play } />
+                                </a>
+                                <a href='' className='app-mobile app-store'>
+                                    <img className='img' src={ app_store } />
+                                </a>
                             </div>
                         </div>
-                    </div>
+                        <div className='banner-lower container'>
+                            <ul className='banner-options row'>
+                                <li className='banner-option col'>
+                                    <a href='' className=' icon-option speciality'>
+                                        <button className='btn wrap-img'><img className='img' src={ speciality } /></button>
+                                        <div className='text-option'><FormattedMessage id="homebanner.speciality"/></div>
+                                    </a>
+                                </li>
+                                <li className='banner-option col'>
+                                    <a href='' className=' icon-option remote'>
+                                        <button className='btn wrap-img'><img className='img' src={ remote } /></button>
+                                        <div className='text-option'><FormattedMessage id="homebanner.remote"/></div>
+                                    </a>
+                                </li>
+                                <li className='banner-option col'>
+                                    <a href='' className=' icon-option general'>
+                                        <button className='btn wrap-img'><img className='img' src={ general } /></button>
+                                        <div className='text-option'><FormattedMessage id="homebanner.general"/></div>
+                                    </a>
+                                </li>
+                                <li className='banner-option col'>
+                                    <a href='' className=' icon-option test'>
+                                        <button className='btn wrap-img'><img className='img' src={ test } /></button>
+                                        <div className='text-option'><FormattedMessage id="homebanner.test"/></div>
+                                    </a>
+                                </li>
+                                <li className='banner-option col'>
+                                    <a href='' className=' icon-option mental'>
+                                        <button className='btn wrap-img'><img className='img' src={ mental } /></button>
+                                        <div className='text-option'><FormattedMessage id="homebanner.mental"/></div>
+                                    </a>
+                                </li>
+                                <li className='banner-option col'>
+                                    <a href='' className=' icon-option dentist'>
+                                        <button className='btn wrap-img'><img className='img' src={ dentist } /></button>
+                                        <div className='text-option'><FormattedMessage id="homebanner.dentist"/></div>
+                                    </a>
+                                </li>
+                                <li className='banner-option col'>
+                                    <a href='' className=' icon-option surgery'>
+                                        <button className='btn wrap-img'><img className='img' src={ surgery } /></button>
+                                        <div className='text-option'><FormattedMessage id="homebanner.surgery"/></div>
+                                    </a>
+                                </li>
+                                <li className='banner-option col'>
+                                    <a href='' className=' icon-option product'>
+                                        <button className='btn wrap-img'><img className='img' src={ product } /></button>
+                                        <div className='text-option'><FormattedMessage id="homebanner.product"/></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                </div>
+                    </div>
+                </header>
             </React.Fragment>
         );
     }
 
 }
 
+
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        language: state.app.language,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        toggleLanguage: (language) => dispatch(changeLanguageApp(language))
     };
 };
 

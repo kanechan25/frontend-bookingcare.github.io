@@ -1,4 +1,28 @@
 {
+    "homeheader": {
+        "speciality": "Chuyên Khoa",
+        "speciality-sub": "Tìm bác sĩ theo chuyên khoa",
+        "medical-central": "Cơ sở y tế",
+        "medical-central-sub": "Chọn bệnh viện hoặc phòng khám",
+        "doctors": "Bác sĩ",
+        "doctors-sub": "Lựa chọn bác sĩ tốt nhất",
+        "package": "Gói khám bệnh",
+        "package-sub": "Khám sức khỏe tổng quát",
+        "help": "Trợ giúp"
+    },
+    "homebanner": {
+        "title1": "NỀN TẢNG Y TẾ",
+        "title2": "CHĂM SÓC SỨC KHỎE TOÀN DIỆN",
+        "search": "Tìm kiếm Bác sĩ, Cơ sở Y tế hoặc Chuyên khoa",
+        "speciality": "Khám chuyên khoa",
+        "remote": "Khám bệnh từ xa",
+        "general": "Kiểm tra sức khỏe tổng quát",
+        "test": "Xét nghiệm Y tế",
+        "mental": "Sức khỏe tâm lý",
+        "dentist": "Nha sĩ",
+        "surgery": "Gói phẫu thuật",
+        "product": "Sản phẩm Y tế"
+    },
     "common": {
         "add": "Thêm",
         "edit": "Sửa",
