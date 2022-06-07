@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeHeader.scss';
-import { FormattedMessage, useIntl, injectIntl, intlShape } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils/constant'
 
 import google_play from '../../assets/images/2_banner/google_play.svg'
@@ -16,7 +16,7 @@ import dentist from '../../assets/images/2_banner/dentist.png'
 import surgery from '../../assets/images/2_banner/surgery.png'
 import product from '../../assets/images/2_banner/product.png'
 
-import { changeLanguageApp } from '../../store/actions/appActions'
+import { changeLanguageApp } from '../../store/actions/appActions';
 
 class HomeHeader extends Component {
 
@@ -24,40 +24,42 @@ class HomeHeader extends Component {
         this.props.toggleLanguage(language);
     }
 
+    
     render() {
         let language = this.props.language;
+ 
         return (
             <React.Fragment>
                 <header className='header'>
-                    <div className='home-header-container text-light-white'>
-                        <div className='home-header-content row '>
-                            <div className='left-content col-2'>
+                    <div className='home-header-container text-light-white '>
+                        <div className='home-header-content container row '>
+                            <div className='left-content col-xl-2 col-lg-3 col-md-3 col-sm-3 col-2'>
                                 <i className="fas fa-bars"></i>
                                 <div className='header-logo'></div>
                             </div>
-                            <div className='center-content col-7'>
-                                <div className='child-content'>
-                                    <div className='header-title'><b><FormattedMessage id="homeheader.speciality"/></b></div>
-                                    <div className='header-sub-title'><FormattedMessage id="homeheader.speciality-sub"/></div>
-                                </div>
-                                <div className='child-content'>
-                                    <div className='header-title'><b><FormattedMessage id="homeheader.medical-central"/></b></div>
-                                    <div className='header-sub-title'><FormattedMessage id="homeheader.medical-central-sub"/></div>
-                                </div>
-                                <div className='child-content'>
-                                    <div className='header-title'><b><FormattedMessage id="homeheader.doctors"/></b></div>
-                                    <div className='header-sub-title'><FormattedMessage id="homeheader.doctors-sub"/></div>
-                                </div>
-                                <div className='child-content'>
-                                    <div className='header-title'><b><FormattedMessage id="homeheader.package"/></b></div>
-                                    <div className='header-sub-title'><FormattedMessage id="homeheader.package-sub"/></div>
-                                </div>
+                            <div className='center-content col-xl-8 col-lg-7 col-md-6 col-sm-5 col-2'>
+                                    <div className='child-content'>
+                                        <div className='header-title'><b><FormattedMessage id="homeheader.speciality"/></b></div>
+                                        <div className='header-sub-title'><FormattedMessage id="homeheader.speciality-sub"/></div>
+                                    </div>
+                                    <div className='child-content'>
+                                        <div className='header-title'><b><FormattedMessage id="homeheader.medical-central"/></b></div>
+                                        <div className='header-sub-title'><FormattedMessage id="homeheader.medical-central-sub"/></div>
+                                    </div>
+                                    <div className='child-content'>
+                                        <div className='header-title'><b><FormattedMessage id="homeheader.doctors"/></b></div>
+                                        <div className='header-sub-title'><FormattedMessage id="homeheader.doctors-sub"/></div>
+                                    </div>
+                                    <div className='child-content'>
+                                        <div className='header-title'><b><FormattedMessage id="homeheader.package"/></b></div>
+                                        <div className='header-sub-title'><FormattedMessage id="homeheader.package-sub"/></div>
+                                    </div>
                             </div>
-                            <div className='right-content col-3'>
-                                <div><i className="fas fa-question-circle"></i><FormattedMessage id="homeheader.help"/></div>
+                            <div className='right-content col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6'>
+                                <div className='help'><i className="fas fa-question-circle"></i><FormattedMessage id="homeheader.help"/></div>
 
                                 <div className='dark-mode'>
-                                    <button className='btn'>
+                                    <button className='btn' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dark/Light Mode">
                                         <i class="fas fa-adjust dark-mode-icon active"></i>
                                     </button>
                                 </div>
@@ -67,13 +69,15 @@ class HomeHeader extends Component {
                                         <button className={
                                             language === LANGUAGES.VI ? 'btn lang-logo-vi active' : 'btn lang-logo-vi'
                                         }
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Kích để chuyển sang Tiếng Việt"
                                             onClick={() => this.changeLanguage(LANGUAGES.VI)}>
                                         </button>
                                     </div>
                                     <div className='language'>
                                         <button className={
                                             language === LANGUAGES.EN ? 'btn lang-logo-en active' : 'btn lang-logo-en'
-                                        } 
+                                        }
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click here to switch English"
                                             onClick={() => this.changeLanguage(LANGUAGES.EN)}>
                                         </button>
                                     </div>
@@ -90,11 +94,13 @@ class HomeHeader extends Component {
                             <div className='banner-search'>
                                 <div class="search-wrap">
                                     <svg class="search-icon " xmlns="http://www.w3.org/2000/svg" fill="none">
-                                        <path class="search-icon-logo" stroke-linecap="round" stroke-width="1.5" 
+                                        <path class="search-icon-logo" stroke-linecap="round" stroke-width="1.5"
                                             d="M15.028 15.334l4.644 4.644m-2.889-8.88a5.99 5.99 0 01-5.991 5.991 5.99 5.99 0 110-11.983 5.99 5.99 0 015.991 5.992z">
                                         </path>
                                     </svg>
-                                    <input class="search-input" type="text" placeholder="Search......" />
+                                    <input class="search-input" type="text" placeholder={
+                                        language === LANGUAGES.EN ? 'Search for Doctors, Specialities or Medical Centre' : 'Tìm kiếm bác sĩ, chuyên khoa, hoặc cơ sở y tế'
+                                    } />
                                 </div>
                             </div>
                             <div className='banner-download'>
@@ -106,61 +112,66 @@ class HomeHeader extends Component {
                                 </a>
                             </div>
                         </div>
-                        <div className='banner-lower container'>
-                            <ul className='banner-options row'>
-                                <li className='banner-option col'>
-                                    <a href='' className=' icon-option speciality'>
-                                        <button className='btn wrap-img'><img className='img' src={ speciality } /></button>
-                                        <div className='text-option'><FormattedMessage id="homebanner.speciality"/></div>
-                                    </a>
-                                </li>
-                                <li className='banner-option col'>
-                                    <a href='' className=' icon-option remote'>
-                                        <button className='btn wrap-img'><img className='img' src={ remote } /></button>
-                                        <div className='text-option'><FormattedMessage id="homebanner.remote"/></div>
-                                    </a>
-                                </li>
-                                <li className='banner-option col'>
-                                    <a href='' className=' icon-option general'>
-                                        <button className='btn wrap-img'><img className='img' src={ general } /></button>
-                                        <div className='text-option'><FormattedMessage id="homebanner.general"/></div>
-                                    </a>
-                                </li>
-                                <li className='banner-option col'>
-                                    <a href='' className=' icon-option test'>
-                                        <button className='btn wrap-img'><img className='img' src={ test } /></button>
-                                        <div className='text-option'><FormattedMessage id="homebanner.test"/></div>
-                                    </a>
-                                </li>
-                                <li className='banner-option col'>
-                                    <a href='' className=' icon-option mental'>
-                                        <button className='btn wrap-img'><img className='img' src={ mental } /></button>
-                                        <div className='text-option'><FormattedMessage id="homebanner.mental"/></div>
-                                    </a>
-                                </li>
-                                <li className='banner-option col'>
-                                    <a href='' className=' icon-option dentist'>
-                                        <button className='btn wrap-img'><img className='img' src={ dentist } /></button>
-                                        <div className='text-option'><FormattedMessage id="homebanner.dentist"/></div>
-                                    </a>
-                                </li>
-                                <li className='banner-option col'>
-                                    <a href='' className=' icon-option surgery'>
-                                        <button className='btn wrap-img'><img className='img' src={ surgery } /></button>
-                                        <div className='text-option'><FormattedMessage id="homebanner.surgery"/></div>
-                                    </a>
-                                </li>
-                                <li className='banner-option col'>
-                                    <a href='' className=' icon-option product'>
-                                        <button className='btn wrap-img'><img className='img' src={ product } /></button>
-                                        <div className='text-option'><FormattedMessage id="homebanner.product"/></div>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div className='banner-lower'>
+                            <div className='container'>
+                                <ul className='banner-options row'>
+                                    <li className='banner-option col col-1-8'>
+                                        <a href='' className=' icon-option speciality'>
+                                            <button className='btn wrap-img'><img className='img' src={ speciality } /></button>
+                                            <div className='text-option'><FormattedMessage id="homebanner.speciality"/></div>
+                                        </a>
+                                    </li>
+                                    <li className='banner-option col col-1-8'>
+                                        <a href='' className=' icon-option remote'>
+                                            <button className='btn wrap-img'><img className='img' src={ remote } /></button>
+                                            <div className='text-option'><FormattedMessage id="homebanner.remote"/></div>
+                                        </a>
+                                    </li>
+                                    <li className='banner-option col col-1-8'>
+                                        <a href='' className=' icon-option general'>
+                                            <button className='btn wrap-img'><img className='img' src={ general } /></button>
+                                            <div className='text-option'><FormattedMessage id="homebanner.general"/></div>
+                                        </a>
+                                    </li>
+                                    <li className='banner-option col col-1-8'>
+                                        <a href='' className=' icon-option test'>
+                                            <button className='btn wrap-img'><img className='img' src={ test } /></button>
+                                            <div className='text-option'><FormattedMessage id="homebanner.test"/></div>
+                                        </a>
+                                    </li>
+                                    <li className='banner-option col col-1-8'>
+                                        <a href='' className=' icon-option mental'>
+                                            <button className='btn wrap-img'><img className='img' src={ mental } /></button>
+                                            <div className='text-option'><FormattedMessage id="homebanner.mental"/></div>
+                                        </a>
+                                    </li>
+                                    <li className='banner-option col col-1-8'>
+                                        <a href='' className=' icon-option dentist'>
+                                            <button className='btn wrap-img'><img className='img' src={ dentist } /></button>
+                                            <div className='text-option'><FormattedMessage id="homebanner.dentist"/></div>
+                                        </a>
+                                    </li>
+                                    <li className='banner-option col col-1-8'>
+                                        <a href='' className=' icon-option surgery'>
+                                            <button className='btn wrap-img'><img className='img' src={ surgery } /></button>
+                                            <div className='text-option'><FormattedMessage id="homebanner.surgery"/></div>
+                                        </a>
+                                    </li>
+                                    <li className='banner-option col col-1-8'>
+                                        <a href='' className=' icon-option product'>
+                                            <button className='btn wrap-img'><img className='img' src={ product } /></button>
+                                            <div className='text-option'><FormattedMessage id="homebanner.product"/></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
                     </div>
                 </header>
+                <main>
+                    
+                </main>
             </React.Fragment>
         );
     }

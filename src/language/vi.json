@@ -1,6 +1,6 @@
 {
     "homeheader": {
-        "speciality": "Chuyên Khoa",
+        "speciality": "Chuyên khoa",
         "speciality-sub": "Tìm bác sĩ theo chuyên khoa",
         "medical-central": "Cơ sở y tế",
         "medical-central-sub": "Chọn bệnh viện hoặc phòng khám",
@@ -13,7 +13,6 @@
     "homebanner": {
         "title1": "NỀN TẢNG Y TẾ",
         "title2": "CHĂM SÓC SỨC KHỎE TOÀN DIỆN",
-        "search": "Tìm kiếm Bác sĩ, Cơ sở Y tế hoặc Chuyên khoa",
         "speciality": "Khám chuyên khoa",
         "remote": "Khám bệnh từ xa",
         "general": "Kiểm tra sức khỏe tổng quát",
@@ -23,6 +22,98 @@
         "surgery": "Gói phẫu thuật",
         "product": "Sản phẩm Y tế"
     },
+
+    "topnews": {
+        "more": "XEM CHI TIẾT",
+        "paternity": "Dịch vụ xét nghiệm DNA",
+        "paternity1": "Lấy mẫu tin cậy tại nhà",
+        "paternity2": "Chính sách bảo mật 100%",
+        "paternity3": "Xét nghiệm DNA hợp pháp",
+        "counseling": "Tư vấn sức khỏe từ xa",
+        "counseling1": "Chăm sóc sức khỏe từ bất cứ nơi nào bạn ở",
+        "counseling2": "Sắp xếp lịch hẹn tư vấn với bác sĩ",
+        "counseling3": "Tiết kiệm thời gian, tiết kiệm chi phí",
+        "homedoctor": "Bác sĩ thăm khám tại nhà",
+        "homedoctor1": "Đội ngũ bác sĩ giỏi và nhiều kinh nghiệm",
+        "homedoctor2": "Tạo sự thoải mái và gần gũi cho người khám",
+        "homedoctor3": "Bác sĩ chuyên khoa đa dạng",
+        "sp02": "Máy đo nồng độ oxy Sp02",
+        "sp021": "Hữu dụng với cả người lớn và trẻ em",
+        "sp022": "Đo nồng độ oxy trong máu và nhịp tim",
+        "sp023": "Tư vấn hướng dẫn sử dụng",
+        "testcovid": "Xét nghiệm PCR COVID-19",
+        "testcovid1": "Lấy mẫu xét nghiệm tại nhà",
+        "testcovid2": "Có kết quả trong 1-3 ngày",
+        "testcovid3": "Miễn phí tư vấn sức khỏe hậu COVID-19"
+    },
+
+    "specialities": {
+        "headline": "Chuyên khoa phổ biến",
+        "explore": "XEM THÊM",
+        "acupuncture": "Khoa châm cứu",
+        "cardio": "Khoa tim mạch",
+        "children": "Khoa nhi",
+        "covid19": "Hậu COVID 19",
+        "dentist": "Nha khoa",
+        "dermatology": "Khoa da liễu",
+        "digest": "Khoa tiêu hóa",
+        "eyes": "Khoa mắt",
+        "ent": "Khoa tai, mũi, họng",
+        "gynecology": "Phụ khoa",
+        "lung": "Khoa phổi",
+        "musculoskeletal": "Khoa cơ Xương Khớp",
+        "neurosciences": "Khoa thần kinh",
+        "psychology": "Tư vấn tâm lý",
+        "tradition": "Y học cổ truyền"
+    },
+    "centre": {
+        "headline": "Trung tâm Y tế và bệnh viện",
+        "explore": "XEM THÊM",
+        "choray": "Bệnh viện Chợ Rẫy",
+        "kcs1": "Bệnh viện K - Cơ sở Phan Chu Trinh, Hà Nội",
+        "pkphoisg": "Phòng khám Chuyên khoa Quốc tế Phổi Sài Gòn",
+        "pkdhyduoc1": "Phòng khám Bệnh viện Đại học Y Dược 1",
+        "pkdakhoasg": "Phòng khám Đa khoa Saigon Healthcare",
+        "thucuc": "Hệ thống Y tế Thu Cúc",
+        "vietduc": "Bệnh viện Hữu nghị Việt Đức",
+        "namhochiemmuon": "Bệnh viện Nam học và Hiếm muộn Hà Nội",
+        "anviet1": "Bệnh viện Đa khoa An Việt 1",
+        "yhcttw": "Bệnh viện Y học cổ truyền Trung ương",
+        "laokhoa": "Bệnh viện Lão khoa Trung ương",
+        "meditec": "Phòng khám Đa khoa Meditec",
+        "dongdo": "Bệnh viện Đa khoa Đông Đô",
+        "vinmec": "Bệnh Viện Đa Khoa Quốc Tế Vinmec Times City"
+
+    },
+    "doctor": {
+        "headline": "Bác sĩ nổi bật",
+        "explore": "XEM THÊM",
+        "bsck2_tranminhkhuyen": "Trần Minh Khuyên",
+        "bsck2_tranminhkhuyen1": "Bác sĩ chuyên khoa II",
+        "bsck2_tranminhkhuyen2": "Chuyên khoa Tâm lý học",
+        "pgsts_nguyenvantoan": "Ngô Văn Toàn",
+        "pgsts_nguyenvantoan1": "Phó giáo sư, tiến sĩ, bác sĩ",
+        "pgsts_nguyenvantoan2": "Chuyên khoa Cơ xương khớp"
+    },
+    "handbook": {
+        "headline": "Cẩm nang",
+        "post": "TẤT CẢ CÁC BÀI VIẾT",
+        "themostreputationdentistry": "5 địa chỉ nha khoa uy tín tốt nhất tại Quận 7, TP HCM ",
+        "pregnancyhandbook": "Cẩm nang cần thiết dành cho phụ nữ mang thai"
+    },
+    
+    "fordoctorcentre": {
+        "headline": "Dành cho Bác sĩ và Cơ sở y tế",
+        "post": "BÀI VIẾT",
+        "cooperate": "HỢP TÁC",
+        "contact": "LIÊN HỆ",
+
+        "upcustomerexperienceinwaitingroom": "Nâng cao trải nghiệm khách hàng tại phòng chờ khám",
+        "improvecustomerservice": "5 cách cải thiện hiệu suất cho cơ sở y tế",
+        "customerlifetimevalue": "Tính toán giá trị trọn đời của một bệnh nhân"
+
+    },
+
     "common": {
         "add": "Thêm",
         "edit": "Sửa",

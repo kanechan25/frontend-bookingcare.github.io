@@ -1,0 +1,220 @@
+@import '../../../styles/variables';
+.section {
+    height: 330px;
+    margin-top: 12px;
+    .section-header {
+        padding: 26px 38px 0px 38px;
+        display: flex;
+        justify-content: space-between;
+        .headline{
+            font-size: 24px;
+        }
+        .explore {
+            padding: 0px 8px 6px 8px;
+            background: $tone-main-color;
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+    .carousel {
+        display: flex;
+        background: #fff;
+        align-items: center;
+        margin: 0px 18px;
+        .slick-slide {
+            .slide {
+                padding: 16px 10px 0px;
+                .slider-link {
+                    cursor: pointer;
+                    .slider {
+                        .img {
+                            z-index: 1;
+                            width: 100%;
+                            border-radius: 5px;
+                            object-fit: cover;
+                        }
+                    }
+                    .slider-title {
+                        line-height: 3;
+                    }
+                }
+            }
+        }
+        .slick-arrow {
+            display: flex;
+            height: 60px;
+            width: 60px;
+            z-index: 2;
+            background: $tone-green;
+            border-radius: 3px;
+            opacity: 0.4;
+            
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+.section-sink {
+    box-shadow: none;
+}
+.section-float {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.section-topnews {
+    height: auto;
+    .carousel {
+        .slide {
+            .slider-link {
+                color: $text-in-light;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: stretch;
+                margin-top: 6px;
+                .expansion {
+                    display: block;
+                    align-items: center;
+                    b {
+                        display: flex;
+                        align-items: center;
+                        .fa-greater-than {
+                            font-size: 15px;
+                            margin-left: 6px;
+                        }
+                    }
+                }
+
+            }
+        }
+        .slick-arrow {
+            display: none !important;
+        }
+    }
+}
+
+.section-doctor {
+    height: auto;
+    .carousel {
+        .slide {
+            .slider-link {
+                color: $text-in-light;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin: 6px 0px 26px;
+                border: 1px solid $text-in-light;
+                .slider {
+                    height: 120px;
+                    width: 120px;
+                    display: flex;
+                    margin: 10px 0px 14px;
+                    .img {
+                        border-radius: 50% !important;
+                    }
+                }
+                span {
+                    margin: 8px;
+                }
+                .doctor-title {
+                    text-align: center;
+                }
+                .doctor-subtitle {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+.section-handbook, .section-fordoctorcentre {
+    height: auto;
+    .section-header {
+        .for-btn.container.row {
+            width: 50%;
+            margin: 0px;
+            padding: 0px;
+            .explore {
+                margin: 6px 0px 0px 6px;
+                padding: 5px;
+                border-radius: 4px;
+                text-align: center;
+            }
+        }
+    }
+    .carousel {
+        .slide {
+            padding: 0px 10px 0px !important;
+            .slider-link {
+                color: $text-in-light;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin: 6px 0px 26px;
+                .slider {
+                    margin: 10px 0px 14px;
+                    display: flex;
+                    height: 300px;
+                    width: 100%;
+                }
+                span {
+                    margin: 8px;
+                }
+                .fordoctorcentre-title {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .section {
+        .section-header {
+            .headline {
+                font-size: 20px;
+            }
+            .btn {
+                font-size: 14px;
+            }
+        }
+    }
+    .section-handbook, .section-fordoctorcentre {
+        .carousel {
+            .slide {
+                .slider-link {
+                    .slider {
+                        height: 250px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .section {
+        .section-header {
+            .headline {
+                font-size: 16px;
+            }
+            .btn {
+                font-size: 12px;
+            }
+        }
+    }
+    .section-handbook, .section-fordoctorcentre {
+        .carousel {
+            .slide {
+                .slider-link {
+                    .slider {
+                        height: 220px;
+                    }
+                }
+            }
+        }
+    }
+}
