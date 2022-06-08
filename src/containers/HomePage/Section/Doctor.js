@@ -27,8 +27,8 @@ class Doctor extends Component {
                 <section>
                     <div className='section section-doctor section-float container'>
                         <div className='section-header'>
-                            <span className='headline'><b><FormattedMessage id="doctor.headline"/></b></span>
-                            <button className='btn explore'><FormattedMessage id="doctor.explore"/></button>
+                            <span className='col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 headline'><b><FormattedMessage id="doctor.headline"/></b></span>
+                            <a href='' className='col-xl-2 col-lg-2 col-md-3 col-sm-3 col-3 explore'><b><FormattedMessage id="doctor.explore"/></b></a>
                         </div>
                         <div className='carousel row'>
                             <Slider {...this.props.settings}>

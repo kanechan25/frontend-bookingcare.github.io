@@ -43,7 +43,7 @@ a {
                 }
             }
             .header-logo {
-                background: url('../../assets/images/1_header/bookingcare-logo.svg') center center no-repeat;
+                background: url('../../assets/images/1_header/logo.svg') center center no-repeat;
                 margin-left: 6px;
                 height: 80%;
                 width: 100%;
@@ -54,8 +54,8 @@ a {
         }
         .center-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            padding-top: 8px;
             .child-content {
                 margin: 0px 4px;
                 text-align: center;
@@ -164,6 +164,7 @@ a {
                 position: relative;
                 overflow: visible;
                 margin: 0px 18px;
+                padding-right: 14px;
                 min-width: 250px;
                 max-width: 480px;
                 .search-icon {
@@ -259,6 +260,7 @@ a {
         .home-header-content {
             .center-content {
                 justify-content: space-between;
+                padding-top: 10px;
                 .child-content {
                     .header-sub-title {
                         display: none;
@@ -354,6 +356,9 @@ a {
                 padding-left: 0;
                 justify-content: right;
             }
+        }
+        .row {
+            flex-wrap: unset;
         }
     }  
 }

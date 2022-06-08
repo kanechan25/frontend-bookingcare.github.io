@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+.text-light-white {
+    color: $general-in-dark;
+}
+.footer {
+    margin-top: 30px;
+    .home-footer-content {
+        .footer-upper {
+            .col-footer {
+                .title {
+                    font-size: 14px;
+                }
+            }
+        }
+        .footer-bottom {
+            .social-media {
+                display: flex;
+            }
+        }
+    }
+}

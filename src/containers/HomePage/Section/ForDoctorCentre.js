@@ -29,7 +29,7 @@ class ForDoctorCentre extends Component {
                     <div className='section section-fordoctorcentre section-sink container'>
                         <div className='section-header'>
                             <span className='headline'><b><FormattedMessage id="fordoctorcentre.headline"/></b></span>
-                            <div className='for-btn container row'>
+                            <div className='fordoctorcentre container row'>
                                 <a href='' className='col explore'><b><FormattedMessage id="fordoctorcentre.post"/></b></a>
                                 <a href='' className='col explore'><b><FormattedMessage id="fordoctorcentre.contact"/></b></a>
                                 <a href='' className='col explore'><b><FormattedMessage id="fordoctorcentre.cooperate"/></b></a>

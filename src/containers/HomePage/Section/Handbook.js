@@ -27,9 +27,8 @@ class Handbook extends Component {
                 <section>
                     <div className='section section-handbook section-sink container'>
                         <div className='section-header'>
-                            <span className='headline'><b><FormattedMessage id="handbook.headline"/></b></span>
-                            {/* <button className='btn explore'><FormattedMessage id="handbook.post"/></button> */}
-                            <a href='' className='col explore'><b><FormattedMessage id="handbook.post"/></b></a>
+                            <span className='col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 headline'><b><FormattedMessage id="handbook.headline"/></b></span>
+                            <a href='' className='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 explore'><b><FormattedMessage id="handbook.post"/></b></a>
                         </div>
                         <div className='carousel row'>
                             <Slider {...this.props.settings}>

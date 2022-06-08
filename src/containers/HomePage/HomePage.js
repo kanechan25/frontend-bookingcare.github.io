@@ -7,6 +7,7 @@ import MedicalCentre from './Section/MedicalCentre'
 import Doctor from './Section/Doctor'
 import Handbook from './Section/Handbook'
 import ForDoctorCentre from './Section/ForDoctorCentre';
+import HomeFooter from './HomeFooter';
 
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -23,8 +24,8 @@ class HomePage extends Component {
             slidesToScroll: 1,
             initialSlide: 1,
             useCSS: true,
-            // autoplay: true,
-            // autoplaySpeed: 5000,
+            autoplay: true,
+            autoplaySpeed: 6000,
             responsive: [
               {
                 breakpoint: 1024,
@@ -59,8 +60,8 @@ class HomePage extends Component {
           slidesToScroll: 1,
           initialSlide: 1,
           useCSS: true,
-          // autoplay: true,
-          // autoplaySpeed: 5000,
+          autoplay: true,
+          autoplaySpeed: 6000,
           responsive: [
             {
               breakpoint: 1024,
@@ -108,6 +109,7 @@ class HomePage extends Component {
                 <ForDoctorCentre 
                     settings={setting2}
                 />
+                <HomeFooter />
             </div>
         );
     }

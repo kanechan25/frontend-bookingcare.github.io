@@ -67,7 +67,7 @@
         "tradition": "Y học cổ truyền"
     },
     "centre": {
-        "headline": "Trung tâm Y tế và bệnh viện",
+        "headline": "Bệnh viện và phòng khám",
         "explore": "XEM THÊM",
         "choray": "Bệnh viện Chợ Rẫy",
         "kcs1": "Bệnh viện K - Cơ sở Phan Chu Trinh, Hà Nội",
@@ -111,9 +111,33 @@
         "upcustomerexperienceinwaitingroom": "Nâng cao trải nghiệm khách hàng tại phòng chờ khám",
         "improvecustomerservice": "5 cách cải thiện hiệu suất cho cơ sở y tế",
         "customerlifetimevalue": "Tính toán giá trị trọn đời của một bệnh nhân"
-
     },
-
+    "footerabout": {
+        "aboutus": "VỀ CHÚNG TÔI",
+        "mysystem": "Hệ thống chăm sóc sức khẻo",
+        "ourdoctor": "Bác sĩ của chúng tôi",
+        "cooperate": "Hợp tác với chúng tôi",
+        "recruitment": "Recruitment",
+        "news": "Tin tức mới nhất",
+        "policy": "Chính sách bảo mật"
+    },
+    "footerservice": {
+        "myservice": "DỊCH VỤ CỦA CHÚNG TÔI",
+        "make": "Hẹn gặp bác sĩ",
+        "package": "Các gói dịch vụ",
+        "customer": "Dành cho khách hàng",
+        "resolve": "Giải quyết khiếu nại",
+        "how": "Chúng tôi hoạt động như thế nào",
+        "faq": "Câu hỏi thường gặp"
+    },
+    "footercontact": {
+        "name": "Công ty Cổ phần Health Care",
+        "address": "Quận Cầu Giấy, TP. Hà Nội, Việt Nam",
+        "tel": "Điện thoại: ",
+        "support": "Hỗ trợ: ",
+        "signup": "Đăng ký",
+        "login": "Đăng nhập"
+    },
     "common": {
         "add": "Thêm",
         "edit": "Sửa",

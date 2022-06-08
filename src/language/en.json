@@ -104,14 +104,39 @@
 
     "fordoctorcentre": {
         "headline": "For doctors and medical centre",
-        "post": "POSTS",
+        "post": "ALL POSTS",
         "cooperate": "COOPERATION",
         "contact": "CONTACT",
 
         "upcustomerexperienceinwaitingroom": "How to improve the customers experience in the waiting room?",
         "improvecustomerservice": "5 methods to advance in performance of the medical centre",
         "customerlifetimevalue": "Lifetime value of the customers"
-
+    },
+    "footerabout": {
+        "aboutus": "ABOUT US",
+        "mysystem": "My health care system",
+        "ourdoctor": "Our doctors",
+        "cooperate": "Cooperate with us",
+        "recruitment": "Recruitment",
+        "news": "News",
+        "policy": "Privacy policy"
+    },
+    "footerservice": {
+        "myservice": "MY CARE SERVICES",
+        "make": "Make an appointment",
+        "package": "Service packages",
+        "customer": "For customers",
+        "resolve": "Resolve complaints",
+        "how": "How it works",
+        "faq": "FAQs"
+    },
+    "footercontact": {
+        "name": "Health Care., JSC.",
+        "address": "Cau Giay District Hanoi City, Vietnam",
+        "tel": "Tel: ",
+        "support": "Support: ",
+        "signup": "Sign Up",
+        "login": "Log In"
     },
 
     "common": {
