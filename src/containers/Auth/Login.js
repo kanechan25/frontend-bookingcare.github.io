@@ -16,7 +16,7 @@ class Login extends Component {
             message: '',
         }
     }
-
+//#region All Handling Functions
     handleOnChangeUsername = (e) => {
         this.setState({
             username: e.target.value,
@@ -69,6 +69,9 @@ class Login extends Component {
             isShowPassword: !this.state.isShowPassword,
         })
     }
+
+//#endregion
+
     render() {
         return (
             <div>
@@ -111,7 +114,7 @@ class Login extends Component {
                                 <span>Or Login with</span>
                             </div>
                             <div className='col-12 social-login d-flex mt-3'>
-                                <i className="fab fa-google-plus-g gg"></i>
+                                <i className="fab fa-google gg"></i>
                                 <i className="fab fa-facebook-f fb"></i>
                             </div>
                         </div>

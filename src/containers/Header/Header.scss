@@ -1,4 +1,5 @@
 @import "../../styles/common.scss";
+@import '../../styles/_variables.scss';
 
 .header-container {
     z-index: 99;
@@ -8,16 +9,34 @@
     color: $common-text-color;
     height: 40px;
     position: relative;
-    .btn-logout {
-        color: $common-text-color;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 10px;
-        &:hover {
-            background-color: darken($colormain, 5);
+    .header-tabs-right {
+        display: flex;
+        align-items: center;
+        .welcome {
+            margin-right: 10px;
         }
-        i {
-            font-size: $base-size + 1px;
+        .languages {
+            display: flex;
+            align-items: center;
+            .language-vi, .language-en {
+                margin-right: 16px;
+                cursor: pointer;
+                &.active {
+                    color: $general-in-light;
+                }
+            }
+        }
+        .btn-logout {
+            color: $common-text-color;
+            line-height: 40px;
+            height: 40px;
+            padding: 0px 16px;
+            &:hover {
+                background-color: darken($colormain, 5);
+            }
+            i {
+                font-size: $base-size + 1px;
+            }
         }
     }
 }

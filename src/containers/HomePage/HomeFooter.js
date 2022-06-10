@@ -27,9 +27,9 @@ class HomeFooter extends Component {
                     <div className='home-footer-container text-light-white '>
                         <div className='home-footer-content container'>
                             <div className='footer-upper row'>
-                                <div className='col-footer about col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3'>
+                                <div className='col-footer about col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
                                     <span className='title'><FormattedMessage id="footerabout.aboutus" /></span>
-                                    <ul>
+                                    <ul className='items'>
                                         <li className='item'>
                                             <a href='' className='item-link'><FormattedMessage id="footerabout.mysystem" /></a>
                                         </li>
@@ -50,9 +50,9 @@ class HomeFooter extends Component {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className='col-footer service col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3'>
+                                <div className='col-footer service col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
                                     <span className='title'><FormattedMessage id="footerservice.myservice"/></span>
-                                    <ul>
+                                    <ul className='items'>
                                         <li className='item'>
                                             <a href='' className='item-link'><FormattedMessage id="footerservice.make" /></a>
                                         </li>
@@ -73,49 +73,56 @@ class HomeFooter extends Component {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className='col-footer contact col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3'>
-                                    <ul>
-                                        <li className='item'>
-                                            <img className='img' src={ logo } /></li>
-                                        <li className='item'><FormattedMessage id="footercontact.name" /></li>
+                                <div className='col-footer contact col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
+                                    <img className='img' src={ logo } />
+                                    <ul className='items'>
+                                        <li className='item name'><FormattedMessage id="footercontact.name" /></li>
                                         <li className='item'>
                                             <i className="fas fa-map-marker-alt"></i>
                                             <FormattedMessage id="footercontact.address" /></li>
                                         <li className='item'>
-                                            <i className="fas fa-mobile-alt"></i>
-                                            <FormattedMessage id="footercontact.tel" />+84(0) 367 582 193</li>
-                                        <li className='item'><FormattedMessage id="footercontact.support" />
-                                            kt.itengineer@gmail.com</li>
+                                            <i className="fas fa-mobile-alt"></i> +84(0) 367 582 193</li>
                                         <li className='item'>
-                                            <a href=''><FormattedMessage id="footercontact.signup" /></a>{' '}|{' '}
-                                            <a href=''><FormattedMessage id="footercontact.login" /></a>
+                                            <i className="far fa-envelope"></i>
+                                            kt.itengineer@gmail.com</li>
+                                        <li className='item sign-log'>
+                                            <a className='signup' href=''><FormattedMessage id="footercontact.signup" /></a>
+                                            <a className='login' href=''><FormattedMessage id="footercontact.login" /></a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div className='col-footer download col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3'>
-                                    <div className='qrcode'>
-                                        <img className='img' src={ qrcode } />
-                                    </div>
-                                    <div className='app-store'>
-                                        <img className='img' src={ google_play } />
-                                        <img className='img' src={ app_store } />
+                                <div className='col-footer download col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
+                                    <div className='items'>
+                                        <div className='qrcode'>
+                                            <img className='img' src={ qrcode } />
+                                        </div>
+                                        <div className='store'>
+                                            <img className='img' src={ google_play } />
+                                            <img className='img' src={ app_store } />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className='home-footer-bottom '>
+                        <div className='container'>
                             <div className='footer-bottom row'>
-                                <span className='copyright col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4'>
-                                    &copy; 2022 Copyright.
-                                    <br />
-                                    kt.itengineer@gmail.com
+                                <span className='col-bottom copyright col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-4 col-12'>
+                                    &copy; 2022 Copyright.</span>
+                                <span className='col-bottom non-commercial col-xxl-8 col-xl-8 col-lg-7 col-md-8 col-sm-7 col-12'>
+                                    <span><FormattedMessage id="footerbottom.demo"/></span>
+                                    <span><FormattedMessage id="footerbottom.not"/></span>
                                 </span>
-                                <span className='non-commercial col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4'>
-                                    This is a demo website to demonstrate my abilities.
-                                    <br /> Not for commercial purpose.</span>
-                                <div className='social-media col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4'>
-                                    <a><i className="fab fa-facebook"></i></a>
-                                    <a><i className="fab fa-youtube"></i></a>
-                                    <a><i className="fab fa-github"></i></a>
-                                    <a><i className="fab fa-linkedin"></i></a>
+                                <div className='col-bottom social-media col-xxl-2 col-xl-2 col-lg-3 col-md-2 col-sm-11 col-12'>
+                                    <a className='media-link' href='https://www.facebook.com/khoa2425/'>
+                                        <i className="fab fa-facebook"></i></a>
+                                    <a className='media-link' href='https://www.youtube.com/c/BIMProgress/'>
+                                        <i className="fab fa-youtube"></i></a>
+                                    <a className='media-link' href='https://github.com/kanechan25'>
+                                        <i className="fab fa-github"></i></a>
+                                    <a className='media-link' href='https://www.linkedin.com/in/khoatran2593/'>
+                                        <i className="fab fa-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>

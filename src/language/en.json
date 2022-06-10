@@ -138,6 +138,10 @@
         "signup": "Sign Up",
         "login": "Log In"
     },
+    "footerbottom": {
+        "demo": "This is a demo website to demonstrate my abilities.",
+        "not": "Not for commercial purpose."
+    },
 
     "common": {
         "add": "Add",
@@ -172,12 +176,22 @@
                 "header": "System Administrator",
                 "user-manage": "User manage",
                 "product-manage": "Package manage",
+                "user-redux": "User manage - Redux",
                 "register-package-group-or-account": "Register service package for group/account"
             },
             "system-parameter": {
                 "header": "System-parameter"
             }
-        }
+        },
+        "admin": {
+            "user-manage": "Users management",
+            "doctor-manage": "Doctors management",
+            "admin-manage": "Admin management",
+            "crud": "CRUD Users",
+            "crud-redux": "CRUD Users - Redux"
+        },
+        "centre": "Medical centre",
+        "speciality": "Speciality"
     },
     "system": {
         "user-manage": {
@@ -205,6 +219,9 @@
                 "password": "Please fill in password"
             },
             "sure-delete-user": "Are you sure to delete this user?"
+        },
+        "user-redux": {
+            "abc": "cdef"
         },
         "product-manage": {
             "fail-to-load-foprtype": "Fail to load packages list",

@@ -8,6 +8,7 @@ import ModalUser from './ModalUser';
 import ModalPopupConfirm from './ModalPopupConfirm';
 import ModalEditUser from './ModalEditUser';
 import { emitter } from "../../utils/emitter";
+import './UserManage.scss'
 
 class UserManage extends Component {
 
@@ -176,56 +177,56 @@ class UserManage extends Component {
                     </button>
                 </div>
                 <div className='user-table'>
-                <table className="table table-bordered mt-4 mx-1 text-white-50">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Email</th>
-                            <th>Last Name</th>
-                            <th>First Name</th>
-                            <th>Address</th>
-                            <th>Phone Number</th>
-                            <th>Gender</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+                    <table className="table table-bordered mt-4 mx-1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Address</th>
+                                <th>Phone Number</th>
+                                <th>Gender</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                            {
-                                arrUsers && arrUsers.map((item, index) => {
-                                    return (
-                                        <>
-                                            <tr>
-                                                <td>{item.id}</td>
-                                                <td>{item.email}</td>
-                                                <td>{item.lastName}</td>
-                                                <td>{item.firstName}</td>
-                                                <td>{item.address}</td>
-                                                <td>{item.phoneNum}</td>
-                                                <td>{item.gender}</td>
-                                                <td>{item.roleId}</td>
-                                                <td>
-                                                    <button className="btn btn-link px-2"
-                                                        onClick={() => this.handleClickEditUser(item)}
-                                                        
-                                                    >
-                                                        <i className="fas fa-pencil-alt" ></i>
-                                                    </button>
-                                                    <button className="btn btn-link ms-2 px-2"
-                                                        onClick={() => this.handleClickDeleteUser(item)}
-                                                    >
-                                                        <i className="fas fa-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </>
-                                    )
-                                })
-                            }
-                    </tbody>
+                        <tbody>
+                                {
+                                    arrUsers && arrUsers.map((item, index) => {
+                                        return (
+                                            <>
+                                                <tr>
+                                                    <td>{item.id}</td>
+                                                    <td>{item.email}</td>
+                                                    <td>{item.lastName}</td>
+                                                    <td>{item.firstName}</td>
+                                                    <td>{item.address}</td>
+                                                    <td>{item.phoneNum}</td>
+                                                    <td>{item.gender}</td>
+                                                    <td>{item.roleId}</td>
+                                                    <td>
+                                                        <button className="btn btn-link px-2"
+                                                            onClick={() => this.handleClickEditUser(item)}
+                                                            
+                                                        >
+                                                            <i className="fas fa-pencil-alt" ></i>
+                                                        </button>
+                                                        <button className="btn btn-link ms-2 px-2"
+                                                            onClick={() => this.handleClickDeleteUser(item)}
+                                                        >
+                                                            <i className="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </>
+                                        )
+                                    })
+                                }
+                        </tbody>
 
-                </table>
+                    </table>
                 </div>
             </div>
         );

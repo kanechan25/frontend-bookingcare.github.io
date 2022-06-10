@@ -117,7 +117,7 @@
         "mysystem": "Hệ thống chăm sóc sức khẻo",
         "ourdoctor": "Bác sĩ của chúng tôi",
         "cooperate": "Hợp tác với chúng tôi",
-        "recruitment": "Recruitment",
+        "recruitment": "Tuyển dụng",
         "news": "Tin tức mới nhất",
         "policy": "Chính sách bảo mật"
     },
@@ -137,6 +137,10 @@
         "support": "Hỗ trợ: ",
         "signup": "Đăng ký",
         "login": "Đăng nhập"
+    },
+    "footerbottom": {
+        "demo": "Websites tạo ra với mục đích chứng minh năng lực cá nhân.",
+        "not": "KHÔNG dùng với mục đích thương mại."
     },
     "common": {
         "add": "Thêm",
@@ -167,16 +171,30 @@
     "menu": {
         "system": {
             "header": "Hệ thống",
+            "user": "Người dùng",
+            "centre": "Trung tâm y tế",
+            "speciality": "Chuyên khoa",
             "system-administrator": {
                 "header": "Quản trị hệ thống",
                 "user-manage": "Quản lý người sử dụng",
-                "product-manage": "Quản lý gói",
+                "product-manage": "Quản lý các gói",
+                "user-redux": "Quản lý người sử dụng - Redux",
                 "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản"
             },
             "system-parameter": {
                 "header": "Tham số hệ thống"
             }
-        }
+
+        },
+        "admin": {
+            "user-manage": "Người dùng",
+            "doctor-manage": "Quản trị bác sĩ",
+            "admin-manage": "Quản trị admin",
+            "crud": "Chỉnh sửa người dùng",
+            "crud-redux": "Chỉnh sửa bằng Redux"
+        },
+        "centre": "Medical centre",
+        "speciality": "Speciality"
     },
     "system": {
         "user-manage": {
@@ -204,6 +222,9 @@
                 "password": "Quý khách vui lòng nhập mật khẩu"
             },
             "sure-delete-user": "Bạn có chắc chắn muốn xóa người dùng này?"
+        },
+        "user-redux": {
+            "abc": "cdef"
         },
         "product-manage": {
             "fail-to-load-foprtype": "Không thể tải về danh sách gói",

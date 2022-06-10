@@ -60,7 +60,7 @@ class HomeHeader extends Component {
 
                                 <div className='dark-mode'>
                                     <button className='btn' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dark/Light Mode">
-                                        <i class="fas fa-adjust dark-mode-icon active"></i>
+                                        <i className="fas fa-adjust dark-mode-icon active"></i>
                                     </button>
                                 </div>
 
@@ -92,13 +92,13 @@ class HomeHeader extends Component {
                                 <span><FormattedMessage id="homebanner.title2"/></span>
                             </div>
                             <div className='banner-search'>
-                                <div class="search-wrap">
-                                    <svg class="search-icon " xmlns="http://www.w3.org/2000/svg" fill="none">
-                                        <path class="search-icon-logo" stroke-linecap="round" stroke-width="1.5"
+                                <div className="search-wrap">
+                                    <svg className="search-icon " xmlns="http://www.w3.org/2000/svg" fill="none">
+                                        <path className="search-icon-logo" strokeLinecap="round" strokeWidth="1.5"
                                             d="M15.028 15.334l4.644 4.644m-2.889-8.88a5.99 5.99 0 01-5.991 5.991 5.99 5.99 0 110-11.983 5.99 5.99 0 015.991 5.992z">
                                         </path>
                                     </svg>
-                                    <input class="search-input" type="text" placeholder={
+                                    <input className="search-input" type="text" placeholder={
                                         language === LANGUAGES.EN ? 'Search for Doctors, Specialities or Medical Centre' : 'Tìm kiếm bác sĩ, chuyên khoa, hoặc cơ sở y tế'
                                     } />
                                 </div>
@@ -183,6 +183,7 @@ const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
         language: state.app.language,
+        userInfo: state.user.userInfo,
     };
 };
 
