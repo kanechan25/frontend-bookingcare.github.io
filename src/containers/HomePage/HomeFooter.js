@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeFooter.scss';
 import { FormattedMessage } from 'react-intl';
-import { LANGUAGES } from '../../utils/constant'
+// import { LANGUAGES } from '../../utils/constant'
 
 import google_play from '../../assets/images/2_banner/google_play.svg'
 import app_store from '../../assets/images/2_banner/app_store.svg'
@@ -19,7 +19,7 @@ class HomeFooter extends Component {
 
     
     render() {
-        let language = this.props.language;
+        // let language = this.props.language;
  
         return (
             <React.Fragment>

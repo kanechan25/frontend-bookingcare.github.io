@@ -11,5 +11,13 @@
         }
     }
 }
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    .create, .cancel{
+        padding: 0px 8px;
+        margin: 16px 0px 0px 16px;
+    }
+}
 
 

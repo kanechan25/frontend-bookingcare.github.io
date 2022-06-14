@@ -4,6 +4,8 @@
     color: $general-in-dark;
 }
 .footer {
+    display: flex;
+    flex-direction: column;
     .home-footer-container {
         border-top: 4px solid $tone-main-color;
         .home-footer-content {
@@ -11,6 +13,7 @@
                 margin: 0px 24px;
                 .col-footer {
                     margin-top: 30px;
+                    margin-bottom: 24px;
                     .title {
                         font-size: 14px;
                     }
@@ -79,7 +82,6 @@
     .home-footer-bottom {
         background: $tone-green;
         .container {
-            margin-top: 24px;
             .footer-bottom {
                 margin: 0px 24px;
                 .col-bottom {

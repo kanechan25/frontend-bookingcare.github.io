@@ -19,13 +19,13 @@ class HomePage extends Component {
         let setting1 = {
             dots: false,
             infinite: true,
-            speed: 500,
+            speed: 3000,
             slidesToShow: 4,
             slidesToScroll: 1,
             initialSlide: 1,
             useCSS: true,
             autoplay: true,
-            autoplaySpeed: 6000,
+            autoplaySpeed: 4000,
             responsive: [
               {
                 breakpoint: 1024,
@@ -55,13 +55,13 @@ class HomePage extends Component {
         let setting2 = {
           dots: false,
           infinite: true,
-          speed: 500,
+          speed: 2000,
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1,
           useCSS: true,
           autoplay: true,
-          autoplaySpeed: 6000,
+          autoplaySpeed: 5000,
           responsive: [
             {
               breakpoint: 1024,

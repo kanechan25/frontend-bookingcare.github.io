@@ -24,7 +24,7 @@ class UserManage extends Component {
         this.escFunction = this.escFunction.bind(this);
     }
 
-
+//#region Function Handling
     async componentDidMount() {
         await this.getAllUserForReact();
         document.addEventListener("keydown", this.escFunction, false);
@@ -138,6 +138,8 @@ class UserManage extends Component {
             isOpenEditModal: !this.state.isOpenEditModal,
         })
     }
+
+//#endregion
 
     render() {
         let arrUsers = this.state.arrUsers;

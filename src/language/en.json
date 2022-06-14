@@ -184,14 +184,18 @@
             }
         },
         "admin": {
-            "user-manage": "Users management",
-            "doctor-manage": "Doctors management",
+            "user-manage": "User management",
+            "doctor-manage": "Doctor management",
             "admin-manage": "Admin management",
             "crud": "CRUD Users",
-            "crud-redux": "CRUD Users - Redux"
-        },
-        "centre": "Medical centre",
-        "speciality": "Speciality"
+            "crud-redux": "CRUD Users - Redux",
+            "centre": "Medical Centre",
+            "centre-manage": "Medical Centre Management",
+            "speciality": "Specialities",
+            "speciality-manage": "Speciality Management",
+            "handbook": "Handbooks",
+            "handbook-manage": "Handbook Management"
+        }
     },
     "system": {
         "user-manage": {
@@ -221,7 +225,9 @@
             "sure-delete-user": "Are you sure to delete this user?"
         },
         "user-redux": {
-            "abc": "cdef"
+            "headline": "Manage users Autodesk construction Cloud by Redux",
+            "gender": "-- Choose gender --",
+            "role": "-- Choose role --"
         },
         "product-manage": {
             "fail-to-load-foprtype": "Fail to load packages list",

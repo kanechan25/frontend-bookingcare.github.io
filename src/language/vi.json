@@ -171,9 +171,6 @@
     "menu": {
         "system": {
             "header": "Hệ thống",
-            "user": "Người dùng",
-            "centre": "Trung tâm y tế",
-            "speciality": "Chuyên khoa",
             "system-administrator": {
                 "header": "Quản trị hệ thống",
                 "user-manage": "Quản lý người sử dụng",
@@ -184,17 +181,20 @@
             "system-parameter": {
                 "header": "Tham số hệ thống"
             }
-
         },
         "admin": {
             "user-manage": "Người dùng",
             "doctor-manage": "Quản trị bác sĩ",
             "admin-manage": "Quản trị admin",
             "crud": "Chỉnh sửa người dùng",
-            "crud-redux": "Chỉnh sửa bằng Redux"
-        },
-        "centre": "Medical centre",
-        "speciality": "Speciality"
+            "crud-redux": "Chỉnh sửa bằng Redux",
+            "centre": "Trung tâm Y tế",
+            "centre-manage": "Quản lý trung tâm Y tế",
+            "speciality": "Chuyên khoa",
+            "speciality-manage": "Quản lý chuyên khoa",
+            "handbook": "Cẩm nang",
+            "handbook-manage": "Quản lý cẩm nang"
+        }
     },
     "system": {
         "user-manage": {
@@ -224,7 +224,9 @@
             "sure-delete-user": "Bạn có chắc chắn muốn xóa người dùng này?"
         },
         "user-redux": {
-            "abc": "cdef"
+            "headline": "Quản trị users Autodesk Construction Cloud API bởi Redux",
+            "gender": "-- Chọn giới tính --",
+            "role": "-- Chọn vai trò người dùng --"
         },
         "product-manage": {
             "fail-to-load-foprtype": "Không thể tải về danh sách gói",
