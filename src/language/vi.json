@@ -226,7 +226,11 @@
         "user-redux": {
             "headline": "Quản trị users Autodesk Construction Cloud API bởi Redux",
             "gender": "-- Chọn giới tính --",
-            "role": "-- Chọn vai trò người dùng --"
+            "role": "-- Chọn vai trò người dùng --",
+            "create-btn": "Tạo người dùng mới",
+            "cancel-btn": "Hủy bỏ",
+            "edit-btn": "Sửa và Lưu"
+
         },
         "product-manage": {
             "fail-to-load-foprtype": "Không thể tải về danh sách gói",

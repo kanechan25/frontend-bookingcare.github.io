@@ -227,7 +227,11 @@
         "user-redux": {
             "headline": "Manage users Autodesk construction Cloud by Redux",
             "gender": "-- Choose gender --",
-            "role": "-- Choose role --"
+            "role": "-- Choose role --",
+            "create-btn": "Create a New User",
+            "cancel-btn": "Cancel and Back",
+            "edit-btn": "Edit and Save"
+
         },
         "product-manage": {
             "fail-to-load-foprtype": "Fail to load packages list",
