@@ -48,7 +48,7 @@
     },
 
     "specialities": {
-        "headline": "Chuyên khoa phổ biến",
+        "headline": "CHUYÊN KHOA PHỔ BIẾN",
         "explore": "XEM THÊM",
         "acupuncture": "Khoa châm cứu",
         "cardio": "Khoa tim mạch",
@@ -67,7 +67,7 @@
         "tradition": "Y học cổ truyền"
     },
     "centre": {
-        "headline": "Bệnh viện và phòng khám",
+        "headline": "BỆNH VIỆN VÀ PHÒNG KHÁM",
         "explore": "XEM THÊM",
         "choray": "Bệnh viện Chợ Rẫy",
         "kcs1": "Bệnh viện K - Cơ sở Phan Chu Trinh, Hà Nội",
@@ -86,7 +86,7 @@
 
     },
     "doctor": {
-        "headline": "Bác sĩ nổi bật",
+        "headline": "BÁC SĨ NỔI BẬT",
         "explore": "XEM THÊM",
         "bsck2_tranminhkhuyen": "Trần Minh Khuyên",
         "bsck2_tranminhkhuyen1": "Bác sĩ chuyên khoa II",
@@ -96,14 +96,14 @@
         "pgsts_nguyenvantoan2": "Chuyên khoa Cơ xương khớp"
     },
     "handbook": {
-        "headline": "Cẩm nang",
+        "headline": "CẨM NANG",
         "post": "TẤT CẢ CÁC BÀI VIẾT",
         "themostreputationdentistry": "5 địa chỉ nha khoa uy tín tốt nhất tại Quận 7, TP HCM ",
         "pregnancyhandbook": "Cẩm nang cần thiết dành cho phụ nữ mang thai"
     },
     
     "fordoctorcentre": {
-        "headline": "Dành cho Bác sĩ và Cơ sở y tế",
+        "headline": "DÀNH CHO BÁC SĨ VÀ CƠ SỞ Y TẾ",
         "post": "BÀI VIẾT",
         "cooperate": "HỢP TÁC",
         "contact": "LIÊN HỆ",

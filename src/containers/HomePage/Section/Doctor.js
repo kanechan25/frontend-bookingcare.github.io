@@ -3,25 +3,41 @@ import { connect } from 'react-redux';
 import './Section.scss';
 import { FormattedMessage } from 'react-intl';
 import { changeLanguageApp } from '../../../store/actions/appActions';
+import * as action from '../../../store/actions'
 
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-import bsck2_tranminhkhuyen from '../../../assets/images/6_section_doctor/bsck2_tranminhkhuyen.jpg';
-import pgsts_nguyenvantoan from '../../../assets/images/6_section_doctor/pgsts_nguyenvantoan.jpg';
+import { LANGUAGES } from '../../../utils';
 
 
 class Doctor extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            arrDoctors: [],
+        }
+    }
     changeLanguage = (language) => {
         this.props.toggleLanguage(language);
     }
     
+    componentDidMount() {
+        this.props.loadDoctor();
+    
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.doctorRedux !== this.props.doctorRedux) {
+            this.setState({
+                arrDoctors: this.props.doctorRedux
+            })
+        }
+    }
     render() {
         let language = this.props.language;
-
+        let arrDoctors = this.state.arrDoctors;
         return (
             <React.Fragment>
                 <section>
@@ -32,79 +48,32 @@ class Doctor extends Component {
                         </div>
                         <div className='carousel row'>
                             <Slider {...this.props.settings}>
-                                <div className='slide'>
-                                    <a className='slider-link' href=''>
-                                        <div className='slider'>
-                                            <img className='img col' src={ bsck2_tranminhkhuyen } />
-                                        </div>
-                                        <span className='doctor-title'>
-                                            <b><FormattedMessage id="doctor.bsck2_tranminhkhuyen1"/> {' '}
-                                            <FormattedMessage id="doctor.bsck2_tranminhkhuyen"/></b>
-                                        </span>
-                                        <span className='doctor-subtitle'><FormattedMessage id="doctor.bsck2_tranminhkhuyen2"/></span>
-                                    </a>
-                                </div>
-                                <div className='slide'>
-                                    <a className='slider-link' href=''>
-                                        <div className='slider'>
-                                            <img className='img col' src={ pgsts_nguyenvantoan } />
-                                        </div>
-                                        <span className='doctor-title'>
-                                            <b><FormattedMessage id="doctor.pgsts_nguyenvantoan1"/> {' '}
-                                            <FormattedMessage id="doctor.pgsts_nguyenvantoan"/></b>
-                                        </span>
-                                        <span className='doctor-subtitle'><FormattedMessage id="doctor.pgsts_nguyenvantoan2"/></span>
-                                    </a>
-                                </div>
-                                <div className='slide'>
-                                    <a className='slider-link' href=''>
-                                        <div className='slider'>
-                                            <img className='img col' src={ bsck2_tranminhkhuyen } />
-                                        </div>
-                                        <span className='doctor-title'>
-                                            <b><FormattedMessage id="doctor.bsck2_tranminhkhuyen1"/> {' '}
-                                            <FormattedMessage id="doctor.bsck2_tranminhkhuyen"/></b>
-                                        </span>
-                                        <span className='doctor-subtitle'><FormattedMessage id="doctor.bsck2_tranminhkhuyen2"/></span>
-                                    </a>
-                                </div>
-                                <div className='slide'>
-                                    <a className='slider-link' href=''>
-                                        <div className='slider'>
-                                            <img className='img col' src={ pgsts_nguyenvantoan } />
-                                        </div>
-                                        <span className='doctor-title'>
-                                            <b><FormattedMessage id="doctor.pgsts_nguyenvantoan1"/> {' '}
-                                            <FormattedMessage id="doctor.pgsts_nguyenvantoan"/></b>
-                                        </span>
-                                        <span className='doctor-subtitle'><FormattedMessage id="doctor.pgsts_nguyenvantoan2"/></span>
-                                    </a>
-                                </div>
-                                <div className='slide'>
-                                    <a className='slider-link' href=''>
-                                        <div className='slider'>
-                                            <img className='img col' src={ bsck2_tranminhkhuyen } />
-                                        </div>
-                                        <span className='doctor-title'>
-                                            <b><FormattedMessage id="doctor.bsck2_tranminhkhuyen1"/> {' '}
-                                            <FormattedMessage id="doctor.bsck2_tranminhkhuyen"/></b>
-                                        </span>
-                                        <span className='doctor-subtitle'><FormattedMessage id="doctor.bsck2_tranminhkhuyen2"/></span>
-                                    </a>
-                                </div>
-                                <div className='slide'>
-                                    <a className='slider-link' href=''>
-                                        <div className='slider'>
-                                            <img className='img col' src={ pgsts_nguyenvantoan } />
-                                        </div>
-                                        <span className='doctor-title'>
-                                            <b><FormattedMessage id="doctor.pgsts_nguyenvantoan1"/> {' '}
-                                            <FormattedMessage id="doctor.pgsts_nguyenvantoan"/></b>
-                                        </span>
-                                        <span className='doctor-subtitle'><FormattedMessage id="doctor.pgsts_nguyenvantoan2"/></span>
-                                    </a>
-                                </div>
+                                {arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
+                                        let titleNameVi = `${item.titleData.valueVi} ${item.lastName} ${item.firstName}`;
+                                        let titleNameEn = `${item.titleData.valueEn} ${item.firstName} ${item.lastName}`;
+                                        let imgBase64 = '';
+                                        if (item.image) {
+                                            imgBase64 = new Buffer(item.image, 'base64').toString('binary');
+                                        }
+                                        return (
+                                            <div className='slide' key={index}>
+                                                <a className='slider-link' href=''>
+                                                    <div className='slider'>
+                                                        <img className='img col'
+                                                            style={{ backgroundImage: `url(${imgBase64})` }}
+                                                        />
+                                                    </div>
+                                                    <span className='doctor-title'>
+                                                        <b>{language === LANGUAGES.VI ? titleNameVi : titleNameEn}</b>
+                                                    </span>
+                                                    <span className='doctor-subtitle'>
 
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </Slider>
                         </div>
                     </div>
@@ -120,13 +89,14 @@ const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
         language: state.app.language,
+        doctorRedux: state.admin.doctors,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        toggleLanguage: (language) => dispatch(changeLanguageApp(language))
-
+        toggleLanguage: (language) => dispatch(changeLanguageApp(language)),
+        loadDoctor: () => dispatch(action.fetchDoctor())
     };
 };
 

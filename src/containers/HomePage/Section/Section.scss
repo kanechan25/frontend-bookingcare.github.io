@@ -2,12 +2,15 @@
 .section {
     height: auto;
     margin-top: 50px;
+    position: relative;
     .section-header {
-        padding: 26px 38px 0px 38px;
+        // padding: 26px 38px 0px 38px;
         display: flex;
         justify-content: space-between;
         .headline{
-            font-size: 24px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
         }
  
         .explore {
@@ -29,7 +32,8 @@
         display: flex;
         background: #fff;
         align-items: center;
-        margin: 0px 18px;
+        margin: 0px 18px 14px 18px;
+        position: relative;
         .slick-slide {
             .slide {
                 padding: 16px 10px 14px 10px;
@@ -40,7 +44,8 @@
                             z-index: 1;
                             width: 100%;
                             border-radius: 5px;
-                            object-fit: cover;
+                            object-fit: contain;
+                            background-size: contain;
                         }
                     }
                     .slider-title {
@@ -56,22 +61,40 @@
             z-index: 2;
             background: $tone-green;
             border-radius: 3px;
-            opacity: 0.4;           
+            opacity: 0.4;
+            position: absolute;
+            top: 42%;        
             &:hover {
                 opacity: 0.7;
             }
         }
-        .slick-prev, .slick-next {
-            position: absolute;
-            top: 42%;
+        .slick-prev {
+            left: -82px;
+        }
+        .slick-next {
+            right: -82px;
         }
     }
 }
+
 .section-sink {
     box-shadow: none;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    .section-header {
+        background: $tone-green;
+        padding: 10px 40px;
+        border-radius: 8px;
+    }
 }
 .section-float {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+    .section-header {
+        background: $header-in-light;
+        padding: 10px 40px
+    }
 }
 
 .section-topnews {
@@ -85,6 +108,10 @@
                 justify-content: space-between;
                 align-items: stretch;
                 margin-top: 6px;
+                transition: transform 300ms linear;
+                &:hover {
+                    transform: scale(1.05);
+                }
                 .expansion {
                     display: block;
                     align-items: center;
@@ -194,14 +221,21 @@
             .fordoctorcentre {
                 width: 33%;
             }
+            .headline {
+                font-size: 17px;
+            }
         }
     }
+
 }
+
+
+
 @media (max-width: 992px) {
     .section {
         .section-header {
             .headline {
-                font-size: 20px;
+                font-size: 15px;
             }
             .explore {
                 font-size: 11px;
@@ -229,10 +263,22 @@
     .section {
         .section-header {
             .headline {
-                font-size: 16px;
+                font-size: 13px;
             }
             .explore {
                 font-size: 10px;
+            }
+        }
+        .carousel {
+            .slick-arrow {
+                height: 42px;
+                width: 38px;
+            }
+            .slick-prev {
+                left: -18px;
+            }
+            .slick-next {
+                right: -18px;
             }
         }
     }
@@ -297,7 +343,7 @@
     .section-fordoctorcentre {
         .section-header {
             .headline {
-                font-size: 15px;
+                font-size: 14px;
             }
         }
     }

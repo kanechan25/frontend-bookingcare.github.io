@@ -4,8 +4,9 @@ const initialState = {
     isLoadingGender: false,
     genders: [],
     role: [],
-    position: [],
+    title: [],
     users: [],
+    doctors: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -31,22 +32,22 @@ const adminReducer = (state = initialState, action) => {
             }
 
 
-        case actionTypes.FETCH_POSITION_START:
-            let startPositionState = { ...state };
-            startPositionState.isLoadingGender = true;
+        case actionTypes.FETCH_TITLE_START:
+            let startTitleState = { ...state };
+            startTitleState.isLoadingGender = true;
             return {
-                ...startPositionState
+                ...startTitleState
             }
-        case actionTypes.FETCH_POSITION_SUCCESS:
-            let successPositionState = { ...state };
-            successPositionState.position = action.data;
-            successPositionState.isLoadingGender = false;
+        case actionTypes.FETCH_TITLE_SUCCESS:
+            let successTitleState = { ...state };
+            successTitleState.title = action.data;
+            successTitleState.isLoadingGender = false;
             return {
-                ...successPositionState
+                ...successTitleState
             }
-        case actionTypes.FETCH_POSITION_FAILED:
+        case actionTypes.FETCH_TITLE_FAILED:
             state.isLoadingGender = false;
-            state.position = [];
+            state.title = [];
             return {
                 ...state
             }
@@ -72,14 +73,24 @@ const adminReducer = (state = initialState, action) => {
                 ...state
             }
         case actionTypes.FETCH_ALL_USER_SUCCESS:
-            console.log('action succeed here: ', action)
+            // console.log('action succeed here: ', action)
             state.users = action.users;
             return {
                 ...state
             }
         case actionTypes.FETCH_ALL_USER_FAILED:
-            console.log('action failed here: ', action)
+            // console.log('action failed here: ', action)
             state.users = [];
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_DOCTOR_SUCCESS:
+            state.doctors = action.doctorData;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_DOCTOR_FAILED:
+            state.doctors = [];
             return {
                 ...state
             }

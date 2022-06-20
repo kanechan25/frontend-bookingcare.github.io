@@ -16,7 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 class HomePage extends Component {
 
     render() {
-        let setting1 = {
+        let setting1Auto = {
             dots: false,
             infinite: true,
             speed: 3000,
@@ -52,8 +52,44 @@ class HomePage extends Component {
               }
             ]
         };
+        let setting1NoAuto = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            initialSlide: 1,
+            useCSS: true,
+            autoplay: false,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  infinite: true,
+                }
+              },
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  initialSlide: 1
+                }
+              },
+              {
+                breakpoint: 576,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+            ]
+        };
         let setting2 = {
           dots: false,
+          arrows: false,
           infinite: true,
           speed: 2000,
           slidesToShow: 2,
@@ -92,16 +128,16 @@ class HomePage extends Component {
             <div>
                 <HomeHeader />
                 <TopNews 
-                    settings={setting1}
+                    settings={setting1Auto}
                 />
                 <Speciality 
-                    settings={setting1}
+                    settings={setting1NoAuto}
                 />
                 <MedicalCentre 
-                    settings={setting1}
+                    settings={setting1NoAuto}
                 />
                 <Doctor 
-                    settings={setting1}
+                    settings={setting1NoAuto}
                 />
                 <Handbook 
                     settings={setting2}

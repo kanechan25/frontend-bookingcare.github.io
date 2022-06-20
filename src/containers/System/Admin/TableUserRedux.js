@@ -48,7 +48,7 @@ class TableUserRedux extends Component {
                             <th>Phone Number</th>
                             <th>Gender</th>
                             <th>Role</th>
-                            <th>Position</th>
+                            <th>Title</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -67,7 +67,7 @@ class TableUserRedux extends Component {
                                         <td>{item.phoneNum}</td>
                                         <td>{item.gender}</td>
                                         <td>{item.roleId}</td>
-                                        <td>{item.positionId}</td>
+                                        <td>{item.titleId}</td>
                                         <td>
                                             <button className="btn btn-link px-2"
                                                 onClick={() => this.handleClickEditUserRedux(item)}

@@ -1,10 +1,10 @@
 import actionTypes from './actionTypes';
 import { getAllCodeService, createNewUserService, getAllUser, 
-    deleteUserService, editUserService } from '../../services/userService';
+    deleteUserService, editUserService, getDoctorHomeService } from '../../services/userService';
 import { toast } from 'react-toastify';
 
 
-//#region fetchGender/Role/Position 
+//#region fetchGender/Role/Title 
 export const fetchGenderStart = () => {
     return async (dispatch, getState) => {
         try {
@@ -32,30 +32,30 @@ const fetchGenderFailed = () => ({
 })
 
 
-export const fetchPositionStart = () => {
+export const fetchTitleStart = () => {
     return async (dispatch, getState) => {
         try {
-            dispatch({ type: actionTypes.FETCH_POSITION_START })
+            dispatch({ type: actionTypes.FETCH_TITLE_START })
 
-            let res = await getAllCodeService('position')
+            let res = await getAllCodeService('title')
             if (res && res.errCode === 0) {
-                dispatch(fetchPositionSuccess(res.data));
+                dispatch(fetchTitleSuccess(res.data));
             } else {
-                dispatch(fetchPositionFailed());
+                dispatch(fetchTitleFailed());
             }
         } catch (error) {
-            dispatch(fetchPositionFailed());
-            console.log('fetch Position Failed: ' , error)
+            dispatch(fetchTitleFailed());
+            console.log('fetch Title Failed: ' , error)
         }
     }
 }
 
-const fetchPositionSuccess = (data) => ({
-    type: actionTypes.FETCH_POSITION_SUCCESS,
+const fetchTitleSuccess = (data) => ({
+    type: actionTypes.FETCH_TITLE_SUCCESS,
     data: data,
 })
-const fetchPositionFailed = () => ({
-    type: actionTypes.FETCH_POSITION_FAILED
+const fetchTitleFailed = () => ({
+    type: actionTypes.FETCH_TITLE_FAILED
 })
 
 
@@ -150,7 +150,6 @@ export const deleteNewUser = (userId) => {
             if (res && res.errCode === 0) {
                 dispatch(deleteUserSuccess());
                 dispatch(fetchAllUserStart());
-                toast.success('Delete a user successful!')
             } else {
                 dispatch(deleteUserFailed());
                 toast.error('Delete a user failed!')
@@ -198,3 +197,28 @@ const editUserSuccess = () => ({
 const editUserFailed = () => ({
     type: actionTypes.EDIT_USER_FAILED
 })
+
+export const fetchDoctor = () => {
+    return async (dispatch, getState) => {
+        try {
+            let resDoctor = await getDoctorHomeService(12);
+            if (resDoctor && resDoctor.errCode === 0) {
+                dispatch(fetchDoctorSuccess(resDoctor));
+            } else {
+                dispatch(fetchDoctorFailed());
+                toast.error('fetch Doctors failed!')
+            }
+        } catch (error) {
+            toast.error('fetch Doctors failed!')
+            console.log('fetch Doctors Failed: ' , error)
+        }
+    }
+}
+const fetchDoctorSuccess = (resDoctor) => ({
+    type: actionTypes.FETCH_DOCTOR_SUCCESS,
+    doctorData: resDoctor.data
+})
+const fetchDoctorFailed = () => ({
+    type: actionTypes.FETCH_DOCTOR_FAILED,
+})
+

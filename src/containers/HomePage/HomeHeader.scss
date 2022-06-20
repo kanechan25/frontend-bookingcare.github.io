@@ -76,6 +76,7 @@ a {
             justify-content: space-around;
             .help {
                 margin-right: 2px;
+                padding-top: 5px;
             }
             i {
                 margin-right: 4px;
@@ -88,8 +89,8 @@ a {
                     align-items: center;
                     .dark-mode-icon.active {
                         color: $general-in-light;
-                        font-size: 18px;
-                        padding: 0 2px 0 6px;
+                        font-size: 19px;
+                        padding: 1px 2px 0 6px;
                     }
                 }
             }
@@ -228,6 +229,10 @@ a {
                     display: flex;
                     flex-direction: column;
                     margin: 10px 4px;
+                    transition: transform 300ms linear;
+                    &:hover {
+                        transform: translateY(-15px);
+                    }
                     .icon-option {
                         display: flex;
                         flex-direction: column;

@@ -24,7 +24,7 @@ class MedicalCentre extends Component {
         return (
             <React.Fragment>
                 <section>
-                    <div className='section section-centre section-sink container'>
+                    <div className='section section-centre section-float container'>
                         <div className='section-header'>
                             <span className='col-xl-10 col-lg-10 col-md-9 col-sm-9 col-8 headline'><b><FormattedMessage id="centre.headline"/></b></span>
                             <a href='' className='col-xl-2 col-lg-2 col-md-3 col-sm-3 col-3 explore'><b><FormattedMessage id="centre.explore"/></b></a>

@@ -47,7 +47,7 @@
     },
 
     "specialities": {
-        "headline": "Popular specialties",
+        "headline": "POPULAR SPECIALTIES",
         "explore": "MORE",
         "covid19": "Post-covid 19",
         "dentist": "Dentistry",
@@ -66,7 +66,7 @@
         "cardio": "Cardiology and vascular"
     },
     "centre": {
-        "headline": "Medical Centre and the Hospital",
+        "headline": "MEDICAL CENTRE",
         "explore": "MORE",
         "choray": "Cho Ray Hospital",
         "kcs1": "K Hospital Phan Chu Trinh, Hà Nội",
@@ -84,7 +84,7 @@
         "vinmec": "Vinmec Times City International General Hospital"
     },
     "doctor": {
-        "headline": "Outstanding Doctors",
+        "headline": "OUTSTANDING DOCTORS",
         "explore": "MORE",
         "bsck2_tranminhkhuyen": "Khuyen Tran Minh",
         "bsck2_tranminhkhuyen1": "Level II specialist, Dr.",
@@ -95,7 +95,7 @@
 
     },
     "handbook": {
-        "headline": "Handbooks",
+        "headline": "HANDBOOKS",
         "post": "ALL POSTS",
         "themostreputationdentistry": "5 of the most reputation Dentistry clinics at 7 District, HCM City",
         "pregnancyhandbook": "The essential handbooks for pregnant women"
@@ -103,7 +103,7 @@
     },
 
     "fordoctorcentre": {
-        "headline": "For doctors and medical centre",
+        "headline": "FOR DOCTORS & MEDICAL CENTRE",
         "post": "ALL POSTS",
         "cooperate": "COOPERATION",
         "contact": "CONTACT",
