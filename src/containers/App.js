@@ -5,7 +5,6 @@ import { ConnectedRouter as Router } from 'connected-react-router';
 import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { useState, useEffect } from 'react'
 
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
 
@@ -13,11 +12,9 @@ import { path } from '../utils'
 
 import Home from '../routes/Home';
 import Login from '../containers/Auth/Login';
-// import Header from './Header/Header';
 import System from '../routes/System';
+import DetailDoctor from './PatientSide/Doctor/DetailDoctor';
 
-
-import { CustomToastCloseButton } from '../components/CustomToast';
 import ConfirmModal from '../components/ConfirmModal';
 import HomePage from './HomePage/HomePage';
 import CustomScrollbars from '../components/CustomScrollbars'
@@ -56,6 +53,7 @@ class App extends Component {
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
+                                    <Route path={path.DOCTOR} component={DetailDoctor}/>
                                 </Switch>
                             </div>
                         </CustomScrollbars>

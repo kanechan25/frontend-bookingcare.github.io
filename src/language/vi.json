@@ -88,12 +88,9 @@
     "doctor": {
         "headline": "BÁC SĨ NỔI BẬT",
         "explore": "XEM THÊM",
-        "bsck2_tranminhkhuyen": "Trần Minh Khuyên",
-        "bsck2_tranminhkhuyen1": "Bác sĩ chuyên khoa II",
-        "bsck2_tranminhkhuyen2": "Chuyên khoa Tâm lý học",
-        "pgsts_nguyenvantoan": "Ngô Văn Toàn",
-        "pgsts_nguyenvantoan1": "Phó giáo sư, tiến sĩ, bác sĩ",
-        "pgsts_nguyenvantoan2": "Chuyên khoa Cơ xương khớp"
+        "intro": "Thêm thông tin giới thiệu",
+        "choose": "Chọn một bác sĩ"
+
     },
     "handbook": {
         "headline": "CẨM NANG",

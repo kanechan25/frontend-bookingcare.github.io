@@ -39,6 +39,10 @@
                 padding: 16px 10px 14px 10px;
                 .slider-link {
                     cursor: pointer;
+                    color: $text-in-light;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
                     .slider {
                         .img {
                             z-index: 1;
@@ -102,10 +106,6 @@
     .carousel {
         .slide {
             .slider-link {
-                color: $text-in-light;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
                 align-items: stretch;
                 margin-top: 6px;
                 transition: transform 300ms linear;
@@ -138,10 +138,6 @@
     .carousel {
         .slide {
             .slider-link {
-                color: $text-in-light;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
                 align-items: center;
                 margin: 6px 0px 26px;
                 .slider {
@@ -174,10 +170,6 @@
         .slide {
             padding: 0px 10px 0px !important;
             .slider-link {
-                color: $text-in-light;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
                 align-items: center;
                 margin: 6px 0px 26px;
                 .slider {

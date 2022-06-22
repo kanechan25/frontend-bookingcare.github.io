@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 import { LANGUAGES, CRUD_ACTION } from '../../../utils/constant';
 import { CommonUtils } from '../../../utils';
 import * as actions from '../../../store/actions';
-import Markdown from 'markdown-to-jsx';
-import MarkdownIt from 'markdown-it';
-import MdEditor from 'react-markdown-editor-lite';
-import 'react-markdown-editor-lite/lib/index.css';
+
 
 
 import '../ModalUser.scss'
@@ -15,12 +12,6 @@ import './UserRedux.scss'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import TableUserRedux from './TableUserRedux';
-
-const mdParser = new MarkdownIt(/* Markdown-it options */);
-
-function handleEditorChange({ html, text }) {
-    console.log('handleEditorChange', html, text);
-}
 
 class UserRedux extends Component {
 
@@ -168,6 +159,7 @@ class UserRedux extends Component {
                 this.props.fetchAllUserRedux();
             }
         }
+        this.clearInputData();
     }
 
     onChangeInput = (e, id) => {
@@ -204,6 +196,7 @@ class UserRedux extends Component {
             gender: '',
             roleId: '',
             titleId: '',
+            image: '',
         })
     }
     handleEditUserFromParent = (user) => {
@@ -239,12 +232,7 @@ class UserRedux extends Component {
         let isLoadingGender= this.props.isLoadingGender; //check loading -> waiting)
         let { email, password, firstName, lastName, address, phoneNum, 
             gender, roleId, titleId, image } = this.state;
-        const markdownInput = `
-            <div class="note">
-                # Hello, *world*!
-                Some *emphasis* and <strong>strong</strong>!
-            </div>
-        `
+
         return (
             <div className='user-redux-container'>
                 <div className="title" > CRUD Users by Redux</div>
@@ -391,10 +379,6 @@ class UserRedux extends Component {
                     handleEditUserFromParent = {this.handleEditUserFromParent}
                     clearInputData = {this.clearInputData}
                     action={this.state.action}
-                />
-
-                <MdEditor style={{ height: '500px', marginBottom: '100px' }} 
-                    renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} 
                 />
 
             </div>

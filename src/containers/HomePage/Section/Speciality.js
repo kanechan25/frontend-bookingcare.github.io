@@ -53,7 +53,6 @@ class Speciality extends Component {
     ;
     render() {
         let language = this.props.language;
-        console.log(this.imgSpecialityList.cardio)
         return (
             <React.Fragment>
                 <section>

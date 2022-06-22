@@ -126,7 +126,7 @@ class HomePage extends Component {
       };
         return (
             <div>
-                <HomeHeader />
+                <HomeHeader isShowBanner = {true} />
                 <TopNews 
                     settings={setting1Auto}
                 />

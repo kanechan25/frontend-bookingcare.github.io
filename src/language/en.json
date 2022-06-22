@@ -86,13 +86,8 @@
     "doctor": {
         "headline": "OUTSTANDING DOCTORS",
         "explore": "MORE",
-        "bsck2_tranminhkhuyen": "Khuyen Tran Minh",
-        "bsck2_tranminhkhuyen1": "Level II specialist, Dr.",
-        "bsck2_tranminhkhuyen2": "Psychology",
-        "pgsts_nguyenvantoan": "Toan Ngo Van",
-        "pgsts_nguyenvantoan1": "Associate Professor, Ph.D, Dr.",
-        "pgsts_nguyenvantoan2": "Musculoskeletal medicine"
-
+        "intro": "More introduction infomation",
+        "choose": "Choose a doctor"
     },
     "handbook": {
         "headline": "HANDBOOKS",

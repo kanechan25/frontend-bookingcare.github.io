@@ -1,0 +1,201 @@
+@import '../../../styles/variables';
+
+.doctor-container {
+    margin-top: $height-header;
+    height: 500px;
+}
+.text-light-white {
+    color: $general-in-dark;
+}
+a {
+    text-decoration: none;
+    color: $text-in-light;
+}
+
+.home-header-container {
+    .home-header-content {
+        .left-doctor-content {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            border: 1px solid red;
+            i {
+                font-size: 20px;
+                color: green;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .header-logo-logo {
+                margin-left: 6px;
+                height: 80%;
+                width: 100%;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        .center-doctor-content {
+            display: flex;
+            align-items: center;
+            border: 1px solid blue;
+            .child-content {
+                margin: 0px 4px;
+                text-align: center;
+                .header-title {
+                    cursor: pointer;
+                    color: $text-in-light;
+                }
+                .header-sub-title {
+                    font-size: 12px;
+                    color: $text-in-light;
+
+                }
+            }
+        }
+        .right-doctor-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border: 1px solid rgb(75, 173, 75);
+
+            .help {
+                margin-right: 2px;
+                padding-top: 4px;
+            }
+            i {
+                margin-right: 4px;
+                cursor: pointer;
+            }
+            .fa-bars {
+                font-size: 22px;
+                margin-left: 10px;
+                color: green;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .dark-mode {
+                .btn {
+                    display: flex;
+                    align-items: center;
+                    .dark-mode-icon.active {
+                        color: $general-in-light;
+                        font-size: 19px;
+                        padding: 1px 2px 0 6px;
+                    }
+                }
+            }
+            .languages {
+                display: flex;
+                .language {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    cursor: pointer;
+                    .btn {
+                        height: 18px;
+                        width: 18px;
+                        border-radius: 50%;
+                        margin-left: 10px;
+                        opacity: 0.5;
+                        &.active {
+                            opacity: 1;
+                        }
+                    }
+                    .lang-logo-vi {
+                        background: url('../../../assets/images/1_header/flag_of_vi.svg') center center no-repeat;
+                        background-size: 155%;
+                    }
+                    .lang-logo-en {
+                        background: url('../../../assets/images/1_header/flag_of_en.svg') center center no-repeat;
+                        background-size: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin search-icon {
+    .search-icon {
+        width: 24px;
+        height: 24px;
+        .search-icon-logo {
+            cursor: default;
+            background-color: transparent;
+            opacity: 1;
+            stroke: $general-in-dark;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .home-header-container {
+        .home-header-content {
+            .center-doctor-content {
+                .child-content {
+                    .header-sub-title {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 992px) {
+    .home-header-container {
+        .home-header-content {
+            display: flex;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .home-header-container {
+        .home-header-content {
+            display: flex;
+            .left-doctor-content {
+                .header-logo-text {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 576px) {
+    .home-header-container {
+        .home-header-content {
+            display: flex;
+            .right-doctor-content {
+                justify-content: right;
+                .help {
+                    display: none;
+                }
+            }
+        }
+    }    
+}
+@media (min-width: 360px) {
+    .home-header-container {
+        .home-header-content {
+            display: flex;
+            .left-doctor-content {
+                justify-content: left;
+                width: 160px;
+                padding-right: 0;
+                padding-left: 0;
+            }
+            .right-doctor-content {
+                padding-right: 0;
+                padding-left: 0;
+                justify-content: right;
+            }
+        }
+        .row {
+            flex-wrap: unset;
+        }
+    }  
+}
+
+

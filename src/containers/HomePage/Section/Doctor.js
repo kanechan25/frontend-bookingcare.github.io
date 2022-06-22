@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 import { LANGUAGES } from '../../../utils';
-
+import { withRouter } from 'react-router'
 
 class Doctor extends Component {
     constructor(props) {
@@ -35,6 +35,10 @@ class Doctor extends Component {
             })
         }
     }
+    handleDetailDoctor = (doctor) => {
+        console.log('view info doctor: ', doctor);
+        this.props.history.push(`/detail-doctor/${doctor.id}`)
+    }
     render() {
         let language = this.props.language;
         let arrDoctors = this.state.arrDoctors;
@@ -56,8 +60,11 @@ class Doctor extends Component {
                                             imgBase64 = new Buffer(item.image, 'base64').toString('binary');
                                         }
                                         return (
-                                            <div className='slide' key={index}>
-                                                <a className='slider-link' href=''>
+                                            <div className='slide' 
+                                                key={index}
+                                                onClick={() => this.handleDetailDoctor(item)}
+                                            >
+                                                <div className='slider-link'>
                                                     <div className='slider'>
                                                         <img className='img col'
                                                             style={{ backgroundImage: `url(${imgBase64})` }}
@@ -69,7 +76,7 @@ class Doctor extends Component {
                                                     <span className='doctor-subtitle'>
 
                                                     </span>
-                                                </a>
+                                                </div>
                                             </div>
                                         )
                                     })
@@ -100,4 +107,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Doctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Doctor));
