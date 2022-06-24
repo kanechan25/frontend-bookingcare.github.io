@@ -42,13 +42,21 @@ a {
                     cursor: pointer;
                 }
             }
-            .header-logo {
-                background: url('../../assets/images/1_header/logo.svg') center center no-repeat;
-                margin-left: 6px;
-                height: 80%;
-                width: 100%;
-                &:hover {
-                    cursor: pointer;
+            .logo-both {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                .header-logo {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &.logo {
+                        margin-left: 10px;
+                        width: 34px;
+                    }
+                    &.text {
+                        width: 110px;
+                    }
                 }
             }
         }

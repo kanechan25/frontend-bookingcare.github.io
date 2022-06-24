@@ -8,10 +8,13 @@ const initialState = {
     users: [],
     doctors: [],
     allDoctors: [],
+    dataDoctorById: [],
+    allTime: [],
 }
 
 const adminReducer = (state = initialState, action) => {
     switch (action.type) {
+        // #region Action Types Gender + Title + Role
         case actionTypes.FETCH_GENDER_START:
             let startGenderState = { ...state };
             startGenderState.isLoadingGender = true;
@@ -73,14 +76,13 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
+        // #endregion
         case actionTypes.FETCH_ALL_USER_SUCCESS:
-            // console.log('action succeed here: ', action)
             state.users = action.users;
             return {
                 ...state
             }
         case actionTypes.FETCH_ALL_USER_FAILED:
-            // console.log('action failed here: ', action)
             state.users = [];
             return {
                 ...state
@@ -105,7 +107,27 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
-
+        case actionTypes.GET_INFO_DOCTOR_SUCCESS:
+            state.dataDoctorById = action.dataInfo;
+            // console.log('Reducer: ', state.dataDoctorById)
+            return {
+                ...state
+            }
+        case actionTypes.GET_INFO_DOCTOR_FAILED:
+            state.dataDoctorById = [];
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALLCODE_TIME_SUCCESS:
+            state.allTime = action.allTimeData;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALLCODE_TIME_FAILED:
+            state.allTime = [];
+            return {
+                ...state
+            }
         default:
             return state;
     }

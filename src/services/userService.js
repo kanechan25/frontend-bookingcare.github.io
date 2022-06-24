@@ -39,8 +39,11 @@ const getAllDoctorService = () => {
 }
 
 const saveInfoDoctorService = (data) => {
-    console.log('data info doctor which passed: ', data);
     return axios.post(`/api/save-info-doctor`, data);
+}
+
+const getInfoDoctorService = (inputId) => {
+    return axios.get(`/api/get-info-doctor-by-id?id=${inputId}`);
 }
 
 export { 
@@ -53,4 +56,5 @@ export {
     getDoctorHomeService,
     getAllDoctorService,
     saveInfoDoctorService,
+    getInfoDoctorService,
 } 

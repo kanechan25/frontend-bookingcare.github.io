@@ -1,11 +1,13 @@
 export const adminMenu = [
-    { //1. User Management Tab
-        name: 'menu.admin.user-manage',
+    { //1. Admin Management Tab
+        name: 'menu.admin.admin-manage',
         menus: [
             {name: 'menu.admin.crud', link: '/system/user-manage' },
             {name: 'menu.admin.crud-redux', link: '/system/user-redux' },
             {name: 'menu.admin.doctor-manage', link: '/system/doctor-manage' },
-            {name: 'menu.admin.admin-manage', link: '/system/admin-manage' },
+            //{name: 'menu.admin.admin-manage', link: '/system/admin-manage' },
+            {name: 'menu.doctor.schedule-manage', link: '/doctor/schedule-manage' },
+        
         ]
     },
     { //2. Medical Centre Management Tab
@@ -44,3 +46,13 @@ export const adminMenu = [
     //     ]
     // },
 ];
+
+export const doctorMenu = [
+    { // Doctor ManagementTab (Schedule)
+        name: 'menu.doctor.doctor-manage',
+        menus: [
+            {name: 'menu.doctor.schedule-manage', link: '/doctor/schedule-manage' },
+        ]
+    }
+];
+

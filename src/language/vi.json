@@ -181,8 +181,8 @@
         },
         "admin": {
             "user-manage": "Người dùng",
-            "doctor-manage": "Quản trị bác sĩ",
-            "admin-manage": "Quản trị admin",
+            "doctor-manage": "Quản trị Bác sĩ",
+            "admin-manage": "Quản trị Admin",
             "crud": "Chỉnh sửa người dùng",
             "crud-redux": "Chỉnh sửa bằng Redux",
             "centre": "Trung tâm Y tế",
@@ -191,7 +191,17 @@
             "speciality-manage": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
             "handbook-manage": "Quản lý cẩm nang"
+        },
+        "doctor": {
+            "schedule-manage": "Quản lý kế hoạch khám bệnh",
+            "doctor-manage": "Dành cho Bác sĩ"
+
         }
+    },
+    "doctorschedule": {
+        "schedule-headline": "Quản lý lịch hẹn của bác sĩ",
+        "label-doctor": "Chọn bác sĩ",
+        "label-date": "Chọn ngày hẹn"
     },
     "system": {
         "user-manage": {

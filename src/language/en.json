@@ -181,7 +181,7 @@
         "admin": {
             "user-manage": "User management",
             "doctor-manage": "Doctor management",
-            "admin-manage": "Admin management",
+            "admin-manage": "Admin's management",
             "crud": "CRUD Users",
             "crud-redux": "CRUD Users - Redux",
             "centre": "Medical Centre",
@@ -190,7 +190,17 @@
             "speciality-manage": "Speciality Management",
             "handbook": "Handbooks",
             "handbook-manage": "Handbook Management"
+        },
+        "doctor": {
+            "schedule-manage": "Manage Doctor's schedule",
+            "doctor-manage": "For Doctors"
+
         }
+    },
+    "doctorschedule": {
+        "schedule-headline": "Doctor's Appointment Management",
+        "label-doctor": "Choose a doctor",
+        "label-date": "Choose a date"
     },
     "system": {
         "user-manage": {

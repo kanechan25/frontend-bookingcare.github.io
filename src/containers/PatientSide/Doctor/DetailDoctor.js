@@ -2,16 +2,86 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import HeaderDoctor from './HeaderDoctor';
 import './DetailDoctor.scss'
+import * as actions from '../../../store/actions';
+import { getInfoDoctorService } from '../../../services/userService'
+import { LANGUAGES } from '../../../utils';
+
 
 class DetailDoctor extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            doctorInfoData: {},
+        }
+    }
+
+    async componentDidMount() {
+        if (this.props.match && this.props.match.params && this.props.match.params.id) {
+            let doctorId = this.props.match.params.id
+            //await this.props.getInfoDoctor(doctorId);
+            let DoctorInfo = await getInfoDoctorService(doctorId);
+            if (DoctorInfo && DoctorInfo.errCode === 0) {
+                this.setState({
+                    doctorInfoData: DoctorInfo.data
+                })
+            }
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+    }
+
 
     render() {
-
+        let avatarDoctor = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/6_section_doctor/gs_donhuhon.jpg'
+        // console.log('Get doctor data by Id in Render: ', this.state);
+        let { doctorInfoData } = this.state;
+        let { language } = this.props;
+        let titleNameVi = '', titleNameEn = '';
+        if (doctorInfoData && doctorInfoData.titleData) {
+            titleNameVi = `${doctorInfoData.titleData.valueVi} ${doctorInfoData.lastName} ${doctorInfoData.firstName}`;
+            titleNameEn = `${doctorInfoData.titleData.valueEn} ${doctorInfoData.firstName} ${doctorInfoData.lastName}`;
+        }
         return (
             <>
                 <HeaderDoctor />
-                <div className='doctor-container'>
-
+                <div className='doctor-container container'>
+                    <div className='intro-doctor row'>
+                        <div className='content-left col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-11 col-11'>
+                            <div className='img-avatar-doctor'
+                                style={{
+                                    backgroundImage: `url(${doctorInfoData &&
+                                        doctorInfoData.image ? doctorInfoData.image : ''})`
+                                }}
+                            ></div>
+                        </div>
+                        <div className='content-right col-xxl-10 col-xl-10 col-lg-10 col-md-9 col-sm-11 col-11'>
+                            <div className='detail-doctor-info'>
+                                <span className='doctor-title-name'>
+                                    {language === LANGUAGES.VI ? titleNameVi : titleNameEn}
+                                </span>
+                                {doctorInfoData && doctorInfoData.Markdown &&
+                                    doctorInfoData.Markdown.description &&
+                                    <span className='doctor-detail-intro'>
+                                        {doctorInfoData.Markdown.description}
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div className='schedule-doctor container'></div>
+                    <div className='info-doctor'>
+                        <div className='detail-doctor-info-main'>
+                            {doctorInfoData && doctorInfoData.Markdown &&
+                                doctorInfoData.Markdown.htmlContent &&
+                                <span className='doctor-detail-main'
+                                    dangerouslySetInnerHTML={{ __html: doctorInfoData.Markdown.htmlContent }}
+                                ></span>
+                            }
+                        </div>
+                    </div>
+                    <div className='comment-doctor'></div>
                 </div>
             </>
         );
@@ -21,12 +91,15 @@ class DetailDoctor extends Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
+        doctorDataInfo: state.admin.dataDoctorById,
+        language: state.app.language,
 
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        getInfoDoctor: (id) => dispatch(actions.getInfoDoctor(id)),
     };
 };
 

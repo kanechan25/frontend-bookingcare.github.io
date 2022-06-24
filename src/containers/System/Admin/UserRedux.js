@@ -56,7 +56,7 @@ class UserRedux extends Component {
         await this.props.getRoleStart();
     }
 
-//#region Handling Functions
+    //#region Handling Functions
     componentDidUpdate(prevProps, prevState, snapshot) {
         let arrGenders = this.props.genderRedux;
         let arrTitle = this.props.titleRedux;
@@ -126,7 +126,7 @@ class UserRedux extends Component {
                 break breakme;
             } else {
                 let { action } = this.state;
-                if (action === CRUD_ACTION.CREATE) {            
+                if (action === CRUD_ACTION.CREATE) {
                     this.props.createUserStart({
                         email: this.state.email,
                         password: this.state.password,
@@ -153,7 +153,7 @@ class UserRedux extends Component {
                         roleId: this.state.roleId,
                         titleId: this.state.titleId,
                         image: this.state.image,
-                        
+
                     })
                 }
                 this.props.fetchAllUserRedux();
@@ -202,7 +202,7 @@ class UserRedux extends Component {
     handleEditUserFromParent = (user) => {
         let imgBase64 = '';
         if (user.image) {
-            imgBase64 = new Buffer(user.image, 'base64').toString('binary');
+            imgBase64 = Buffer.from(user.image, 'base64').toString('binary');
         }
 
         this.setState({
@@ -219,20 +219,21 @@ class UserRedux extends Component {
             action: CRUD_ACTION.EDIT,
             userEditId: user.id
         })
+        // console.log('Image base64: ', this.state.previewImgURL)
+
     }
 
-//#endregion
+    //#endregion
 
     render() {
-        
+
         let genderArr = this.state.genderArr;
         let titleArr = this.state.titleArr;
         let roleArr = this.state.roleArr;
         let language = this.props.language;
-        let isLoadingGender= this.props.isLoadingGender; //check loading -> waiting)
-        let { email, password, firstName, lastName, address, phoneNum, 
+        let isLoadingGender = this.props.isLoadingGender; //check loading -> waiting)
+        let { email, password, firstName, lastName, address, phoneNum,
             gender, roleId, titleId, image } = this.state;
-
         return (
             <div className='user-redux-container'>
                 <div className="title" > CRUD Users by Redux</div>
@@ -241,48 +242,48 @@ class UserRedux extends Component {
                         {/* <div className='mt-1 ms-2 row'>{isLoadingGender === true ? 'Loading data' : ''}</div> */}
                         <form className="mt-1 row text-info">
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <input type="email" className="form-control " name="email" 
-                                placeholder="Enter your email"
-                                value={email}
-                                onChange={(e) => { this.onChangeInput(e, 'email') }}
-                                disabled={this.state.action === CRUD_ACTION.EDIT ? true : false}
+                                <input type="email" className="form-control " name="email"
+                                    placeholder="Enter your email"
+                                    value={email}
+                                    onChange={(e) => { this.onChangeInput(e, 'email') }}
+                                    disabled={this.state.action === CRUD_ACTION.EDIT ? true : false}
                                 />
                             </div>
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <input type="password" className="form-control " name="password" 
-                                placeholder="Enter you password" 
-                                value={password}
-                                onChange={(e) => { this.onChangeInput(e, 'password') }}
-                                disabled={this.state.action === CRUD_ACTION.EDIT ? true : false}
+                                <input type="password" className="form-control " name="password"
+                                    placeholder="Enter you password"
+                                    value={password}
+                                    onChange={(e) => { this.onChangeInput(e, 'password') }}
+                                    disabled={this.state.action === CRUD_ACTION.EDIT ? true : false}
 
                                 />
                             </div>
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <input type="text" className="form-control " name="firstName" 
-                                placeholder="Enter your first name" 
-                                value={firstName}
-                                onChange={(e) => { this.onChangeInput(e, 'firstName') }}
+                                <input type="text" className="form-control " name="firstName"
+                                    placeholder="Enter your first name"
+                                    value={firstName}
+                                    onChange={(e) => { this.onChangeInput(e, 'firstName') }}
                                 />
                             </div>
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <input type="text" className="form-control " name="lastName" 
-                                placeholder="Enter your last name" 
-                                value={lastName}
-                                onChange={(e) => { this.onChangeInput(e, 'lastName') }}
+                                <input type="text" className="form-control " name="lastName"
+                                    placeholder="Enter your last name"
+                                    value={lastName}
+                                    onChange={(e) => { this.onChangeInput(e, 'lastName') }}
                                 />
                             </div>
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <input type="text" className="form-control " name="address" 
-                                placeholder="Enter address: etc. 2425, Vo Nguyen Giap St, HCMC" 
-                                value={address}
-                                onChange={(e) => { this.onChangeInput(e, 'address') }}
+                                <input type="text" className="form-control " name="address"
+                                    placeholder="Enter address: etc. 2425, Vo Nguyen Giap St, HCMC"
+                                    value={address}
+                                    onChange={(e) => { this.onChangeInput(e, 'address') }}
                                 />
                             </div>
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <input type="text" className="form-control " name="phoneNum" 
-                                placeholder="Enter phone number: etc. +84368889999" 
-                                value={phoneNum}
-                                onChange={(e) => { this.onChangeInput(e, 'phoneNum') }}
+                                <input type="text" className="form-control " name="phoneNum"
+                                    placeholder="Enter phone number: etc. +84368889999"
+                                    value={phoneNum}
+                                    onChange={(e) => { this.onChangeInput(e, 'phoneNum') }}
                                 />
                             </div>
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
@@ -291,7 +292,7 @@ class UserRedux extends Component {
                                     value={gender}
                                 >
                                     {/* <option value='' selected>-- Choose gender --</option> */}
-                                    {genderArr && genderArr.length > 0 && 
+                                    {genderArr && genderArr.length > 0 &&
                                         genderArr.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.keyMap}>
@@ -309,7 +310,7 @@ class UserRedux extends Component {
 
                                 >
                                     {/* <option value='' selected>-- Choose role --</option> */}
-                                    {roleArr && roleArr.length > 0 && 
+                                    {roleArr && roleArr.length > 0 &&
                                         roleArr.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.keyMap}>
@@ -327,7 +328,7 @@ class UserRedux extends Component {
 
                                 >
                                     {/* <option value='' selected>-- Choose title --</option> */}
-                                    {titleArr && titleArr.length > 0 && 
+                                    {titleArr && titleArr.length > 0 &&
                                         titleArr.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.keyMap}>
@@ -340,7 +341,7 @@ class UserRedux extends Component {
                             </div>
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div className='preview-container'>
-                                    <input type="file" className="form-control " name="image" id="formFile" 
+                                    <input type="file" className="form-control " name="image" id="formFile"
                                         onChange={(e) => this.handleOnchangeImage(e)}
                                     />
                                     <div className='preview-img'
@@ -354,30 +355,30 @@ class UserRedux extends Component {
                         </form>
                         <div className='admin-footer row'>
                             <button
-                                className={this.state.action === CRUD_ACTION.EDIT 
+                                className={this.state.action === CRUD_ACTION.EDIT
                                     ? 'create btn btn-warning col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-6 col-8'
                                     : 'create btn btn-primary col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-6 col-8'}
-                                onClick={() => {this.handleAddNewUser()}}
-                            >{this.state.action === CRUD_ACTION.EDIT 
+                                onClick={() => { this.handleAddNewUser() }}
+                            >{this.state.action === CRUD_ACTION.EDIT
                                 ? <FormattedMessage id="system.user-redux.edit-btn" />
                                 : <FormattedMessage id="system.user-redux.create-btn" />}
                             </button>
                             <button
                                 className='cancel btn btn-info col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-6 col-8'
-                                // onClick={this.toggle}
+                            // onClick={this.toggle}
                             ><FormattedMessage id="system.user-redux.cancel-btn" /></button>
                         </div>
                     </div>
                 </div>
-                { this.state.isOpen === true &&                      
+                {this.state.isOpen === true &&
                     <Lightbox
                         mainSrc={this.state.previewImgURL}
                         onCloseRequest={() => this.setState({ isOpen: false })}
                     />
                 }
                 <TableUserRedux
-                    handleEditUserFromParent = {this.handleEditUserFromParent}
-                    clearInputData = {this.clearInputData}
+                    handleEditUserFromParent={this.handleEditUserFromParent}
+                    clearInputData={this.clearInputData}
                     action={this.state.action}
                 />
 

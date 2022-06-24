@@ -101,7 +101,7 @@ input {
   width: $calendarWidth;
   box-sizing: border-box;
   touch-action: manipulation;
-
+  overflow: hidden;
   &.open, &.inline {
     opacity: 1;
     max-height: 640px;

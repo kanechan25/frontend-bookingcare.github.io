@@ -1,7 +1,8 @@
 import actionTypes from './actionTypes';
 import { getAllCodeService, createNewUserService, getAllUser, 
     deleteUserService, editUserService, getDoctorHomeService, 
-    getAllDoctorService, saveInfoDoctorService } from '../../services/userService';
+    getAllDoctorService, saveInfoDoctorService, getInfoDoctorService } 
+    from '../../services/userService';
 import { toast } from 'react-toastify';
 
 
@@ -111,8 +112,6 @@ const createUserSuccess = () => ({
 const createUserFailed = () => ({
     type: actionTypes.CREATE_USER_FAILED
 })
-
-
 
 
 export const fetchAllUserStart = () => {
@@ -271,3 +270,52 @@ const saveInfoDoctorFailed = () => ({
     type: actionTypes.SAVE_INFO_DOCTOR_FAILED,
 })
 
+
+export const getInfoDoctor = (id) => {
+    return async (dispatch, getState) => {
+        try {
+            let resInfo = await getInfoDoctorService(id);
+            if (resInfo && resInfo.errCode === 0) {
+                // console.log('check data info by id in admin Actions: ', resInfo)
+                dispatch(getInfoDoctorSuccess(resInfo));
+            } else {
+                dispatch(getInfoDoctorFailed());
+                toast.error('get info Doctors failed!')
+            }
+        } catch (error) {
+            toast.error('get info Doctors failed!')
+            console.log('get info Doctors Failed: ' , error)
+        }
+    }
+}
+const getInfoDoctorSuccess = (resInfo) => ({
+    type: actionTypes.GET_INFO_DOCTOR_SUCCESS,
+    dataInfo: resInfo.data
+})
+const getInfoDoctorFailed = () => ({
+    type: actionTypes.GET_INFO_DOCTOR_FAILED,
+})
+
+export const fetchAllCodeTimeDoctor = () => {
+    return async (dispatch, getState) => {
+        try {
+            let resTime = await getAllCodeService('TIME');
+            if (resTime && resTime.errCode === 0) {
+                dispatch(fetchAllCodeTimeSuccess(resTime));
+            } else {
+                dispatch(fetchAllCodeTimeFailed());
+                toast.error('fetch allcode time failed!')
+            }
+        } catch (error) {
+            toast.error('fetch allcode time failed!')
+            console.log('fetch allcode time Failed: ' , error)
+        }
+    }
+}
+const fetchAllCodeTimeSuccess = (resTime) => ({
+    type: actionTypes.FETCH_ALLCODE_TIME_SUCCESS,
+    allTimeData: resTime.data
+})
+const fetchAllCodeTimeFailed = () => ({
+    type: actionTypes.FETCH_ALLCODE_TIME_FAILED,
+})

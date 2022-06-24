@@ -28,7 +28,7 @@ class TableUserRedux extends Component {
     }
 
     handleClickEditUserRedux = (user) => {
-        console.log('You have clicked to Edit: ', user);
+        // console.log('You have clicked to Edit: ', user);
         this.props.clearInputData();
         this.props.handleEditUserFromParent(user);
     }

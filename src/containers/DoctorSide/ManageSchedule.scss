@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+
+.schedule-container {
+    .schedule-title {
+        margin-top: 15px;
+    }
+    .schedule-info {
+        .pick-time {
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            .btn-time {
+                border: 1px solid $tone-green;
+                width: 150px;
+            }
+        }
+    }
+}
