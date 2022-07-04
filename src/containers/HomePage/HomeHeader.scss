@@ -52,10 +52,10 @@ a {
                     }
                     &.logo {
                         margin-left: 10px;
-                        width: 34px;
+                        width: $width-logo-header;
                     }
                     &.text {
-                        width: 110px;
+                        width: $width-text-header;
                     }
                 }
             }

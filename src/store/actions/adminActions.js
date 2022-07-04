@@ -1,7 +1,10 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService, createNewUserService, getAllUser, 
-    deleteUserService, editUserService, getDoctorHomeService, 
-    getAllDoctorService, saveInfoDoctorService, getInfoDoctorService } 
+import {
+    getAllCodeService, createNewUserService, getAllUser,
+    deleteUserService, editUserService, getDoctorHomeService,
+    getAllDoctorService, saveInfoDoctorService, getInfoDoctorService,
+    getAllClinicService,
+}
     from '../../services/userService';
 import { toast } from 'react-toastify';
 
@@ -20,7 +23,7 @@ export const fetchGenderStart = () => {
             }
         } catch (error) {
             dispatch(fetchGenderFailed());
-            console.log('fetch Gender Failed: ' , error)
+            console.log('fetch Gender Failed: ', error)
         }
     }
 }
@@ -47,7 +50,7 @@ export const fetchTitleStart = () => {
             }
         } catch (error) {
             dispatch(fetchTitleFailed());
-            console.log('fetch Title Failed: ' , error)
+            console.log('fetch Title Failed: ', error)
         }
     }
 }
@@ -74,7 +77,7 @@ export const fetchRoleStart = () => {
             }
         } catch (error) {
             dispatch(fetchRoleFailed());
-            console.log('fetch Role Failed: ' , error)
+            console.log('fetch Role Failed: ', error)
         }
     }
 }
@@ -101,7 +104,7 @@ export const createNewUser = (data) => {
             }
         } catch (error) {
             dispatch(createUserFailed());
-            console.log('create User Failed: ' , error)
+            console.log('create User Failed: ', error)
         }
     }
 }
@@ -128,7 +131,7 @@ export const fetchAllUserStart = () => {
         } catch (error) {
             dispatch(fetchAllUserFailed());
             toast.error('Get all users from database failed!')
-            console.log('fetch All User Failed: ' , error)
+            console.log('fetch All User Failed: ', error)
         }
     }
 }
@@ -158,7 +161,7 @@ export const deleteNewUser = (userId) => {
         } catch (error) {
             dispatch(deleteUserFailed());
             toast.error('Delete a user failed!')
-            console.log('delete User Failed: ' , error)
+            console.log('delete User Failed: ', error)
         }
     }
 }
@@ -186,7 +189,7 @@ export const editUser = (data) => {
         } catch (error) {
             dispatch(editUserFailed());
             toast.error('Edit a user failed!')
-            console.log('edit User Failed: ' , error)
+            console.log('edit User Failed: ', error)
         }
     }
 }
@@ -210,7 +213,7 @@ export const fetchDoctor = () => {
             }
         } catch (error) {
             toast.error('fetch Doctors failed!')
-            console.log('fetch Doctors Failed: ' , error)
+            console.log('fetch Doctors Failed: ', error)
         }
     }
 }
@@ -234,7 +237,7 @@ export const fetchAllDoctor = () => {
             }
         } catch (error) {
             toast.error('fetch all Doctors failed!')
-            console.log('fetch all Doctors Failed: ' , error)
+            console.log('fetch all Doctors Failed: ', error)
         }
     }
 }
@@ -259,7 +262,7 @@ export const saveInfoDoctor = (data) => {
             }
         } catch (error) {
             toast.error('save info Doctors failed!')
-            console.log('save info Doctors Failed: ' , error)
+            console.log('save info Doctors Failed: ', error)
         }
     }
 }
@@ -284,7 +287,7 @@ export const getInfoDoctor = (id) => {
             }
         } catch (error) {
             toast.error('get info Doctors failed!')
-            console.log('get info Doctors Failed: ' , error)
+            console.log('get info Doctors Failed: ', error)
         }
     }
 }
@@ -308,7 +311,7 @@ export const fetchAllCodeTimeDoctor = () => {
             }
         } catch (error) {
             toast.error('fetch allcode time failed!')
-            console.log('fetch allcode time Failed: ' , error)
+            console.log('fetch allcode time Failed: ', error)
         }
     }
 }
@@ -318,4 +321,43 @@ const fetchAllCodeTimeSuccess = (resTime) => ({
 })
 const fetchAllCodeTimeFailed = () => ({
     type: actionTypes.FETCH_ALLCODE_TIME_FAILED,
+})
+
+export const fetchRequiredDoctorInfoStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({ type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_START })
+
+            let resPrice = await getAllCodeService('PRICE')
+            let resPayment = await getAllCodeService('PAYMENT')
+            let resProvince = await getAllCodeService('PROVINCE')
+            let resClinic = await getAllClinicService()
+            if (resPrice && resPrice.errCode === 0
+                && resPayment && resPayment.errCode === 0
+                && resProvince && resProvince.errCode === 0
+                && resClinic && resClinic.errCode === 0) {
+                let data = {
+                    resPrice: resPrice.data,
+                    resPayment: resPayment.data,
+                    resProvince: resProvince.data,
+                    resClinic: resClinic.data,
+
+                }
+                dispatch(fetchRequiredDoctorInfoSuccess(data));
+            } else {
+                dispatch(fetchRequiredDoctorInfoFailed());
+            }
+        } catch (error) {
+            dispatch(fetchRequiredDoctorInfoFailed());
+            console.log('fetch Required Doctor Info Failed: ', error)
+        }
+    }
+}
+
+const fetchRequiredDoctorInfoSuccess = (AllRequiredData) => ({
+    type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_SUCCESS,
+    data: AllRequiredData,
+})
+const fetchRequiredDoctorInfoFailed = () => ({
+    type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_FAILED
 })

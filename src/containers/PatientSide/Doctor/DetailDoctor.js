@@ -5,19 +5,24 @@ import './DetailDoctor.scss'
 import * as actions from '../../../store/actions';
 import { getInfoDoctorService } from '../../../services/userService'
 import { LANGUAGES } from '../../../utils';
-
+import DoctorSchedule from './DoctorSchedule';
+import DoctorExtraInfo from './DoctorExtraInfo';
 
 class DetailDoctor extends Component {
     constructor(props) {
         super(props);
         this.state = {
             doctorInfoData: {},
+            currentDoctorId: -1,
         }
     }
 
     async componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
-            let doctorId = this.props.match.params.id
+            let doctorId = this.props.match.params.id;
+            this.setState({
+                currentDoctorId: doctorId
+            })
             //await this.props.getInfoDoctor(doctorId);
             let DoctorInfo = await getInfoDoctorService(doctorId);
             if (DoctorInfo && DoctorInfo.errCode === 0) {
@@ -31,7 +36,6 @@ class DetailDoctor extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
 
     }
-
 
     render() {
         let avatarDoctor = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/6_section_doctor/gs_donhuhon.jpg'
@@ -70,7 +74,18 @@ class DetailDoctor extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className='schedule-doctor container'></div>
+                    <div className='schedule-doctor row'>
+                        <div className='schedule-left col-md-6 col-12'>
+                            <DoctorSchedule
+                                doctorIdParent={this.state.currentDoctorId}
+                            />
+                        </div>
+                        <div className='schedule-right col-md-6 col-12'>
+                            <DoctorExtraInfo
+                                doctorIdParent={this.state.currentDoctorId}
+                            />
+                        </div>
+                    </div>
                     <div className='info-doctor'>
                         <div className='detail-doctor-info-main'>
                             {doctorInfoData && doctorInfoData.Markdown &&

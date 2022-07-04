@@ -22,7 +22,6 @@
         "surgery": "Gói phẫu thuật",
         "product": "Sản phẩm Y tế"
     },
-
     "topnews": {
         "more": "XEM CHI TIẾT",
         "paternity": "Dịch vụ xét nghiệm DNA",
@@ -46,7 +45,6 @@
         "testcovid2": "Có kết quả trong 1-3 ngày",
         "testcovid3": "Miễn phí tư vấn sức khỏe hậu COVID-19"
     },
-
     "specialities": {
         "headline": "CHUYÊN KHOA PHỔ BIẾN",
         "explore": "XEM THÊM",
@@ -83,14 +81,10 @@
         "meditec": "Phòng khám Đa khoa Meditec",
         "dongdo": "Bệnh viện Đa khoa Đông Đô",
         "vinmec": "Bệnh Viện Đa Khoa Quốc Tế Vinmec Times City"
-
     },
     "doctor": {
         "headline": "BÁC SĨ NỔI BẬT",
-        "explore": "XEM THÊM",
-        "intro": "Thêm thông tin giới thiệu",
-        "choose": "Chọn một bác sĩ"
-
+        "explore": "XEM THÊM"
     },
     "handbook": {
         "headline": "CẨM NANG",
@@ -98,13 +92,11 @@
         "themostreputationdentistry": "5 địa chỉ nha khoa uy tín tốt nhất tại Quận 7, TP HCM ",
         "pregnancyhandbook": "Cẩm nang cần thiết dành cho phụ nữ mang thai"
     },
-    
     "fordoctorcentre": {
         "headline": "DÀNH CHO BÁC SĨ VÀ CƠ SỞ Y TẾ",
         "post": "BÀI VIẾT",
         "cooperate": "HỢP TÁC",
         "contact": "LIÊN HỆ",
-
         "upcustomerexperienceinwaitingroom": "Nâng cao trải nghiệm khách hàng tại phòng chờ khám",
         "improvecustomerservice": "5 cách cải thiện hiệu suất cho cơ sở y tế",
         "customerlifetimevalue": "Tính toán giá trị trọn đời của một bệnh nhân"
@@ -195,7 +187,6 @@
         "doctor": {
             "schedule-manage": "Quản lý kế hoạch khám bệnh",
             "doctor-manage": "Dành cho Bác sĩ"
-
         }
     },
     "doctorschedule": {
@@ -237,7 +228,6 @@
             "create-btn": "Tạo người dùng mới",
             "cancel-btn": "Hủy bỏ",
             "edit-btn": "Sửa và Lưu"
-
         },
         "product-manage": {
             "fail-to-load-foprtype": "Không thể tải về danh sách gói",
@@ -288,6 +278,28 @@
             "remove-assign-success": "Bỏ gán gói dịch vụ cho khách hàng thành công",
             "remove-assign-fail": "Bỏ gán gói dịch vụ cho khách hàng thất bại",
             "sure-delete-assign": "Bạn có chắc chắn muốn bỏ gán gói dịch vụ cho khách hàng?"
+        },
+        "managedoctor": {
+            "headlinemanage": "Quản lý thông tin bác sĩ",
+            "intro": "Thêm thông tin giới thiệu",
+            "choosedoctor": "Chọn một bác sĩ",
+            "chooseprice": "Chọn mức giá khám bệnh",
+            "choosepayment": "Chọn phương thức thanh toán",
+            "choosecity": "Chọn một tỉnh/ thành phố",
+            "chooseaddress": "Địa chỉ phòng khám",
+            "chooseclinic": "Chọn một phòng khám",
+            "note": "Lưu ý"
+        }
+    },
+    "patientside": {
+        "detaildoctor": {
+            "schedule": "CHỌN LỊCH KHÁM",
+            "noschedule": "Bác sĩ không có lịch khám vào ngày này, vui lòng đặt lịch khám vào khung giờ của ngày khác."
+        },
+        "detailinfodoctor": {
+            "address": "ĐỊA CHỈ",
+            "fee": "GIÁ KHÁM",
+            "ins": "BẢO HIỂM ÁP DỤNG"
         }
     }
 }

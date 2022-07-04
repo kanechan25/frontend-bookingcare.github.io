@@ -45,7 +45,6 @@
         "testcovid2": "Results in 1-3 days",
         "testcovid3": "Free post-COVID-19 health consultation"
     },
-
     "specialities": {
         "headline": "POPULAR SPECIALTIES",
         "explore": "MORE",
@@ -85,24 +84,19 @@
     },
     "doctor": {
         "headline": "OUTSTANDING DOCTORS",
-        "explore": "MORE",
-        "intro": "More introduction infomation",
-        "choose": "Choose a doctor"
+        "explore": "MORE"
     },
     "handbook": {
         "headline": "HANDBOOKS",
         "post": "ALL POSTS",
         "themostreputationdentistry": "5 of the most reputation Dentistry clinics at 7 District, HCM City",
         "pregnancyhandbook": "The essential handbooks for pregnant women"
-
     },
-
     "fordoctorcentre": {
         "headline": "FOR DOCTORS & MEDICAL CENTRE",
         "post": "ALL POSTS",
         "cooperate": "COOPERATION",
         "contact": "CONTACT",
-
         "upcustomerexperienceinwaitingroom": "How to improve the customers experience in the waiting room?",
         "improvecustomerservice": "5 methods to advance in performance of the medical centre",
         "customerlifetimevalue": "Lifetime value of the customers"
@@ -137,7 +131,6 @@
         "demo": "This is a demo website to demonstrate my abilities.",
         "not": "Not for commercial purpose."
     },
-
     "common": {
         "add": "Add",
         "edit": "Edit",
@@ -194,7 +187,6 @@
         "doctor": {
             "schedule-manage": "Manage Doctor's schedule",
             "doctor-manage": "For Doctors"
-
         }
     },
     "doctorschedule": {
@@ -236,7 +228,6 @@
             "create-btn": "Create a New User",
             "cancel-btn": "Cancel and Back",
             "edit-btn": "Edit and Save"
-
         },
         "product-manage": {
             "fail-to-load-foprtype": "Fail to load packages list",
@@ -287,6 +278,29 @@
             "remove-assign-success": "Unassign service package to customer successfully",
             "remove-assign-fail": "Fail to unassign service package to customer",
             "sure-delete-assign": "Are you sure to unassign service package to customer?"
+        },
+        "managedoctor": {
+            "headlinemanage": "Doctor information management",
+            "intro": "More introduction infomation",
+            "choosedoctor": "Choose a doctor",
+            "chooseprice": "Choose a price",
+            "choosepayment": "Choose a payment",
+            "choosecity": "Choose a city/province",
+            "chooseaddress": "Address of medical centre",
+            "chooseclinic": "Choose a medical centre",
+            "note": "Note"
+        }
+    },
+    "patientside": {
+        "detaildoctor": {
+            "schedule": "CHOOSE SCHEDULE",
+            "noschedule": "The doctor have no schedule today, please make an apointment for another day."
+        },
+        "detailinfodoctor": {
+            "address": "ADDRESS",
+            "fee": "FEES OF SERVICES",
+            "ins": "HEALTH INSURANCE"
+
         }
     }
 }

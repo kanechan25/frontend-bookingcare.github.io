@@ -17,10 +17,11 @@ class HomeFooter extends Component {
         this.props.toggleLanguage(language);
     }
 
-    
+
     render() {
-        // let language = this.props.language;
- 
+        let logo_img = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo.svg';
+        let logo_text = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo_text.svg'
+        let qrcode = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/10_footer/qrcode.png'
         return (
             <React.Fragment>
                 <footer className='footer'>
@@ -51,7 +52,7 @@ class HomeFooter extends Component {
                                     </ul>
                                 </div>
                                 <div className='col-footer service col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
-                                    <span className='title'><FormattedMessage id="footerservice.myservice"/></span>
+                                    <span className='title'><FormattedMessage id="footerservice.myservice" /></span>
                                     <ul className='items'>
                                         <li className='item'>
                                             <a href='' className='item-link'><FormattedMessage id="footerservice.make" /></a>
@@ -74,7 +75,10 @@ class HomeFooter extends Component {
                                     </ul>
                                 </div>
                                 <div className='col-footer contact col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
-                                    <img className='img' src={ logo } />
+                                    <div className='logo-footer'>
+                                        <img className='logo-img' src={logo_img} />
+                                        <img className='logo-text' src={logo_text} />
+                                    </div>
                                     <ul className='items'>
                                         <li className='item name'><FormattedMessage id="footercontact.name" /></li>
                                         <li className='item'>
@@ -94,16 +98,19 @@ class HomeFooter extends Component {
                                 <div className='col-footer download col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
                                     <div className='items'>
                                         <div className='qrcode'>
-                                            <img className='img' src={ qrcode } />
+                                            <img className='img' src={qrcode} />
                                         </div>
                                         <div className='store'>
-                                            <img className='img' src={ google_play } />
-                                            <img className='img' src={ app_store } />
+                                            <img className='img' src={google_play} />
+                                            <img className='img' src={app_store} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className='qrcode-hover'>
+                        <img className='qrcode-hover-img' src={qrcode} />
                     </div>
                     <div className='home-footer-bottom '>
                         <div className='container'>
@@ -111,8 +118,8 @@ class HomeFooter extends Component {
                                 <span className='col-bottom copyright col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-4 col-12'>
                                     &copy; 2022 Copyright.</span>
                                 <span className='col-bottom non-commercial col-xxl-8 col-xl-8 col-lg-7 col-md-8 col-sm-7 col-12'>
-                                    <span><FormattedMessage id="footerbottom.demo"/></span>
-                                    <span><FormattedMessage id="footerbottom.not"/></span>
+                                    <span><FormattedMessage id="footerbottom.demo" /></span>
+                                    <span><FormattedMessage id="footerbottom.not" /></span>
                                 </span>
                                 <div className='col-bottom social-media col-xxl-2 col-xl-2 col-lg-3 col-md-2 col-sm-11 col-12'>
                                     <a className='media-link' href='https://www.facebook.com/khoa2425/'>

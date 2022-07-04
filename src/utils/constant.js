@@ -12,7 +12,7 @@ export const LANGUAGES = {
     VI: 'vi',
     EN: 'en'
 };
- 
+
 export const CRUD_ACTION = {
     CREATE: "CREATE",
     EDIT: "EDIT",
@@ -20,8 +20,8 @@ export const CRUD_ACTION = {
     READ: "READ",
 };
 
-export const dateFormat = {
-    SEND_TO_SERVER: 'DD/MM/YYYY'
+export const DATE = {
+    DATE_FORMAT: 'DD/MM/YYYY'
 };
 
 export const YesNoObj = {

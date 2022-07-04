@@ -1,0 +1,58 @@
+@import '../../../styles/variables';
+
+.doctor-extra-info {
+    .doctor-extra-content {
+        .headline {
+            font-weight: bold;
+            color: $text-subpage;
+            margin-bottom: 8px;
+        }
+        .hide-show-text {
+            font-weight: normal;
+            font-style: italic;
+            font-size: 12.5px;
+            cursor: pointer;
+            color: $text-notice;
+            margin-left: 6px;
+        }
+        .sub-headline {
+            color: $text-subpage;
+            margin: 5px 0px;
+        }
+        .content-text {
+            font-size: 12.5px;
+        }
+        .address {
+            margin-bottom: 10px;
+            .address-name-clinic {
+                font-weight: bold;
+                color: $general-in-light;
+            }
+            .address-detail {
+                font-size: 14px;
+            }
+        }
+        .fees {
+            margin-bottom: 10px;
+            .fees-content {
+                margin-left: 12px;
+                .fees-service {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .fees-amount {
+                        font-weight: 600;
+                        margin-left: 4px;
+                        color: $text-subpage;
+                    }
+                }
+            }
+        }
+        .insurance {
+            .ins-content {
+                margin-left: 12px;
+            }
+        }
+
+    }
+}
