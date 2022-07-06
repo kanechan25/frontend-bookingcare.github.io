@@ -299,7 +299,31 @@
         "detailinfodoctor": {
             "address": "ĐỊA CHỈ",
             "fee": "GIÁ KHÁM",
-            "ins": "BẢO HIỂM ÁP DỤNG"
+            "fee1": "Giá khám:",
+            "fee11": "(Chưa bao gồm chi phí chụp chiếu và dịch vụ khác)",
+            "fee2": "Phòng khám có hình thức thanh toán chi phí bằng ",
+            "fee3": "Được ưu tiên khám trước khi đặt khám qua BookingCare.",
+            "ins": "BẢO HIỂM ÁP DỤNG",
+            "ins1": "Bảo hiểm Y tế Nhà nước",
+            "ins2": "Không áp dụng",
+            "ins3": "Bảo hiểm bảo lãnh trực tiếp",
+            "ins4": "Cơ sở y tế hiện nay có hỗ trợ bảo lãnh trực tiếp và có xuất hóa đơn tài chính (hóa đơn VAT)",
+            "hide": "Ẩn chi tiết",
+            "show": "Xem chi tiết"
+        },
+        "bookingdoctor": {
+            "booking": "ĐẶT LỊCH KHÁM BỆNH",
+            "fee": "Giá khám:",
+            "fee1": "(Chưa bao gồm chi phí chụp chiếu và dịch vụ khác)",
+            "ok": "Đặt lịch khám",
+            "cancel": "Thoát",
+            "name": "Họ và tên của bệnh nhân (*)",
+            "tel": "Số điện thoại (*)",
+            "age": "Tuổi",
+            "gender": "Giới tính",
+            "email": "Email (*)",
+            "address": "Địa chỉ liên hệ",
+            "symptom": "Mô tả lý do khám bệnh"
         }
     }
 }

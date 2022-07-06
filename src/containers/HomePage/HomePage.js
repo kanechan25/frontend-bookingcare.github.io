@@ -59,7 +59,7 @@ class HomePage extends Component {
       slidesToScroll: 4,
       initialSlide: 1,
       useCSS: true,
-      autoplay: true,
+      autoplay: false,
       speed: 1500,
       autoplaySpeed: 4500,
       responsive: [

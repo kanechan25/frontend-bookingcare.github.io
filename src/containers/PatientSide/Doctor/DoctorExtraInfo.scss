@@ -16,11 +16,13 @@
             margin-left: 6px;
         }
         .sub-headline {
-            color: $text-subpage;
+            color: $general-in-light;
             margin: 5px 0px;
         }
         .content-text {
+            color: $text-subpage;
             font-size: 12.5px;
+            font-style: italic;
         }
         .address {
             margin-bottom: 10px;
@@ -38,11 +40,10 @@
                 margin-left: 12px;
                 .fees-service {
                     display: flex;
-                    justify-content: space-between;
                     align-items: center;
                     .fees-amount {
+                        margin-left: 5px;
                         font-weight: 600;
-                        margin-left: 4px;
                         color: $text-subpage;
                     }
                 }

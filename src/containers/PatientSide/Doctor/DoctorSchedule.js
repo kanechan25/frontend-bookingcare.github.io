@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import './DoctorSchedule.scss'
 import * as actions from '../../../store/actions';
+import BookingModal from './Modal/BookingModal';
 import { getScheduleDoctorService } from '../../../services/userService'
 import { LANGUAGES } from '../../../utils';
 import moment from 'moment';
@@ -12,11 +13,23 @@ import { FormattedMessage } from 'react-intl';
 class DoctorSchedule extends Component {
     constructor(props) {
         super(props);
+        this.escFunction = this.escFunction.bind(this);
         this.state = {
             allDays: [],
             availableTime: [],
+            isOpenCreateBookingModal: false,
+            bookingData: {},
+        };
+    }
+    
+    escFunction(event) {
+        if (event.key === "Escape") {
+            this.setState({
+                isOpenCreateBookingModal: false,
+            })
         }
     }
+
     setArrayDate = () => {
         let { language } = this.props;
         let allDays = [];
@@ -51,7 +64,9 @@ class DoctorSchedule extends Component {
         let allDays = this.setArrayDate();
         this.setState({
             allDays: allDays,
-        })
+        });
+        document.addEventListener("keydown", this.escFunction, false);
+
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
@@ -70,6 +85,21 @@ class DoctorSchedule extends Component {
         }
     }
 
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.escFunction, false);
+    }
+
+    handleClickBookingBtn = (item) => {
+        this.setState({
+            isOpenCreateBookingModal: true,
+            bookingData: item,
+        })
+    }
+    toggleBookingModal = () => {
+        this.setState({
+            isOpenCreateBookingModal: !this.state.isOpenCreateBookingModal,
+        })
+    }
 
     render() {
         let { allDays, availableTime } = this.state;
@@ -101,9 +131,8 @@ class DoctorSchedule extends Component {
                                     return (
                                         <button
                                             key={index}
-                                            // className={item.isSelected === true ? 'btn-time btn btn-light active' : 'btn-time btn btn-light'}
                                             className={'btn-time btn btn-light'}
-                                        // onClick={() => this.handleClickBtnTime(item)}
+                                            onClick={() => this.handleClickBookingBtn(item)}
                                         >
                                             {scheduleDisplay}
                                         </button>
@@ -115,6 +144,13 @@ class DoctorSchedule extends Component {
                         </div>
                     </div>
                 </div>
+                <div className='booking-modal'>
+                    <BookingModal 
+                        isOpenCreateBookingModal = {this.state.isOpenCreateBookingModal}
+                        toggleFromParent={this.toggleBookingModal}
+                        bookingData = { this.state.bookingData }
+                    />
+                </div>
             </>
         );
     }
@@ -123,9 +159,9 @@ class DoctorSchedule extends Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
-        doctorDataInfo: state.admin.dataDoctorById,
         language: state.app.language,
         allTime: state.admin.allTime,
+        doctorDataInfo: state.admin.dataDoctorById,
 
     };
 };

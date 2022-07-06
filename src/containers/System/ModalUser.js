@@ -123,7 +123,6 @@ class ModalUser extends Component {
                                             <input type="text" className="form-control " name="firstName" placeholder="Enter your first name" 
                                                 onChange={(e) => {this.handleOnChangeInput(e, 'firstName')}}
                                                 value={this.state.firstName}
-
                                             />
                                         </div>
                                         <div className="form-group mt-3">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import HeaderDoctor from './HeaderDoctor';
-import './DetailDoctor.scss'
+import './DetailDoctor.scss';
 import * as actions from '../../../store/actions';
 import { getInfoDoctorService } from '../../../services/userService'
 import { LANGUAGES } from '../../../utils';

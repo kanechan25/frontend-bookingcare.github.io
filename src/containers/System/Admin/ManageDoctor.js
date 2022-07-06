@@ -53,7 +53,7 @@ class ManageDoctor extends Component {
         this.setState({ selectedOption });
         let { listPrice, listPayment, listCity, listClinic } = this.state;
         let doctorInfoData = await getInfoDoctorService(selectedOption.value)
-        // console.log('Option selected Doctors: ', doctorInfoData);
+        console.log('Option selected Doctors: ', doctorInfoData.data.Doctor_Info);
         if (doctorInfoData && doctorInfoData.data && doctorInfoData.data.Markdown) {
             let markdown = doctorInfoData.data.Markdown
             let selectedPrice = '', selectedPayment = '', selectedCity = '',
@@ -79,25 +79,12 @@ class ManageDoctor extends Component {
                 selectedClinic = listClinic.find(item => {
                     return item && item.value === clinicId;
                 })
-                // selectedPrice = this.props.language === LANGUAGES.VI ?
-                //     doctorInfoData.data.Doctor_Info.priceIdData.valueVi :
-                //     doctorInfoData.data.Doctor_Info.priceIdData.valueEn;
-                // selectedPayment = this.props.language === LANGUAGES.VI ?
-                //     doctorInfoData.data.Doctor_Info.paymentIdData.valueVi :
-                //     doctorInfoData.data.Doctor_Info.paymentIdData.valueEn;
-                // selectedCity = this.props.language === LANGUAGES.VI ?
-                //     doctorInfoData.data.Doctor_Info.provinceIdData.valueVi :
-                //     doctorInfoData.data.Doctor_Info.provinceIdData.valueEn;
-                // selectedClinic = this.props.language === LANGUAGES.VI ?
-                //     doctorInfoData.data.Doctor_Info.clinicIdData.nameVi :
-                //     doctorInfoData.data.Doctor_Info.clinicIdData.nameEn;
             }
             this.setState({
                 htmlContent: markdown.htmlContent,
                 markdownContent: markdown.markdownContent,
                 description: markdown.description,
                 isContainData: true,
-
 
                 selectedPrice: selectedPrice,
                 selectedPayment: selectedPayment,
@@ -161,11 +148,13 @@ class ManageDoctor extends Component {
     }
     buildInputClinicSelect = (inputData, type) => {
         let result = [];
+        let address = '';
         if (inputData && inputData.length > 0) {
             inputData.map((item, index) => {
                 let obj = {}
                 if (type === 'name') {
                     obj.label = this.props.language === LANGUAGES.VI ? item.nameVi : item.nameEn;
+                    obj.address = item.address;
                     obj.value = item.id;
                 } else {
                     obj.label = item[`${type}`];
@@ -255,10 +244,20 @@ class ManageDoctor extends Component {
         this.setState({ ...state })
     }
 
+    handleChangeClinicSelection = async (selectedOption, name) => {
+        let stateName = name.name;
+        let state = { ...this.state };
+        state[stateName] = selectedOption;
+        this.setState({
+            ...state,
+            addressClinic: selectedOption.address
+        })
+    }
+
     render() {
         let arrOriginalDoctors = this.state.arrOriginalDoctors;
         let { isContainData } = this.state;
-        console.log('check state: ', this.state)
+        // console.log('check state here in RENDER: ', this.state)
         return (
             <div className='doctor-management'>
                 <div className="title" > <FormattedMessage id="system.managedoctor.headlinemanage" /></div>
@@ -303,7 +302,6 @@ class ManageDoctor extends Component {
                     </div>
 
                     <div className='detail-info mb-4 row'>
-
                         <div className='select-city col-lg-3 col-6'>
                             <label className='mt-3 mb-1'><FormattedMessage id="system.managedoctor.choosecity" /></label>
                             <Select
@@ -317,7 +315,7 @@ class ManageDoctor extends Component {
                             <label className='mt-3 mb-1'><FormattedMessage id="system.managedoctor.chooseclinic" /></label>
                             <Select
                                 value={this.state.selectedClinic}
-                                onChange={this.handleChangeDoctorInfoSelection}
+                                onChange={this.handleChangeClinicSelection}
                                 options={this.state.listClinic}
                                 name="selectedClinic"
                             />
@@ -328,6 +326,7 @@ class ManageDoctor extends Component {
                                 onChange={(e) => this.handleOnChangeTextInput(e, 'addressClinic')}
                                 value={this.state.addressClinic}
                                 className='form-control'
+                                disabled
                             />
                         </div>
                         <div className='note col-lg-3 col-6'>

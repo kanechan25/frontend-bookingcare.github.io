@@ -299,8 +299,31 @@
         "detailinfodoctor": {
             "address": "ADDRESS",
             "fee": "FEES OF SERVICES",
-            "ins": "HEALTH INSURANCE"
-
+            "fee1": "Fees of services: ",
+            "fee11": "(Have not included digital X-Ray fee and other service fees)",
+            "fee2": "The medical centre accept payment by ",
+            "fee3": "You will be given priority making the appointment if booking through BookingCare.",
+            "ins": "HEALTH INSURANCE",
+            "ins1": "State Health Insurance",
+            "ins2": "Do not apply",
+            "ins3": "Direct guarantee insurance",
+            "ins4": "The facility currently supports direct guarantee insurance and has a financial invoice (VAT invoice)",
+            "hide": "Hide detail",
+            "show": "Show more"
+        },
+        "bookingdoctor": {
+            "booking": "BOOKING APPOINTMENT",
+            "fee": "Fees of services: ",
+            "fee1": "(Have not included digital X-Ray fee and other service fees)",
+            "ok": "Booking",
+            "cancel": "Cancel",
+            "name": "Fullname of Patient (*)",
+            "tel": "Telephone Number (*)",
+            "age": "Age",
+            "gender": "Gender",
+            "email": "Email (*)",
+            "address": "Contact Address",
+            "symptom": "Describe Patient's symptom"
         }
     }
 }
