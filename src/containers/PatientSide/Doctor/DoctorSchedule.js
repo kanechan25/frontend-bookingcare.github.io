@@ -61,12 +61,17 @@ class DoctorSchedule extends Component {
     }
 
     async componentDidMount() {
-        let allDays = this.setArrayDate();
-        this.setState({
-            allDays: allDays,
-        });
         document.addEventListener("keydown", this.escFunction, false);
 
+        let allDays = this.setArrayDate();
+        let doctorId = this.props.doctorIdParent;
+        if (doctorId) {            
+            let res = await getScheduleDoctorService(doctorId, allDays[0].value);
+            this.setState({
+                allDays: allDays,
+                availableTime: res.schedule ? res.schedule : []
+            });
+        }
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {

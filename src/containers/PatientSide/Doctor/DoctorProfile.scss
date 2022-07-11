@@ -45,3 +45,24 @@
 .fees-note {
     font-style: italic;
 }
+.link-show-more {
+    .hide-show-text {
+        font-weight: normal;
+        font-style: italic;
+        font-size: 12.5px;
+        cursor: pointer;
+        color: $text-notice;
+        margin-top: 6px;
+    }
+}
+@media (max-width: 992px) {
+    .intro-doctor-profile {
+        .content-right {
+            .detail-doctor-info {
+                .doctor-title-name {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

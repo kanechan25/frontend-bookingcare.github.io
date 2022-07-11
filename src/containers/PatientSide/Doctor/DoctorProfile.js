@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import './DoctorProfile.scss'
+import { Link } from 'react-router-dom';
+import Router from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import NumberFormat from 'react-number-format';
 import { getDoctorProfileByIdService } from '../../../services/userService';
 import * as actions from '../../../store/actions';
-import { LANGUAGES } from '../../../utils';
+import { LANGUAGES, path } from '../../../utils';
+import './DoctorProfile.scss'
 import _ from 'lodash';
 import moment from 'moment';
 
@@ -33,8 +35,10 @@ class DoctorProfile extends Component {
 
         }
         if (this.props.doctorId !== prevProps.doctorId) {
-            //this.getDoctorProfile(this.props.doctorId)
-
+            let data = await this.getDoctorProfile(this.props.doctorId)
+            this.setState({
+                profileData: data
+            })
         }
     }
 
@@ -69,7 +73,7 @@ class DoctorProfile extends Component {
 
     render() {
         // console.log('props: ', this.props)
-        let { language, isShowDetailDoctor, bookingData } = this.props;
+        let { language, doctorId, isShowDetailDoctor, isShowPrice, isShowLinkDetail, bookingData } = this.props;
         let { profileData } = this.state;
         let titleNameVi = '', titleNameEn = '', doctorPrice = '';
         if (profileData && profileData.titleData) {
@@ -116,13 +120,25 @@ class DoctorProfile extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className='fees-service'>
-                        <FormattedMessage id="patientside.bookingdoctor.fee" />
-                        <div className='fees'>{doctorPrice}</div>
-                    </div>
+
+                    {
+                        isShowPrice === true &&
+                        <div className='fees-service'>
+                            <FormattedMessage id="patientside.bookingdoctor.fee" />
+                            <div className='fees'>{doctorPrice}</div>
+                        </div>
+                    }
                     <div className='fees-note'>
                         <FormattedMessage id="patientside.bookingdoctor.fee1" />
                     </div>
+                    {
+                        isShowLinkDetail === true &&
+                        <div className='link-show-more'>
+                            <Link className='hide-show-text' to={`/detail-doctor/${doctorId}`}>
+                                <FormattedMessage id="patientside.detailinfodoctor.show" />
+                            </Link>
+                        </div>
+                    }
                 </div>
             </>
         );

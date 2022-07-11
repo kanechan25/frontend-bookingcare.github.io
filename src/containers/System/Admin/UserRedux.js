@@ -102,7 +102,6 @@ class UserRedux extends Component {
         let files = e.target.files;
         let file = files[0];
         if (file) {
-
             let base64 = await CommonUtils.getBase64(file)
             let objectUrl = URL.createObjectURL(file);
             this.setState({
@@ -226,7 +225,6 @@ class UserRedux extends Component {
     //#endregion
 
     render() {
-
         let genderArr = this.state.genderArr;
         let titleArr = this.state.titleArr;
         let roleArr = this.state.roleArr;
@@ -255,7 +253,6 @@ class UserRedux extends Component {
                                     value={password}
                                     onChange={(e) => { this.onChangeInput(e, 'password') }}
                                     disabled={this.state.action === CRUD_ACTION.EDIT ? true : false}
-
                                 />
                             </div>
                             <div className="form-group mt-3 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">

@@ -48,21 +48,21 @@
     "specialities": {
         "headline": "POPULAR SPECIALTIES",
         "explore": "MORE",
+        "acupuncture": "Acupuncture",
+        "cardio": "Cardiology and vascular",
+        "children": "Children's care",
         "covid19": "Post-covid 19",
         "dentist": "Dentistry",
+        "dermatology": "Dermatology",
+        "digest": "Digestive health",
         "eyes": "Eye institute",
+        "ent": "Ear, Nose & Throat",
+        "gynecology": "Gynecology",
+        "lung": "Lung medicine",
         "musculoskeletal": "Musculoskeletal medicine",
         "neurosciences": "Neurosciences",
-        "digest": "Digestive health",
         "psychology": "Psychological counseling",
-        "lung": "Lung medicine",
-        "dermatology": "Dermatology",
-        "children": "Children's care",
-        "gynecology": "Gynecology",
-        "acupuncture": "Acupuncture",
-        "tradition": "Traditional medicine",
-        "ent": "Ear, Nose & Throat",
-        "cardio": "Cardiology and vascular"
+        "tradition": "Traditional medicine"
     },
     "centre": {
         "headline": "MEDICAL CENTRE",
@@ -229,56 +229,6 @@
             "cancel-btn": "Cancel and Back",
             "edit-btn": "Edit and Save"
         },
-        "product-manage": {
-            "fail-to-load-foprtype": "Fail to load packages list",
-            "prid": "Package ID",
-            "prname": "Package name",
-            "prtype": "Package type",
-            "status": "Status",
-            "description": "Description",
-            "effective-date": "Effective date",
-            "expiration-date": "Expiration date",
-            "add-product": "Add package",
-            "add-product-success": "Add package successfully",
-            "add-product-fail": "Fail to add package",
-            "edit-product": "Edit package information",
-            "package-decentralize": "Package decentralize",
-            "edit-product-success": "Edit package information successfully",
-            "edit-product-fail": "Fail to edit package information",
-            "delete-product-success": "Delete package successfully",
-            "delete-product-fail": "Fail to delete package",
-            "invalid-input": {
-                "prid": "Please fill in package ID",
-                "prname": "Please fill in package name"
-            },
-            "fail-to-load-decentralize-info": "Fail to load decentralize info",
-            "save-decentralize-success": "Save decentralization successfully",
-            "save-decentralize-fail": "Fail to save decentralization",
-            "sure-delete-package": "Are you sure to delete this package?"
-        },
-        "register-package-group-or-acc": {
-            "assign-service-package-to-customer": "Assign service package to customer",
-            "package-name": "Package name",
-            "assign-type": "Assign type",
-            "cust-acc-group": "Customer/account group",
-            "effective-date": "Effective date",
-            "expiration-date": "Expiration date",
-            "assign": "Assign",
-            "manage-assign-groups": "Manage assign groups",
-            "group-cust-acc-name": "Group/customer account name",
-            "del-assign": "Del assign",
-            "fail-to-load-manage-assign-groups-list": "Fail to load manage assign groups list",
-            "invalid-selected": {
-                "currentfoProduct": "Invalid package",
-                "currentAssignType": "Invalid assign type",
-                "currentFoUser": "Invalid customer/account group"
-            },
-            "assign-service-package-to-customer-success": "Assign service package to customer successfully",
-            "assign-service-package-to-customer-fail": "Fail to assign service package to customer",
-            "remove-assign-success": "Unassign service package to customer successfully",
-            "remove-assign-fail": "Fail to unassign service package to customer",
-            "sure-delete-assign": "Are you sure to unassign service package to customer?"
-        },
         "managedoctor": {
             "headlinemanage": "Doctor information management",
             "intro": "More introduction infomation",
@@ -288,7 +238,15 @@
             "choosecity": "Choose a city/province",
             "chooseaddress": "Address of medical centre",
             "chooseclinic": "Choose a medical centre",
+            "choosespecialty": "Choose a specialty",
             "note": "Note"
+        },
+        "managespecialty": {
+            "headline": "Specialty management",
+            "namevi": "Enter a Vietnamese name of new specialty",
+            "nameen": "Enter a English name of new specialty",
+            "img": "Paste a image link for the specialty",
+            "description": "Enter description of the specialty"
         }
     },
     "patientside": {
@@ -300,7 +258,7 @@
             "address": "ADDRESS",
             "fee": "FEES OF SERVICES",
             "fee1": "Fees of services: ",
-            "fee11": "(Have not included digital X-Ray fee and other service fees)",
+            "fee11": "(Have not included digital X-Ray fee or other service fees)",
             "fee2": "The medical centre accept payment by ",
             "fee3": "You will be given priority making the appointment if booking through BookingCare.",
             "ins": "HEALTH INSURANCE",

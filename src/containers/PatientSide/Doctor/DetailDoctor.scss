@@ -11,117 +11,6 @@ a {
     color: $text-in-light;
 }
 
-.home-header-container {
-    .home-header-content {
-        .left-doctor-content {
-            display: flex;
-            align-items: center;
-            justify-content: left;
-            max-width: 190px;
-            min-width: 66px;
-            .fa-backward {
-                font-size: 18px;
-                color: green;
-                border: 1px solid $border-in-light;
-                border-radius: 4px;
-                padding: 4px;
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-            .logo-both {
-                display: flex;
-                align-items: center;
-                justify-content: left;
-                .header-logo {
-                    &:hover {
-                        cursor: pointer;
-                    }
-                    &.logo {
-                        margin-left: 6px;
-                        width: $width-logo-header;
-                    }
-                    &.text {
-                        width: $width-text-header;
-                    }
-                }
-            }
-        }
-        .center-doctor-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .headline {
-                font-size: 18px;
-                font-weight: 600;
-            }
-            .headline-header-name {
-                margin-left: 10px;
-            }
-
-        }
-        .right-doctor-content {
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            .help {
-                margin-right: 2px;
-                padding-top: 4px;
-            }
-            i {
-                margin-right: 4px;
-                cursor: pointer;
-            }
-            .dark-mode {
-                .btn {
-                    display: flex;
-                    align-items: center;
-                    .dark-mode-icon.active {
-                        color: $general-in-light;
-                        font-size: 19px;
-                        padding: 1px 2px 0 6px;
-                    }
-                }
-            }
-            .languages {
-                display: flex;
-                .language {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    cursor: pointer;
-                    .btn {
-                        height: 18px;
-                        width: 18px;
-                        border-radius: 50%;
-                        margin-left: 10px;
-                        opacity: 0.5;
-                        &.active {
-                            opacity: 1;
-                        }
-                    }
-                    .lang-logo-vi {
-                        background: url('../../../assets/images/1_header/flag_of_vi.svg') center center no-repeat;
-                        background-size: 155%;
-                    }
-                    .lang-logo-en {
-                        background: url('../../../assets/images/1_header/flag_of_en.svg') center center no-repeat;
-                        background-size: 100%;
-                    }
-                }
-            }
-            .fa-bars {
-                font-size: 22px;
-                margin-left: 10px;
-                color: green;
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-}
-
 .intro-doctor {
     display: flex;
     padding-top: 20px;
@@ -193,18 +82,11 @@ a {
 }
 
 @media (max-width: 992px) {
-    .home-header-container {
-        .home-header-content {
-            display: flex;
-            .center-doctor-content {
-                flex-direction: column;
-
-                .headline {
-                    font-size: 16px;
+    .intro-doctor {
+        .content-right {
+            .detail-doctor-info {
+                .doctor-title-name {
                     text-align: center;
-                }
-                .headline-header-name {
-                    margin-left: 0px;
                 }
             }
         }
@@ -212,47 +94,10 @@ a {
 }
 
 @media (max-width: 768px) {
-    .home-header-container {
-        .home-header-content {
-            display: flex;
-            .left-doctor-content {
-                .logo-both {
-                    .header-logo.text {
-                        display: none;
-                    }
-                }
-            }
-            .center-doctor-content {
-                .headline {
-                    font-size: 14px;
-                }
-            }
-            .right-doctor-content {
-                justify-content: right;
-                .help {
-                    display: none;
-                }
-            }
-        }
-    }
+
 }
 @media (max-width: 576px) {
-    .home-header-container {
-        .home-header-content {
-            display: flex;
-            .right-doctor-content {
-                justify-content: right;
-                .languages, .dark-mode {
-                    display: none;
-                }
-            }
-            .center-doctor-content {
-                .headline {
-                    font-size: 13px;
-                }
-            }
-        }
-    }    
+  
 }
 
 @media (max-width: 430px) {

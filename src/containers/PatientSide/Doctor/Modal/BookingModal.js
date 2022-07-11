@@ -9,6 +9,7 @@ import Select from 'react-select';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import _ from 'lodash';
+import moment from 'moment';
 
 import * as actions from '../../../../store/actions';
 import { LANGUAGES } from '../../../../utils';
@@ -49,7 +50,7 @@ class BookingModal extends Component {
             })
         }
         if (this.props.bookingData !== prevProps.bookingData) {
-            if (this.props.bookingData && !_.isEmpty(this.props.bookingData)) {                
+            if (this.props.bookingData && !_.isEmpty(this.props.bookingData)) {
                 this.setState({
                     doctorId: this.props.bookingData.doctorId,
                     timeType: this.props.bookingData.timeType,
@@ -69,13 +70,39 @@ class BookingModal extends Component {
             ...copyState
         })
     }
+    renderBookingSchedule = (bookingData) => {
+        let { language } = this.props;
+        if (bookingData && !_.isEmpty(bookingData)) {
+            let scheduleTime = language === LANGUAGES.VI ?
+                bookingData.timeTypeData.valueVi : bookingData.timeTypeData.valueEn;
+            let date = language === LANGUAGES.VI ?
+                moment.unix(+bookingData.date / 1000).format('ddd - DD/MM/YYYY') :
+                moment.unix(+bookingData.date / 1000).locale('en').format('ddd - MM/DD/YYYY');
+            return `${scheduleTime} - ${date}`
+        } else {
+            return ''
+        }
+    }
+    renderDoctorInfo = (bookingData) => {
+        let { language } = this.props;
+        if (bookingData && !_.isEmpty(bookingData)) {
+            let doctorInfo = language === LANGUAGES.VI ?
+                `${bookingData.doctorData.titleData.valueVi} ${bookingData.doctorData.lastName} ${bookingData.doctorData.firstName}` :
+                `${bookingData.doctorData.titleData.valueEn} ${bookingData.doctorData.firstName} ${bookingData.doctorData.lastName}`
+            return doctorInfo;
+        } else {
+            return ''
+        }
+    }
     handleAddNewBooking = async () => {
         //validate
         let { fullName, telNum, email } = this.state;
         if (fullName && telNum && email &&
-            fullName !== '' && telNum !== '' && email !== '') {            
+            fullName !== '' && telNum !== '' && email !== '') {
             //save booking appointment
             console.log('state finally before sending: ', this.state)
+            let timeString = this.renderBookingSchedule(this.props.bookingData);
+            let doctorInfo = this.renderDoctorInfo(this.props.bookingData);
             let res = await postBookingAppointmentService({
                 doctorId: this.state.doctorId,
                 fullName: this.state.fullName,
@@ -87,6 +114,9 @@ class BookingModal extends Component {
                 symptom: this.state.symptom,
                 timeType: this.state.timeType,
                 date: this.state.date,
+                language: this.props.language,
+                timeString: timeString,
+                doctorInfo: doctorInfo,
             });
             if (res && res.errCode === 0) {
                 toast.success('You have booked successful! Please check your email!')
@@ -125,6 +155,8 @@ class BookingModal extends Component {
                                         <DoctorProfile
                                             doctorId={doctorId}
                                             isShowDetailDoctor={false}
+                                            isShowLinkDetail={false}
+                                            isShowPrice={true}
                                             bookingData={bookingData}
                                         />
                                     </div>
@@ -132,15 +164,15 @@ class BookingModal extends Component {
                                         <div className="form-group col-md-6 col-12 mt-4">
                                             <FormattedMessage id="patientside.bookingdoctor.name" />
                                             <input type="text" className="form-control " name="fullName"
-                                            onChange={(e) => {this.handleOnChangeInput(e, 'fullName')}}
-                                            value={this.state.fullName}
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'fullName') }}
+                                                value={this.state.fullName}
                                             />
                                         </div>
                                         <div className="form-group col-md-6 col-12 mt-4">
                                             <FormattedMessage id="patientside.bookingdoctor.tel" />
                                             <input type="text" className="form-control " name="telNum"
-                                            onChange={(e) => {this.handleOnChangeInput(e, 'telNum')}}
-                                            value={this.state.telNum}
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'telNum') }}
+                                                value={this.state.telNum}
                                             />
                                         </div>
                                     </div>
@@ -148,14 +180,14 @@ class BookingModal extends Component {
                                         <div className="form-group col-md-6 col-12 mt-4">
                                             <FormattedMessage id="patientside.bookingdoctor.age" />
                                             <input type="text" className="form-control " name="age"
-                                            onChange={(e) => {this.handleOnChangeInput(e, 'age')}}
-                                            value={this.state.age}
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'age') }}
+                                                value={this.state.age}
                                             />
                                         </div>
                                         <div className="form-group col-md-6 col-12 mt-4">
                                             <FormattedMessage id="patientside.bookingdoctor.gender" />
                                             <select name="gender" className="form-control "
-                                                onChange={(e) => {this.handleOnChangeInput(e, 'gender')}}
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'gender') }}
                                                 value={this.state.gender}
                                             >
                                                 {genderArr && genderArr.length > 0 &&
@@ -174,15 +206,15 @@ class BookingModal extends Component {
                                         <div className="form-group col-md-6 col-12 mt-4">
                                             <FormattedMessage id="patientside.bookingdoctor.address" />
                                             <input type="text" className="form-control " name="address"
-                                            onChange={(e) => {this.handleOnChangeInput(e, 'address')}}
-                                            value={this.state.address}
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'address') }}
+                                                value={this.state.address}
                                             />
                                         </div>
                                         <div className="form-group col-md-6 col-12 mt-4">
                                             <FormattedMessage id="patientside.bookingdoctor.email" />
                                             <input type="email" className="form-control " name="email"
-                                            onChange={(e) => {this.handleOnChangeInput(e, 'email')}}
-                                            value={this.state.email}
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'email') }}
+                                                value={this.state.email}
                                             />
                                         </div>
                                     </div>
@@ -190,8 +222,8 @@ class BookingModal extends Component {
                                         <div className="form-group col-12 mt-4">
                                             <FormattedMessage id="patientside.bookingdoctor.symptom" />
                                             <input type="text" className="form-control " name="symptom"
-                                            onChange={(e) => {this.handleOnChangeInput(e, 'symptom')}}
-                                            value={this.state.symptom}
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'symptom') }}
+                                                value={this.state.symptom}
                                             />
                                         </div>
                                     </div>
@@ -203,7 +235,7 @@ class BookingModal extends Component {
                             <Button
                                 color="primary"
                                 className={'px-3'}
-                                onClick={() => {this.handleAddNewBooking()}}
+                                onClick={() => { this.handleAddNewBooking() }}
                             ><FormattedMessage id="patientside.bookingdoctor.ok" />
                             </Button>
 
@@ -233,7 +265,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getInfoDoctor: (id) => dispatch(actions.getInfoDoctor(id)),
-        fetchGenderById:() => dispatch(actions.fetchGenderStart()),
+        fetchGenderById: () => dispatch(actions.fetchGenderStart()),
     };
 };
 

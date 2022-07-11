@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import HeaderDoctor from './HeaderDoctor';
+import HeaderDetailPage from '../HeaderDetailPage';
 import './DetailDoctor.scss';
 import * as actions from '../../../store/actions';
 import { getInfoDoctorService } from '../../../services/userService'
@@ -23,7 +23,7 @@ class DetailDoctor extends Component {
             this.setState({
                 currentDoctorId: doctorId
             })
-            //await this.props.getInfoDoctor(doctorId);
+
             let DoctorInfo = await getInfoDoctorService(doctorId);
             if (DoctorInfo && DoctorInfo.errCode === 0) {
                 this.setState({
@@ -49,7 +49,9 @@ class DetailDoctor extends Component {
         }
         return (
             <>
-                <HeaderDoctor />
+                <HeaderDetailPage
+                    isDoctor={true}
+                />
                 <div className='doctor-container container'>
                     <div className='intro-doctor row'>
                         <div className='content-left col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-11 col-11'>

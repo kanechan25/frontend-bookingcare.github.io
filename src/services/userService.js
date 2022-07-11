@@ -16,9 +16,7 @@ const createNewUserService = (data) => {
 
 const deleteUserService = (userId) => {
     return axios.delete('/api/delete-user', {
-        data: {
-            id: userId,
-        }
+        data: { id: userId }
     });
 
 }
@@ -70,6 +68,18 @@ const getDoctorProfileByIdService = (doctorId) => {
 const postBookingAppointmentService = (data) => {
     return axios.post(`/api/patient-booking-appointment`, data);
 }
+const postVerifyBookingAppointmentService = (data) => {
+    return axios.post(`/api/patient-verify-booking-appointment`, data);
+}
+const createNewSpecialtyService = (data) => {
+    return axios.post(`/api/create-new-specialty`, data);
+}
+const getAllSpecialtyService = () => {
+    return axios.get(`/api/get-all-specialty`);
+}
+const getSpecialtyByIdService = (data) => {
+    return axios.get(`/api/get-specialty-by-id?id=${data.id}&provinceId=${data.provinceId}`);
+}
 
 export {
     handleLoginApi,
@@ -88,4 +98,8 @@ export {
     getExtraInfoByIdService,
     getDoctorProfileByIdService,
     postBookingAppointmentService,
+    postVerifyBookingAppointmentService,
+    createNewSpecialtyService,
+    getAllSpecialtyService,
+    getSpecialtyByIdService,
 } 
