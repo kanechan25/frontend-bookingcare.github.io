@@ -63,6 +63,9 @@ const getAllClinicService = () => {
 const getClinicByIdService = (data) => {
     return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`);
 }
+const saveInfoClinicService = (data) => {
+    return axios.post(`/api/save-info-clinic`, data);
+}
 
 // DETAIL DOCTORS
 const getExtraInfoByIdService = (doctorId) => {
@@ -114,4 +117,5 @@ export {
     getSpecialtyByIdService,
     createClinicService,
     getClinicByIdService,
+    saveInfoClinicService,
 } 

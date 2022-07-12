@@ -244,19 +244,19 @@
         },
         "managespecialty": {
             "headline": "Specialty management",
-            "namevi": "Enter a Vietnamese name of new specialty",
-            "nameen": "Enter a English name of new specialty",
-            "img": "Paste a image link for the specialty",
-            "description": "Enter description of the specialty"
+            "namevi": "Vietnamese name of new specialty",
+            "nameen": "English name of new specialty",
+            "img": "An image link for the specialty",
+            "description": "Description of the specialty"
         },
         "manageclinic": {
             "headline1": "Create A Medical Center",
             "headline2": "Medical Center management",
-            "namevi": "Enter a Vietnamese name of new clinic",
-            "nameen": "Enter a English name of new clinic",
-            "img": "Paste a image link for the clinic",
-            "address": "Enter a address of new clinic",
-            "description": "Enter description of the clinic"
+            "namevi": "Vietnamese name of new clinic",
+            "nameen": "English name of new clinic",
+            "img": "An image link for the clinic",
+            "address": "Address of new clinic",
+            "description": "Description of the clinic"
         }
     },
     "patientside": {

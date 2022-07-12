@@ -20,18 +20,16 @@ class DetailClinic extends Component {
         this.state = {
             arrDoctorId: [],
             dataDetailClinic: [],
-
         }
     }
 
     async componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
             let clinicId = this.props.match.params.id;
-
             let clinicData = await getClinicByIdService({
                 id: clinicId,
             });
-            console.log('check Clinic Data: ', clinicData)
+            // console.log('check Clinic Data: ', clinicData)
             
             if (clinicData && clinicData.errCode === 0) {
                 let arrDoctorId = [];

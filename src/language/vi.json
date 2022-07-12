@@ -244,19 +244,19 @@
         },
         "managespecialty": {
             "headline": "Quản lý thông tin các chuyên khoa",
-            "namevi": "Thêm tên Tiếng Việt của chuyên khoa",
-            "nameen": "Thêm tên Tiếng Anh của chuyên khoa",
-            "img": "Thêm link (url) hình ảnh cho chuyên khoa",
-            "description": "Thêm mô tả cho chuyên khoa"
+            "namevi": "Tên Tiếng Việt của chuyên khoa",
+            "nameen": "Tên Tiếng Anh của chuyên khoa",
+            "img": "Link (url) hình ảnh cho chuyên khoa",
+            "description": "Mô tả cho chuyên khoa"
         },
         "manageclinic": {
             "headline1": "Tạo mới một cơ sở y tế",
             "headline2": "Quản lý thông tin các cơ sở y tế",
-            "namevi": "Thêm tên Tiếng Việt của cơ sở y tế",
-            "nameen": "Thêm tên Tiếng Anh của cơ sở y tế",
-            "img": "Thêm link (url) hình ảnh cho cơ sở y tế",
-            "address": "Thêm địa chỉ cho cơ sở y tế",
-            "description": "Thêm mô tả cho cơ sở y tế"
+            "namevi": "Tên Tiếng Việt của cơ sở y tế",
+            "nameen": "Tên Tiếng Anh của cơ sở y tế",
+            "img": "Link (url) hình ảnh cho cơ sở y tế",
+            "address": "Địa chỉ cho cơ sở y tế",
+            "description": "Mô tả cho cơ sở y tế"
         }
     },
     "patientside": {
