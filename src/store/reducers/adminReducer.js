@@ -11,6 +11,7 @@ const initialState = {
     dataDoctorById: [],
     allTime: [],
     allRequiredDoctorInfo: [],
+    allClinic: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -78,6 +79,7 @@ const adminReducer = (state = initialState, action) => {
                 ...state
             }
         // #endregion
+
         case actionTypes.FETCH_ALL_USER_SUCCESS:
             state.users = action.users;
             return {
@@ -136,6 +138,16 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_REQUIRED_DOCTOR_INFO_FAILED:
             state.allRequiredDoctorInfo = [];
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_CLINIC_SUCCESS:
+            state.allClinic = action.allClinicData;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_CLINIC_FAILED:
+            state.allClinic = [];
             return {
                 ...state
             }

@@ -17,7 +17,7 @@ import Doctor from '../routes/Doctor';
 import DetailDoctor from './PatientSide/Doctor/DetailDoctor';
 import VerifyBooking from './PatientSide/Doctor/VerifyBooking';
 import DetailSpecialty from './PatientSide/Specialty/DetailSpecialty';
-
+import DetailClinic from './PatientSide/Clinic/DetailClinic';
 import ConfirmModal from '../components/ConfirmModal';
 import HomePage from './HomePage/HomePage';
 import CustomScrollbars from '../components/CustomScrollbars'
@@ -57,8 +57,9 @@ class App extends Component {
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={path.AD_DOCTOR} component={userIsAuthenticated(Doctor)} />
-                                    <Route path={path.DOCTOR} component={DetailDoctor} />
-                                    <Route path={path.SPECIALTY} component={DetailSpecialty} />
+                                    <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
+                                    <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
+                                    <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
                                     <Route path={path.VERIFY_BOOKING} component={VerifyBooking} />
                                 </Switch>
                             </div>

@@ -65,7 +65,7 @@ class Speciality extends Component {
                                                     <div className='slider'>
                                                         <img className='img col' src={item.image} />
                                                     </div>
-                                                    <span className='slider-title'>
+                                                    <span className='specialty-title'>
                                                         <b>
                                                             {language === LANGUAGES.VI ? item.nameVi : item.nameEn}
                                                         </b>

@@ -14,6 +14,7 @@ export const adminMenu = [
         name: 'menu.admin.centre',
         menus: [
             { name: 'menu.admin.centre-manage', link: '/system/medical-centre-manage' },
+            { name: 'menu.admin.create-centre', link: '/system/create-medical-centre' },
         ]
     },
     { //2. Speciality Management Tab

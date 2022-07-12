@@ -43,6 +43,14 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
+                    transition: transform 200ms linear;
+                    &:hover {
+                        transform: scale(1.02);
+                        .clinic-title, .specialty-title,
+                        .doctor-title, .doctor-subtitle {
+                            color: blueviolet;
+                        }
+                    }
                     .slider {
                         .img {
                             z-index: 1;
@@ -164,6 +172,31 @@
     }
 }
 
+.section-centre {
+    .carousel {
+        .slide {
+            .slider-link {
+                .clinic-title {
+                    text-align: center;
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+.section-speciality {
+    .carousel {
+        .slide {
+            .slider-link {
+                .specialty-title {
+                    text-align: center;
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+}
 .section-handbook, .section-fordoctorcentre {
     height: auto;
     .carousel {
@@ -317,8 +350,8 @@
                 }
             }
             .slick-arrow {
-                height: 40px;
-                width: 40px;
+                height: 38px;
+                width: 38px;
             }
         }
     }

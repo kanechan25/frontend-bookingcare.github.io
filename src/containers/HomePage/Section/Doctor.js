@@ -54,34 +54,35 @@ class Doctor extends Component {
                         </div>
                         <div className='carousel row'>
                             <Slider {...this.props.settings}>
-                                {arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
-                                    let titleNameVi = `${item.titleData.valueVi} ${item.lastName} ${item.firstName}`;
-                                    let titleNameEn = `${item.titleData.valueEn} ${item.firstName} ${item.lastName}`;
-                                    let imgBase64 = '';
-                                    if (item.image) {
-                                        imgBase64 = Buffer.from(item.image, 'base64').toString('binary');
-                                    }
-                                    return (
-                                        <div className='slide'
-                                            key={index}
-                                            onClick={() => this.handleDetailDoctor(item)}
-                                        >
-                                            <div className='slider-link'>
-                                                <div className='slider'>
-                                                    <img className='img col'
-                                                        style={{ backgroundImage: `url(${imgBase64})` }}
-                                                    />
-                                                </div>
-                                                <span className='doctor-title'>
-                                                    <b>{language === LANGUAGES.VI ? titleNameVi : titleNameEn}</b>
-                                                </span>
-                                                <span className='doctor-subtitle'>
+                                {
+                                    arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
+                                        let titleNameVi = `${item.titleData.valueVi} ${item.lastName} ${item.firstName}`;
+                                        let titleNameEn = `${item.titleData.valueEn} ${item.firstName} ${item.lastName}`;
+                                        let imgBase64 = '';
+                                        if (item.image) {
+                                            imgBase64 = Buffer.from(item.image, 'base64').toString('binary');
+                                        }
+                                        return (
+                                            <div className='slide'
+                                                key={index}
+                                                onClick={() => this.handleDetailDoctor(item)}
+                                            >
+                                                <div className='slider-link'>
+                                                    <div className='slider'>
+                                                        <img className='img col'
+                                                            style={{ backgroundImage: `url(${imgBase64})` }}
+                                                        />
+                                                    </div>
+                                                    <span className='doctor-title'>
+                                                        <b>{language === LANGUAGES.VI ? titleNameVi : titleNameEn}</b>
+                                                    </span>
+                                                    <span className='doctor-subtitle'>
 
-                                                </span>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )
-                                })
+                                        )
+                                    })
                                 }
                             </Slider>
                         </div>
@@ -105,7 +106,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         toggleLanguage: (language) => dispatch(changeLanguageApp(language)),
-        loadDoctor: () => dispatch(action.fetchDoctor())
+        loadDoctor: () => dispatch(action.fetchDoctor()),
     };
 };
 

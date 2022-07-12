@@ -364,3 +364,29 @@ const fetchRequiredDoctorInfoSuccess = (AllRequiredData) => ({
 const fetchRequiredDoctorInfoFailed = () => ({
     type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_FAILED
 })
+
+export const fetchAllClinic = () => {
+    return async (dispatch, getState) => {
+        try {
+            let resClinic = await getAllClinicService();
+            // console.log('resClinic: ', resClinic)
+            if (resClinic && resClinic.errCode === 0) {
+                dispatch(fetchAllClinicSuccess(resClinic));
+            } else {
+                dispatch(fetchAllClinicFailed());
+                toast.error('fetch all Clinics failed!')
+            }
+        } catch (error) {
+            toast.error('fetch all Clinics failed!')
+            console.log('fetch all Clinics Failed: ', error)
+        }
+    }
+}
+const fetchAllClinicSuccess = (resClinic) => ({
+    type: actionTypes.FETCH_ALL_CLINIC_SUCCESS,
+    allClinicData: resClinic.data
+})
+const fetchAllClinicFailed = () => ({
+    type: actionTypes.FETCH_ALL_CLINIC_FAILED,
+})
+

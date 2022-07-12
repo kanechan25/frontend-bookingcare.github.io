@@ -11,14 +11,12 @@ const getAllUser = (inputId) => {
 const createNewUserService = (data) => {
     console.log('data in axios.post will be: ', data)
     return axios.post('/api/create-new-user', data);
-
 }
 
 const deleteUserService = (userId) => {
     return axios.delete('/api/delete-user', {
         data: { id: userId }
     });
-
 }
 
 const editUserService = (inputData) => {
@@ -28,6 +26,8 @@ const editUserService = (inputData) => {
 const getAllCodeService = (inputType) => {
     return axios.get(`/api/allcode?type=${inputType}`)
 }
+
+// DOCTORS
 const getDoctorHomeService = (limit) => {
     return axios.get(`/api/top-doctor?limit=${limit}`);
 }
@@ -53,10 +53,18 @@ const getScheduleDoctorService = (doctorId, date) => {
 }
 
 
+// CLINICS
+const createClinicService = (data) => {
+    return axios.post(`/api/create-clinics`, data);
+}
 const getAllClinicService = () => {
     return axios.get(`/api/get-all-clinics`);
 }
+const getClinicByIdService = (data) => {
+    return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`);
+}
 
+// DETAIL DOCTORS
 const getExtraInfoByIdService = (doctorId) => {
     return axios.get(`/api/get-extra-info-by-id?doctorId=${doctorId}`);
 }
@@ -71,6 +79,8 @@ const postBookingAppointmentService = (data) => {
 const postVerifyBookingAppointmentService = (data) => {
     return axios.post(`/api/patient-verify-booking-appointment`, data);
 }
+
+// SPECIALTIES
 const createNewSpecialtyService = (data) => {
     return axios.post(`/api/create-new-specialty`, data);
 }
@@ -102,4 +112,6 @@ export {
     createNewSpecialtyService,
     getAllSpecialtyService,
     getSpecialtyByIdService,
+    createClinicService,
+    getClinicByIdService,
 } 

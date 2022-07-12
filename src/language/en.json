@@ -179,6 +179,7 @@
             "crud-redux": "CRUD Users - Redux",
             "centre": "Medical Centre",
             "centre-manage": "Medical Centre Management",
+            "create-centre": "Create A Medical Centre",
             "speciality": "Specialities",
             "speciality-manage": "Speciality Management",
             "handbook": "Handbooks",
@@ -247,6 +248,15 @@
             "nameen": "Enter a English name of new specialty",
             "img": "Paste a image link for the specialty",
             "description": "Enter description of the specialty"
+        },
+        "manageclinic": {
+            "headline1": "Create A Medical Center",
+            "headline2": "Medical Center management",
+            "namevi": "Enter a Vietnamese name of new clinic",
+            "nameen": "Enter a English name of new clinic",
+            "img": "Paste a image link for the clinic",
+            "address": "Enter a address of new clinic",
+            "description": "Enter description of the clinic"
         }
     },
     "patientside": {

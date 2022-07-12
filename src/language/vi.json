@@ -178,7 +178,8 @@
             "crud": "Chỉnh sửa người dùng",
             "crud-redux": "Chỉnh sửa bằng Redux",
             "centre": "Trung tâm Y tế",
-            "centre-manage": "Quản lý trung tâm Y tế",
+            "centre-manage": "Quản lý Cơ sở Y tế",
+            "create-centre": "Tạo mới Cơ sở Y tế",
             "speciality": "Chuyên khoa",
             "speciality-manage": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
@@ -242,11 +243,20 @@
             "note": "Lưu ý"
         },
         "managespecialty": {
-            "headline": "Quản lý thông tin các Chuyên Khoa",
+            "headline": "Quản lý thông tin các chuyên khoa",
             "namevi": "Thêm tên Tiếng Việt của chuyên khoa",
             "nameen": "Thêm tên Tiếng Anh của chuyên khoa",
             "img": "Thêm link (url) hình ảnh cho chuyên khoa",
             "description": "Thêm mô tả cho chuyên khoa"
+        },
+        "manageclinic": {
+            "headline1": "Tạo mới một cơ sở y tế",
+            "headline2": "Quản lý thông tin các cơ sở y tế",
+            "namevi": "Thêm tên Tiếng Việt của cơ sở y tế",
+            "nameen": "Thêm tên Tiếng Anh của cơ sở y tế",
+            "img": "Thêm link (url) hình ảnh cho cơ sở y tế",
+            "address": "Thêm địa chỉ cho cơ sở y tế",
+            "description": "Thêm mô tả cho cơ sở y tế"
         }
     },
     "patientside": {
