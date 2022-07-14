@@ -187,6 +187,7 @@
         },
         "doctor": {
             "schedule-manage": "Quản lý kế hoạch khám bệnh",
+            "patient-manage": "Quản lý bệnh nhân",
             "doctor-manage": "Dành cho Bác sĩ"
         }
     },
@@ -194,6 +195,17 @@
         "schedule-headline": "Quản lý lịch hẹn của bác sĩ",
         "label-doctor": "Chọn bác sĩ",
         "label-date": "Chọn ngày hẹn"
+    },
+    "doctorpatient": {
+        "patient-headline": "Quản lý bệnh nhân",
+        "label-doctor": "Chọn một Bác sĩ",
+        "label-date": "Chọn ngày hẹn",
+        "prescription-headline": "KẾT LUẬN KHÁM BỆNH",
+        "email": "Email của bệnh nhân",
+        "file": "Thêm kết quả khám bệnh",
+        "conclusion": "Bạn vừa khám xong cho bệnh nhân ",
+        "ok": "Gửi",
+        "cancel": "Cancel"
     },
     "system": {
         "user-manage": {
@@ -285,7 +297,8 @@
             "fee1": "(Chưa bao gồm chi phí chụp chiếu và dịch vụ khác)",
             "ok": "Đặt lịch khám",
             "cancel": "Thoát",
-            "name": "Họ và tên của bệnh nhân (*)",
+            "firstname": "Họ của bệnh nhân (*)",
+            "lastname": "Tên (+ tên đệm) của bệnh nhân (*)",
             "tel": "Số điện thoại (*)",
             "age": "Tuổi",
             "gender": "Giới tính",

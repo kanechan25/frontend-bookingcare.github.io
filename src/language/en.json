@@ -187,6 +187,7 @@
         },
         "doctor": {
             "schedule-manage": "Manage Doctor's schedule",
+            "patient-manage": "Manage Doctor's patient",
             "doctor-manage": "For Doctors"
         }
     },
@@ -194,6 +195,17 @@
         "schedule-headline": "Doctor's Appointment Management",
         "label-doctor": "Choose a doctor",
         "label-date": "Choose a date"
+    },
+    "doctorpatient": {
+        "patient-headline": "Doctor's Patients Management",
+        "label-doctor": "Choose a doctor",
+        "label-date": "Choose a date",
+        "prescription-headline": "CONCLUSION & PRESCRIPTION",
+        "email": "Patient's email",
+        "file": "Add a prescription",
+        "conclusion": "You have just prescribed for patient ",
+        "ok": "Send",
+        "cancel": "Cancel"
     },
     "system": {
         "user-manage": {
@@ -285,7 +297,8 @@
             "fee1": "(Have not included digital X-Ray fee and other service fees)",
             "ok": "Booking",
             "cancel": "Cancel",
-            "name": "Fullname of Patient (*)",
+            "firstname": "Firstname of Patient (*)",
+            "lastname": "Lastname of Patient (*)",
             "tel": "Telephone Number (*)",
             "age": "Age",
             "gender": "Gender",

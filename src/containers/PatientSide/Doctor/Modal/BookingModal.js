@@ -10,6 +10,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import _ from 'lodash';
 import moment from 'moment';
+import LoadingOverlay from 'react-loading-overlay';
 
 import * as actions from '../../../../store/actions';
 import { LANGUAGES } from '../../../../utils';
@@ -21,9 +22,9 @@ class BookingModal extends Component {
         super(props);
         this.state = {
             doctorId: '',
-            fullName: '',
+            firstName: '',
+            lastName: '',
             telNum: '',
-            age: '',
             gender: '',
             address: '',
             email: '',
@@ -31,6 +32,8 @@ class BookingModal extends Component {
             timeType: '',
             date: '',
             genderArr: [],
+            isShowLoading: false,
+
         }
     }
 
@@ -96,18 +99,21 @@ class BookingModal extends Component {
     }
     handleAddNewBooking = async () => {
         //validate
-        let { fullName, telNum, email } = this.state;
-        if (fullName && telNum && email &&
-            fullName !== '' && telNum !== '' && email !== '') {
+        let { firstName, lastName, telNum, email } = this.state;
+        if (firstName && lastName && telNum && email &&
+            firstName !== '' && lastName !== '' && telNum !== '' && email !== '') {
             //save booking appointment
-            console.log('state finally before sending: ', this.state)
+            this.setState({
+                isShowLoading: true
+            });
+            // console.log('state finally before sending: ', this.state)
             let timeString = this.renderBookingSchedule(this.props.bookingData);
             let doctorInfo = this.renderDoctorInfo(this.props.bookingData);
             let res = await postBookingAppointmentService({
                 doctorId: this.state.doctorId,
-                fullName: this.state.fullName,
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
                 telNum: this.state.telNum,
-                age: this.state.age,
                 gender: this.state.gender,
                 address: this.state.address,
                 email: this.state.email,
@@ -119,9 +125,15 @@ class BookingModal extends Component {
                 doctorInfo: doctorInfo,
             });
             if (res && res.errCode === 0) {
+                this.setState({
+                    isShowLoading: false
+                })
                 toast.success('You have booked successful! Please check your email!')
                 this.toggle();
             } else {
+                this.setState({
+                    isShowLoading: false
+                })
                 toast.error('You have booked an appointment error!')
             }
         } else {
@@ -136,7 +148,11 @@ class BookingModal extends Component {
         let genderArr = this.state.genderArr;
         // console.log('booking data: ', bookingData)
         return (
-            <>
+            <LoadingOverlay
+                active={this.state.isShowLoading}
+                spinner
+                text='Loading...'
+            >
                 <div className='booking-modal container'>
                     <Modal
                         isOpen={isOpenCreateBookingModal}
@@ -162,26 +178,27 @@ class BookingModal extends Component {
                                     </div>
                                     <div className='row'>
                                         <div className="form-group col-md-6 col-12 mt-4">
-                                            <FormattedMessage id="patientside.bookingdoctor.name" />
-                                            <input type="text" className="form-control " name="fullName"
-                                                onChange={(e) => { this.handleOnChangeInput(e, 'fullName') }}
-                                                value={this.state.fullName}
+                                            <FormattedMessage id="patientside.bookingdoctor.firstname" />
+                                            <input type="text" className="form-control " name="firstName"
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'firstName') }}
+                                                value={this.state.firstName}
                                             />
                                         </div>
+                                        <div className="form-group col-md-6 col-12 mt-4">
+                                            <FormattedMessage id="patientside.bookingdoctor.lastname" />
+                                            <input type="text" className="form-control " name="lastName"
+                                                onChange={(e) => { this.handleOnChangeInput(e, 'lastName') }}
+                                                value={this.state.lastName}
+                                            />
+                                        </div>
+
+                                    </div>
+                                    <div className='row'>
                                         <div className="form-group col-md-6 col-12 mt-4">
                                             <FormattedMessage id="patientside.bookingdoctor.tel" />
                                             <input type="text" className="form-control " name="telNum"
                                                 onChange={(e) => { this.handleOnChangeInput(e, 'telNum') }}
                                                 value={this.state.telNum}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className="form-group col-md-6 col-12 mt-4">
-                                            <FormattedMessage id="patientside.bookingdoctor.age" />
-                                            <input type="text" className="form-control " name="age"
-                                                onChange={(e) => { this.handleOnChangeInput(e, 'age') }}
-                                                value={this.state.age}
                                             />
                                         </div>
                                         <div className="form-group col-md-6 col-12 mt-4">
@@ -248,7 +265,7 @@ class BookingModal extends Component {
 
                     </Modal>
                 </div>
-            </>
+            </LoadingOverlay>
         );
     }
 }
