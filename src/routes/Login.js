@@ -5,8 +5,6 @@ import { push } from "connected-react-router";
 import * as actions from "../store/actions";
 import { KeyCodeUtils, LanguageUtils } from "../utils";
 
-import userIcon from '../../src/assets/images/user.svg';
-import passIcon from '../../src/assets/images/pass.svg';
 import './Login.scss';
 import { FormattedMessage } from 'react-intl';
 
@@ -100,6 +98,9 @@ class Login extends Component {
         const { username, password, loginError } = this.state;
         const { lang } = this.props;
 
+        let userIcon = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/0_svg/user.svg';
+        let passIcon = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/0_svg/pass.svg';
+        
         return (
 
             <div className="login-wrapper">

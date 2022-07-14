@@ -11,7 +11,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { LANGUAGES } from '../../../utils';
 import { withRouter } from 'react-router'
-import choray from '../../../assets/images/5_section_center/choray.jpg';
 
 
 class MedicalCentre extends Component {

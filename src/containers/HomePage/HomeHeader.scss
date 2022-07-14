@@ -1,7 +1,12 @@
 @import '../../styles/_variables.scss';
 
+$cover-banner: 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/cover-banner.jpg';
+$flag_of_en: 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/flag_of_en.svg';
+$flag_of_vi: 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/flag_of_vi.svg';
+
+
 .header {
-    background-image: url('../../assets/images/2_banner/cover-banner.jpg');
+    background-image: url($cover-banner);
     background-color: $search-hover-light;
     background-repeat: no-repeat;
     background-position: center;
@@ -120,11 +125,11 @@ a {
                         }
                     }
                     .lang-logo-vi {
-                        background: url('../../assets/images/1_header/flag_of_vi.svg') center center no-repeat;
+                        background: url($flag_of_vi) center center no-repeat;
                         background-size: 155%;
                     }
                     .lang-logo-en {
-                        background: url('../../assets/images/1_header/flag_of_en.svg') center center no-repeat;
+                        background: url($flag_of_en) center center no-repeat;
                         background-size: 100%;
                     }
                 }

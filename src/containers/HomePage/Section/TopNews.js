@@ -8,14 +8,6 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
-import paternity from '../../../assets/images/3_section_topnews/paternity.jpg';
-import counseling from '../../../assets/images/3_section_topnews/counseling.jpg';
-import homedoctor from '../../../assets/images/3_section_topnews/homedoctor.jpg';
-import sp02 from '../../../assets/images/3_section_topnews/sp02.jpg';
-import testcovid from '../../../assets/images/3_section_topnews/testcovid.jpg';
-
-
 class TopNews extends Component {
 
     changeLanguage = (language) => {
@@ -24,7 +16,11 @@ class TopNews extends Component {
     
     render() {
         let language = this.props.language;
-
+        let paternity = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/3_section_topnews/paternity.jpg';
+        let counseling = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/3_section_topnews/counseling.jpg';
+        let homedoctor = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/3_section_topnews/homedoctor.jpg';
+        let sp02 = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/3_section_topnews/sp02.jpg';
+        let testcovid = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/3_section_topnews/testcovid.jpg';
         return (
             <React.Fragment>
                 <section>

@@ -9,11 +9,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-import customerlifetimevalue from '../../../assets/images/8_section_for_doctor_centre/customerlifetimevalue.jpg';
-import improvecustomerservice from '../../../assets/images/8_section_for_doctor_centre/improvecustomerservice.jpg';
-import upcustomerexperienceinwaitingroom from '../../../assets/images/8_section_for_doctor_centre/upcustomerexperienceinwaitingroom.jpg';
-
-
 class ForDoctorCentre extends Component {
 
     changeLanguage = (language) => {
@@ -22,7 +17,9 @@ class ForDoctorCentre extends Component {
     
     render() {
         let language = this.props.language;
-
+        let customerlifetimevalue = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/8_section_for_doctor_centre/customerlifetimevalue.jpg';
+        let improvecustomerservice = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/8_section_for_doctor_centre/improvecustomerservice.jpg';
+        let upcustomerexperienceinwaitingroom = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/8_section_for_doctor_centre/upcustomerexperienceinwaitingroom.jpg';
         return (
             <React.Fragment>
                 <section>

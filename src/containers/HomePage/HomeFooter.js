@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeFooter.scss';
 import { FormattedMessage } from 'react-intl';
-// import { LANGUAGES } from '../../utils/constant'
+import { LANGUAGES } from '../../utils/constant'
 
-import google_play from '../../assets/images/2_banner/google_play.svg'
-import app_store from '../../assets/images/2_banner/app_store.svg'
-import logo from '../../assets/images/1_header/logo.svg'
-import qrcode from '../../assets/images/10_footer/qrcode.png'
 
 import { changeLanguageApp } from '../../store/actions/appActions';
 
@@ -20,8 +16,10 @@ class HomeFooter extends Component {
 
     render() {
         let logo_img = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo.svg';
-        let logo_text = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo_text.svg'
-        let qrcode = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/10_footer/qrcode.png'
+        let logo_text = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo_text.svg';
+        let qrcode = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/10_footer/qrcode.png';
+        let google_play = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/google_play.svg';
+        let app_store = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/app_store.svg';
         return (
             <React.Fragment>
                 <footer className='footer'>

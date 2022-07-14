@@ -9,10 +9,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-import themostreputationdentistry from '../../../assets/images/7_section_handbook/themostreputationdentistry.jpg';
-import pregnancyhandbook from '../../../assets/images/7_section_handbook/pregnancyhandbook.jpg';
-
-
 class Handbook extends Component {
 
     changeLanguage = (language) => {
@@ -21,7 +17,8 @@ class Handbook extends Component {
     
     render() {
         let language = this.props.language;
-
+        let themostreputationdentistry = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/7_section_handbook/pregnancyhandbook.jpg';
+        let pregnancyhandbook = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/7_section_handbook/themostreputationdentistry.jpg';
         return (
             <React.Fragment>
                 <section>

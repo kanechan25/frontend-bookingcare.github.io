@@ -38,8 +38,6 @@ class DetailDoctor extends Component {
     }
 
     render() {
-        let avatarDoctor = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/6_section_doctor/gs_donhuhon.jpg'
-        // console.log('Get doctor data by Id in Render: ', this.state);
         let { doctorInfoData } = this.state;
         let { language } = this.props;
         let titleNameVi = '', titleNameEn = '';

@@ -4,18 +4,6 @@ import './HomeHeader.scss';
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils/constant'
 
-import google_play from '../../assets/images/2_banner/google_play.svg'
-import app_store from '../../assets/images/2_banner/app_store.svg'
-
-import speciality from '../../assets/images/2_banner/speciality.png'
-import remote from '../../assets/images/2_banner/remote.png'
-import general from '../../assets/images/2_banner/general.png'
-import test from '../../assets/images/2_banner/test.png'
-import mental from '../../assets/images/2_banner/mental.png'
-import dentist from '../../assets/images/2_banner/dentist.png'
-import surgery from '../../assets/images/2_banner/surgery.png'
-import product from '../../assets/images/2_banner/product.png'
-
 import { changeLanguageApp } from '../../store/actions/appActions';
 
 class HomeHeader extends Component {
@@ -29,6 +17,17 @@ class HomeHeader extends Component {
         let language = this.props.language;
         let logo_logo = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo.svg'
         let logo_text = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo_text.svg'
+        let google_play = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/google_play.svg';
+        let app_store = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/app_store.svg';
+
+        let speciality = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/speciality.png';
+        let remote = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/remote.png';
+        let general = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/general.png';
+        let test = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/test.png';
+        let mental = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/mental.png';
+        let dentist = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/dentist.png';
+        let surgery = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/surgery.png';
+        let product = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/product.png';
 
         return (
             <React.Fragment>
