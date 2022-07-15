@@ -20,7 +20,7 @@ class UserAccount extends Component {
         super(props);
         this.escFunction = this.escFunction.bind(this);
         this.state = {
-            isShowPopup:false
+            isShowPopup: false
         }
     }
     escFunction(event) {
@@ -58,79 +58,82 @@ class UserAccount extends Component {
     }
 
     render() {
-        let { language, userLogin, isLoggedIn, processLogout} = this.props;
-        let {isShowPopup} = this.state;
-        let name = language === LANGUAGES.VI ? 
-        `${userLogin.firstName} ${userLogin.lastName}` : 
-        `${userLogin.lastName} ${userLogin.firstName}`;
+        let { language, userLogin, isLoggedIn, processLogout } = this.props;
+        let { isShowPopup } = this.state;
+        let name = '', email = '';
+        if (!_.isEmpty(userLogin)) {
+            name = language === LANGUAGES.VI ?
+                `${userLogin.firstName} ${userLogin.lastName}` :
+                `${userLogin.lastName} ${userLogin.firstName}`;
+            email = userLogin.email;
+        }
 
-        
         return (
             <>
                 {
                     isLoggedIn === false ?
-                    <div className="dropdown no-login">
-                        <button className="btn dropdown-toggle" type="button" data-bs-target="#accountDropdown"
-                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i className="fas fa-user-circle account-icon right-icon active"></i>
-                        </button>
-                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li>
-                                <button className="dropdown-item"
-                                    onClick={() => this.handleLogin()}
-                                >
-                                    <i className="fas fa-sign-out-alt"></i>
-                                    <FormattedMessage id="login.login" />
-                                </button>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-user-plus"></i>
-                                    <FormattedMessage id="login.signin" />
-                                </a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-question-circle"></i>
-                                    <FormattedMessage id="login.help" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    :
-                    <div className="dropdown loggedin">
-                        <button className="btn dropdown-toggle" type="button" data-bs-target="#accountDropdown"
-                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i className="fas fa-user-circle account-icon right-icon active"></i>
-                        </button>
-                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li>
-                                <div className="dropdown-user-info">
-                                    <p className=' text fullname'>{name}</p>
-                                    <p className=' text user-email'>{userLogin.email}</p>
-                                </div>
-                            </li>
+                        <div className="dropdown no-login">
+                            <button className="btn dropdown-toggle" type="button" data-bs-target="#accountDropdown"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i className="fas fa-user-circle account-icon right-icon active"></i>
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <button className="dropdown-item"
+                                        onClick={() => this.handleLogin()}
+                                    >
+                                        <i className="fas fa-sign-out-alt"></i>
+                                        <FormattedMessage id="login.login" />
+                                    </button>
+                                </li>
+                                <li>
+                                    <a className="dropdown-item" href="#">
+                                        <i className="fas fa-user-plus"></i>
+                                        <FormattedMessage id="login.signin" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="dropdown-item" href="#">
+                                        <i className="fas fa-question-circle"></i>
+                                        <FormattedMessage id="login.help" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        :
+                        <div className="dropdown loggedin">
+                            <button className="btn dropdown-toggle" type="button" data-bs-target="#accountDropdown"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i className="fas fa-user-circle account-icon right-icon active"></i>
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <div className="dropdown-user-info">
+                                        <p className=' text fullname'>{name}</p>
+                                        <p className=' text user-email'>{email}</p>
+                                    </div>
+                                </li>
 
-                            <li>
-                                <button className="dropdown-item" >
-                                    <i className="fas fa-cog"></i>
-                                    <FormattedMessage id="login.setting" />
-                                </button>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-question-circle"></i>
-                                    <FormattedMessage id="login.help" />
-                                </a>
-                            </li>
+                                <li>
+                                    <button className="dropdown-item" >
+                                        <i className="fas fa-cog"></i>
+                                        <FormattedMessage id="login.setting" />
+                                    </button>
+                                </li>
+                                <li>
+                                    <a className="dropdown-item" href="#">
+                                        <i className="fas fa-question-circle"></i>
+                                        <FormattedMessage id="login.help" />
+                                    </a>
+                                </li>
 
-                            <li className='signout-item'>
-                                <button className="btn btn-info btn-signout" onClick={processLogout} >
-                                    <FormattedMessage id="login.signout" />
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
+                                <li className='signout-item'>
+                                    <button className="btn btn-info btn-signout" onClick={processLogout} >
+                                        <FormattedMessage id="login.signout" />
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                 }
                 <div className='login-modal'>
                     <LoginModal

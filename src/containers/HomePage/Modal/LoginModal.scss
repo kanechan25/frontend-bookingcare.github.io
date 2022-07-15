@@ -14,6 +14,10 @@
         height: 0px;
     }
 }
+.modal.fade .modal-dialog {
+    transform: none;
+    transition: none;
+}
 
 .login-singup {
     position: relative;
@@ -23,6 +27,7 @@
         color: $general-in-light;
         top: 50%;
         left: 50%;
+        transition: transform ease-in;
         transform: translate(-50%, -50%);
         .login-container {
             width: 300px;

@@ -71,7 +71,7 @@ class HeaderDetailPage extends Component {
                         <div className='home-header-content container'>
                             <div className='left-header-page-content col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-1 col-1'>
                                 <i className="fas fa-backward"></i>
-                                <div className='logo-both'
+                                <a className='logo-both' href=''
                                     onClick={() => this.returnHomepage()}
                                 >
                                     <div className='header-logo logo'>
@@ -80,7 +80,7 @@ class HeaderDetailPage extends Component {
                                     <div className='header-logo text'>
                                         <img className='header-text-img' src={logo_text}></img>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div className='center-header-page-content col-xxl-8 col-xl-8 col-lg-7 col-md-6 col-sm-8 col-8'>
                                 <span className='headline headline-header-title'>
@@ -91,8 +91,6 @@ class HeaderDetailPage extends Component {
                                 </span>
                             </div>
                             <div className='right-header-page-content col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-2 col-1'>
-                                <div className='help'><i className="fas fa-question-circle"></i><FormattedMessage id="homeheader.help" /></div>
-
                                 <div className='dark-mode'>
                                     <button className='btn' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dark/Light Mode">
                                         <i className="fas fa-adjust dark-mode-icon active"></i>
