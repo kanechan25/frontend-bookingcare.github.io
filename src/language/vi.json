@@ -7,8 +7,7 @@
         "doctors": "Bác sĩ",
         "doctors-sub": "Lựa chọn bác sĩ tốt nhất",
         "package": "Gói khám bệnh",
-        "package-sub": "Khám sức khỏe tổng quát",
-        "help": "Trợ giúp"
+        "package-sub": "Khám sức khỏe tổng quát"
     },
     "homebanner": {
         "title1": "NỀN TẢNG Y TẾ",
@@ -153,9 +152,14 @@
     },
     "login": {
         "login": "Đăng nhập",
+        "signout": "Đăng xuất",
+        "signin": "Đăng ký",
         "username": "Tên đăng nhập",
         "password": "Mật khẩu",
-        "userpass-wrong": "Sai tên đăng nhập hoặc mật khẩu!"
+        "userpass-wrong": "Sai tên đăng nhập hoặc mật khẩu!",
+        "help": "Trợ giúp",
+        "setting": "Cài đặt"
+
     },
     "menu": {
         "system": {
@@ -235,7 +239,7 @@
             "sure-delete-user": "Bạn có chắc chắn muốn xóa người dùng này?"
         },
         "user-redux": {
-            "headline": "Quản trị users Autodesk Construction Cloud API bởi Redux",
+            "headline": "Quản trị users bởi Redux",
             "gender": "-- Chọn giới tính --",
             "role": "-- Chọn vai trò người dùng --",
             "create-btn": "Tạo người dùng mới",

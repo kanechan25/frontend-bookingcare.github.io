@@ -7,8 +7,7 @@
         "doctors": "Doctors",
         "doctors-sub": "Find the best doctors",
         "package": "Healthcare package",
-        "package-sub": "General health check",
-        "help": "Help"
+        "package-sub": "General health check"
     },
     "homebanner": {
         "title1": "MEDICAL PLATFORM",
@@ -152,10 +151,15 @@
         "date-range-invalid": "Date range invalid"
     },
     "login": {
-        "login": "Login",
+        "login": "Log In",
+        "signout": "Sign Out",
+        "signin": "Sign In",
         "username": "Username",
         "password": "Password",
-        "userpass-wrong": "Invalid username or password!"
+        "userpass-wrong": "Invalid username or password!",
+        "help": "Help",
+        "setting": "Settings"
+
     },
     "menu": {
         "system": {
@@ -235,7 +239,7 @@
             "sure-delete-user": "Are you sure to delete this user?"
         },
         "user-redux": {
-            "headline": "Manage users Autodesk construction Cloud by Redux",
+            "headline": "Manage users by Redux",
             "gender": "-- Choose gender --",
             "role": "-- Choose role --",
             "create-btn": "Create a New User",

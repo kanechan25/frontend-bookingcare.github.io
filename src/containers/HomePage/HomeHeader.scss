@@ -87,9 +87,15 @@ a {
             display: flex;
             align-items: center;
             justify-content: space-around;
-            .help {
-                margin-right: 2px;
-                padding-top: 4px;
+            .img-icon {
+                display: flex;
+                margin: 0px 4px;
+            }
+            .right-icon {
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             i {
                 margin-right: 4px;
@@ -100,10 +106,11 @@ a {
                 .btn {
                     display: flex;
                     align-items: center;
+                    justify-self: center;
                     .dark-mode-icon.active {
                         color: $general-in-light;
-                        font-size: 19px;
-                        padding: 1px 2px 0 6px;
+                        padding: 0px;
+                        margin: 0px 2px;
                     }
                 }
             }
@@ -118,7 +125,7 @@ a {
                         height: 18px;
                         width: 18px;
                         border-radius: 50%;
-                        margin-left: 10px;
+                        margin: 0px 2px;
                         opacity: 0.5;
                         &.active {
                             opacity: 1;
@@ -131,6 +138,26 @@ a {
                     .lang-logo-en {
                         background: url($flag_of_en) center center no-repeat;
                         background-size: 100%;
+                    }
+                }
+            }
+            .user-account {
+                .dropdown {
+                    .dropdown-toggle {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .account-icon {
+                            padding-left: 3px;
+                        }
+                    }
+                    .dropdown-menu {
+                        .dropdown-item {
+                            i {
+                                width: 20px;
+                                color: rgba(35, 26, 68, 0.467);
+                            }
+                        }
                     }
                 }
             }

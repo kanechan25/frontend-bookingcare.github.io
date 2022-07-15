@@ -167,7 +167,7 @@ class UserManage extends Component {
                 }
 
                 <div className='title text-center'>
-                    Manage users Autodesk Construction Cloud from API
+                    Manage users from API
                 </div>
                 
                 <div className='mx-2'>

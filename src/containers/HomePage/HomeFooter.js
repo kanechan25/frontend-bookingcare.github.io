@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import './HomeFooter.scss';
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils/constant'
-
+import { imgHomeHeader } from '../HomePage/ImgList'
+import { withRouter } from 'react-router'
 
 import { changeLanguageApp } from '../../store/actions/appActions';
 
@@ -13,13 +14,8 @@ class HomeFooter extends Component {
         this.props.toggleLanguage(language);
     }
 
-
     render() {
-        let logo_img = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo.svg';
-        let logo_text = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo_text.svg';
-        let qrcode = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/10_footer/qrcode.png';
-        let google_play = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/google_play.svg';
-        let app_store = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/app_store.svg';
+
         return (
             <React.Fragment>
                 <footer className='footer'>
@@ -74,8 +70,8 @@ class HomeFooter extends Component {
                                 </div>
                                 <div className='col-footer contact col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
                                     <div className='logo-footer'>
-                                        <img className='logo-img' src={logo_img} />
-                                        <img className='logo-text' src={logo_text} />
+                                        <img className='logo-img' src={imgHomeHeader.logo_logo} />
+                                        <img className='logo-text' src={imgHomeHeader.logo_text} />
                                     </div>
                                     <ul className='items'>
                                         <li className='item name'><FormattedMessage id="footercontact.name" /></li>
@@ -96,11 +92,11 @@ class HomeFooter extends Component {
                                 <div className='col-footer download col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6'>
                                     <div className='items'>
                                         <div className='qrcode'>
-                                            <img className='img' src={qrcode} />
+                                            <img className='img' src={imgHomeHeader.qrcode} />
                                         </div>
                                         <div className='store'>
-                                            <img className='img' src={google_play} />
-                                            <img className='img' src={app_store} />
+                                            <img className='img' src={imgHomeHeader.google_play} />
+                                            <img className='img' src={imgHomeHeader.app_store} />
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +104,7 @@ class HomeFooter extends Component {
                         </div>
                     </div>
                     <div className='qrcode-hover'>
-                        <img className='qrcode-hover-img' src={qrcode} />
+                        <img className='qrcode-hover-img' src={imgHomeHeader.qrcode} />
                     </div>
                     <div className='home-footer-bottom '>
                         <div className='container'>
@@ -120,13 +116,13 @@ class HomeFooter extends Component {
                                     <span><FormattedMessage id="footerbottom.not" /></span>
                                 </span>
                                 <div className='col-bottom social-media col-xxl-2 col-xl-2 col-lg-3 col-md-2 col-sm-11 col-12'>
-                                    <a className='media-link' href='https://www.facebook.com/khoa2425/'>
+                                    <a className='media-link' target="_blank" href='https://www.facebook.com/khoa2425/'>
                                         <i className="fab fa-facebook"></i></a>
-                                    <a className='media-link' href='https://www.youtube.com/c/BIMProgress/'>
+                                    <a className='media-link' target="_blank" href='https://www.youtube.com/c/CE2Dev/'>
                                         <i className="fab fa-youtube"></i></a>
-                                    <a className='media-link' href='https://github.com/kanechan25'>
+                                    <a className='media-link' target="_blank" href='https://github.com/kanechan25'>
                                         <i className="fab fa-github"></i></a>
-                                    <a className='media-link' href='https://www.linkedin.com/in/khoatran2593/'>
+                                    <a className='media-link' target="_blank" href='https://www.linkedin.com/in/khoatran2593/'>
                                         <i className="fab fa-linkedin"></i></a>
                                 </div>
                             </div>
@@ -153,4 +149,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeFooter);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeFooter));

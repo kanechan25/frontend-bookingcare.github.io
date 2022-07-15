@@ -9,6 +9,10 @@
     margin: 4px;
     cursor: pointer;
 }
+.modal-content {
+    border: none !important;
+}
+
 .login-bg {
     height: 100vh;
     background: linear-gradient(135deg, rgb(190, 201, 98) 0%, rgb(77, 63, 63) 100%);
@@ -56,7 +60,11 @@
                     }
                 }
             }
-
+            .create-account {
+                .link-create {
+                    cursor: pointer;
+                }
+            }
             .input-password {
                 position: relative;
                 .eye-password {

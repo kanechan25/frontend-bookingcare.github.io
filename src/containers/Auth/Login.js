@@ -16,7 +16,7 @@ class Login extends Component {
             message: '',
         }
     }
-//#region All Handling Functions
+    //#region All Handling Functions
     handleOnChangeUsername = (e) => {
         this.setState({
             username: e.target.value,
@@ -28,7 +28,7 @@ class Login extends Component {
             password: e.target.value,
         })
     }
-    enterLogin =(e) => {
+    enterLogin = (e) => {
         if (e.keyCode === 13) {
             this.handleLogin();
         }
@@ -36,11 +36,10 @@ class Login extends Component {
 
     handleLogin = async () => {
         this.setState({
-            message: ''
+            message: '',
         })
         try {
             let data = await handleLoginApi(this.state.username, this.state.password);
-            
             if (data && data.errCode !== 0) {
                 this.setState({
                     message: data.message,
@@ -50,17 +49,15 @@ class Login extends Component {
                 //login successful => to go to sth...
                 this.props.userLoginSuccess(data.user);
             }
-
         } catch (error) {
-            if(error.response) {
-                if(error.response.data) {
+            if (error.response) {
+                if (error.response.data) {
                     this.setState({
                         message: error.response.data.message
                     })
                 }
             }
             console.log(error.response)
-
         }
     }
 
@@ -70,9 +67,12 @@ class Login extends Component {
         })
     }
 
-//#endregion
+    //#endregion
 
     render() {
+        let userIcon = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/0_svg/user.svg';
+        let passIcon = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/0_svg/pass.svg';
+
         return (
             <div>
                 <div className='login-bg'>
@@ -81,21 +81,25 @@ class Login extends Component {
                             <div className="col-12 mt-3 text-center text-title"><b>Login</b>
                             </div>
                             <div className="form-group mt-4 col-12">
+                                <img className="icon" src={userIcon} alt="this" />
                                 <label for="inputName">Username</label>
-                                <input type="text" className="form-control " name="userName" placeholder="Enter your username" 
+
+                                <input type="text" className="form-control " name="userName" placeholder="Enter your username"
                                     value={this.state.username}
                                     onChange={(e) => this.handleOnChangeUsername(e)}
                                 />
                             </div>
                             <div className="form-group mt-4 col-12">
+                                <img className="icon" src={passIcon} alt="this" />
                                 <label for="inputPassword">Password</label>
+
                                 <div className='input-password'>
-                                    <input type={this.state.isShowPassword ? 'text' : 'password'} className="form-control " placeholder="Enter your password" 
+                                    <input type={this.state.isShowPassword ? 'text' : 'password'} className="form-control " placeholder="Enter your password"
                                         onChange={(e) => this.handleOnChangePassword(e)}
                                         onKeyDown={(e) => this.enterLogin(e)}
                                     />
-                                    <span onClick={() => {this.handleShowHidePassword()}}>
-                                        <i className={ this.state.isShowPassword ? 'far fa-eye eye-password' : 'far fa-eye-slash eye-password'}></i>
+                                    <span onClick={() => { this.handleShowHidePassword() }}>
+                                        <i className={this.state.isShowPassword ? 'far fa-eye eye-password' : 'far fa-eye-slash eye-password'}></i>
                                     </span>
                                 </div>
                             </div>
@@ -104,7 +108,7 @@ class Login extends Component {
                             </div>
                             <div className='mt-3 mb-3 text-center'>
                                 <button type="submit" className="btn btn-primary btn-login"
-                                    onClick={() => {this.handleLogin()}}
+                                    onClick={() => { this.handleLogin() }}
                                 >Login</button>
                             </div>
                             <div className='col-12'>
@@ -117,9 +121,14 @@ class Login extends Component {
                                 <i className="fab fa-google gg"></i>
                                 <i className="fab fa-facebook-f fb"></i>
                             </div>
+                            <div className='col-12 text-center create-account mt-3'>
+                                <span>Have not an account?
+                                    <a href='' className='link-create'> Create Here</a>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
         )
     }

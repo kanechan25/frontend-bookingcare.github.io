@@ -2,32 +2,59 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeHeader.scss';
 import { FormattedMessage } from 'react-intl';
-import { LANGUAGES } from '../../utils/constant'
+import { withRouter } from 'react-router'
+import _ from 'lodash';
 
+import UserAccount from './Modal/UserAccount';
+import { LANGUAGES, USER_ROLE } from '../../utils/constant'
 import { changeLanguageApp } from '../../store/actions/appActions';
+import { imgHomeHeader } from '../HomePage/ImgList';
+
 
 class HomeHeader extends Component {
-
+    constructor(props) {
+        super(props);
+        this.escFunction = this.escFunction.bind(this);
+        this.state = {
+            isShowPopup: false,
+            userLogin: {},
+        };
+    }
+    escFunction(event) {
+        if (event.key === "Escape") {
+            this.setState({
+                isOpenCreateBookingModal: false,
+            })
+        }
+    }
+    componentDidMount() {
+        let userLogin = JSON.parse(window.localStorage.getItem('user'));
+        if (userLogin && !_.isEmpty(userLogin)) {
+            this.setState({
+                userLogin: userLogin,
+            })
+        }
+        // console.log('check login data: ', userLogin )
+    }
 
     changeLanguage = (language) => {
         this.props.toggleLanguage(language);
     }
-
+    handleUserPopup = () => {
+        this.setState({
+            isShowPopup: true,
+        })
+    }
+    toggleLoginModal = () => {
+        this.setState({
+            isShowPopup: !this.state.isShowPopup,
+        })
+    }
     render() {
-        let language = this.props.language;
-        let logo_logo = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo.svg'
-        let logo_text = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/1_header/logo_text.svg'
-        let google_play = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/google_play.svg';
-        let app_store = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/app_store.svg';
-
-        let speciality = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/speciality.png';
-        let remote = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/remote.png';
-        let general = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/general.png';
-        let test = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/test.png';
-        let mental = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/mental.png';
-        let dentist = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/dentist.png';
-        let surgery = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/surgery.png';
-        let product = 'https://raw.githubusercontent.com/kanechan25/frontend-bookingcare.github.io/main/src/assets/images/2_banner/product.png';
+        let {language, isLoggedIn} = this.props;
+        let userLogin = JSON.parse(window.localStorage.getItem('user'));
+        let {isShowPopup} = this.state;
+        // console.log('check login data after did mount: ', isLoggedIn )
 
         return (
             <React.Fragment>
@@ -38,10 +65,10 @@ class HomeHeader extends Component {
                                 <i className="fas fa-bars"></i>
                                 <div className='logo-both'>
                                     <div className='header-logo logo'>
-                                        <img className='header-logo-img' src={logo_logo}></img>
+                                        <img className='header-logo-img' src={imgHomeHeader.logo_logo}></img>
                                     </div>
                                     <div className='header-logo text'>
-                                        <img className='header-text-img' src={logo_text}></img>
+                                        <img className='header-text-img' src={imgHomeHeader.logo_text}></img>
                                     </div>
                                 </div>
                             </div>
@@ -64,15 +91,13 @@ class HomeHeader extends Component {
                                 </div>
                             </div>
                             <div className='right-content col-xl-2 col-lg-2 col-md-3 col-sm-4 col-6'>
-                                <div className='help'><i className="fas fa-question-circle"></i><FormattedMessage id="homeheader.help" /></div>
-
-                                <div className='dark-mode'>
+                                <div className='dark-mode img-icon'>
                                     <button className='btn' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dark/Light Mode">
-                                        <i className="fas fa-adjust dark-mode-icon active"></i>
+                                        <i className="fas fa-adjust dark-mode-icon right-icon active"></i>
                                     </button>
                                 </div>
 
-                                <div className='languages'>
+                                <div className='languages img-icon'>
                                     <div className='language'>
                                         <button className={
                                             language === LANGUAGES.VI ? 'btn lang-logo-vi active' : 'btn lang-logo-vi'
@@ -90,9 +115,15 @@ class HomeHeader extends Component {
                                         </button>
                                     </div>
                                 </div>
+                                <div className='user-account img-icon'>
+                                    <UserAccount
+                                        userLogin={userLogin}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     {this.props.isShowBanner === true &&
                         <div className='home-header-banner text-light-white'>
                             <div className='banner-upper'>
@@ -114,10 +145,10 @@ class HomeHeader extends Component {
                                 </div>
                                 <div className='banner-download'>
                                     <a href='' className='app-mobile google-play'>
-                                        <img className='img' src={google_play} />
+                                        <img className='img' src={imgHomeHeader.google_play} />
                                     </a>
                                     <a href='' className='app-mobile app-store'>
-                                        <img className='img' src={app_store} />
+                                        <img className='img' src={imgHomeHeader.app_store} />
                                     </a>
                                 </div>
                             </div>
@@ -126,49 +157,49 @@ class HomeHeader extends Component {
                                     <ul className='banner-options row'>
                                         <li className='banner-option col col-1-8'>
                                             <a href='' className=' icon-option speciality'>
-                                                <button className='btn wrap-img'><img className='img' src={speciality} /></button>
+                                                <button className='btn wrap-img'><img className='img' src={imgHomeHeader.speciality} /></button>
                                                 <div className='text-option'><FormattedMessage id="homebanner.speciality" /></div>
                                             </a>
                                         </li>
                                         <li className='banner-option col col-1-8'>
                                             <a href='' className=' icon-option remote'>
-                                                <button className='btn wrap-img'><img className='img' src={remote} /></button>
+                                                <button className='btn wrap-img'><img className='img' src={imgHomeHeader.remote} /></button>
                                                 <div className='text-option'><FormattedMessage id="homebanner.remote" /></div>
                                             </a>
                                         </li>
                                         <li className='banner-option col col-1-8'>
                                             <a href='' className=' icon-option general'>
-                                                <button className='btn wrap-img'><img className='img' src={general} /></button>
+                                                <button className='btn wrap-img'><img className='img' src={imgHomeHeader.general} /></button>
                                                 <div className='text-option'><FormattedMessage id="homebanner.general" /></div>
                                             </a>
                                         </li>
                                         <li className='banner-option col col-1-8'>
                                             <a href='' className=' icon-option test'>
-                                                <button className='btn wrap-img'><img className='img' src={test} /></button>
+                                                <button className='btn wrap-img'><img className='img' src={imgHomeHeader.test} /></button>
                                                 <div className='text-option'><FormattedMessage id="homebanner.test" /></div>
                                             </a>
                                         </li>
                                         <li className='banner-option col col-1-8'>
                                             <a href='' className=' icon-option mental'>
-                                                <button className='btn wrap-img'><img className='img' src={mental} /></button>
+                                                <button className='btn wrap-img'><img className='img' src={imgHomeHeader.mental} /></button>
                                                 <div className='text-option'><FormattedMessage id="homebanner.mental" /></div>
                                             </a>
                                         </li>
                                         <li className='banner-option col col-1-8'>
                                             <a href='' className=' icon-option dentist'>
-                                                <button className='btn wrap-img'><img className='img' src={dentist} /></button>
+                                                <button className='btn wrap-img'><img className='img' src={imgHomeHeader.dentist} /></button>
                                                 <div className='text-option'><FormattedMessage id="homebanner.dentist" /></div>
                                             </a>
                                         </li>
                                         <li className='banner-option col col-1-8'>
                                             <a href='' className=' icon-option surgery'>
-                                                <button className='btn wrap-img'><img className='img' src={surgery} /></button>
+                                                <button className='btn wrap-img'><img className='img' src={imgHomeHeader.surgery} /></button>
                                                 <div className='text-option'><FormattedMessage id="homebanner.surgery" /></div>
                                             </a>
                                         </li>
                                         <li className='banner-option col col-1-8'>
                                             <a href='' className=' icon-option product'>
-                                                <button className='btn wrap-img'><img className='img' src={product} /></button>
+                                                <button className='btn wrap-img'><img className='img' src={imgHomeHeader.product} /></button>
                                                 <div className='text-option'><FormattedMessage id="homebanner.product" /></div>
                                             </a>
                                         </li>
@@ -179,15 +210,12 @@ class HomeHeader extends Component {
                         </div>
                     }
                 </header>
-                <main>
 
-                </main>
             </React.Fragment>
         );
     }
 
 }
-
 
 const mapStateToProps = state => {
     return {
@@ -203,4 +231,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));
