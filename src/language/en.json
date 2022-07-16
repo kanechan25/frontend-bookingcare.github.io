@@ -158,8 +158,9 @@
         "password": "Password",
         "userpass-wrong": "Invalid username or password!",
         "help": "Help",
-        "setting": "Settings"
-
+        "setting": "Settings",
+        "doctor-manage": "Patients & Schedule",
+        "admin": "General Management"
     },
     "menu": {
         "system": {

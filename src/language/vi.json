@@ -158,8 +158,9 @@
         "password": "Mật khẩu",
         "userpass-wrong": "Sai tên đăng nhập hoặc mật khẩu!",
         "help": "Trợ giúp",
-        "setting": "Cài đặt"
-
+        "setting": "Cài đặt",
+        "doctor-manage": "Quản lý lịch khám",
+        "admin": "Quản lý chung"
     },
     "menu": {
         "system": {

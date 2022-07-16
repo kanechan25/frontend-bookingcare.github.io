@@ -60,12 +60,13 @@ class UserAccount extends Component {
     render() {
         let { language, userLogin, isLoggedIn, processLogout } = this.props;
         let { isShowPopup } = this.state;
-        let name = '', email = '';
-        if (!_.isEmpty(userLogin)) {
-            name = language === LANGUAGES.VI ?
-                `${userLogin.firstName} ${userLogin.lastName}` :
-                `${userLogin.lastName} ${userLogin.firstName}`;
+        let name = '', email = '', roleId = '', firstName = '', lastName = '';
+        firstName = userLogin.firstName ? userLogin.firstName : '';
+        lastName = userLogin.lastName ? userLogin.lastName : '';
+        if (!_.isEmpty(userLogin) && userLogin.email && userLogin.roleId) {
+            name = language === LANGUAGES.VI ? `${firstName} ${lastName}` : `${lastName} ${firstName}`;
             email = userLogin.email;
+            roleId = userLogin.roleId;
         }
 
         return (
