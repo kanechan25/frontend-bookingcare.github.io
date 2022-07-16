@@ -7,6 +7,7 @@ import DoctorProfile from '../Doctor/DoctorProfile';
 import { FormattedMessage } from 'react-intl';
 import Select from 'react-select';
 
+import HomeFooter from '../../HomePage/HomeFooter';
 import { LANGUAGES } from '../../../utils';
 import * as actions from '../../../store/actions';
 import { getClinicByIdService } from '../../../services/userService';
@@ -30,7 +31,7 @@ class DetailClinic extends Component {
                 id: clinicId,
             });
             // console.log('check Clinic Data: ', clinicData)
-            
+
             if (clinicData && clinicData.errCode === 0) {
                 let arrDoctorId = [];
                 let data = clinicData.data;
@@ -58,7 +59,7 @@ class DetailClinic extends Component {
 
     render() {
         let { arrDoctorId, dataDetailClinic } = this.state;
-        let {language} = this.props;
+        let { language } = this.props;
         console.log('check state RENDER for Detail Clinic: ', this.state)
         return (
             <>
@@ -71,7 +72,7 @@ class DetailClinic extends Component {
                             dataDetailClinic && !_.isEmpty(dataDetailClinic) &&
                             <div className='specialty-detail-info'
                                 dangerouslySetInnerHTML={{ __html: dataDetailClinic.descHtmlVi }}
-                            ></div>                    
+                            ></div>
                         }
                     </div>
                     <div className='specialty-doctor-list row'>
@@ -104,6 +105,7 @@ class DetailClinic extends Component {
                         }
                     </div>
                 </div>
+                <HomeFooter />
             </>
         );
     }

@@ -7,6 +7,7 @@ import DoctorProfile from '../Doctor/DoctorProfile';
 import { FormattedMessage } from 'react-intl';
 import Select from 'react-select';
 
+import HomeFooter from '../../HomePage/HomeFooter';
 import { LANGUAGES } from '../../../utils';
 import * as actions from '../../../store/actions';
 import { getSpecialtyByIdService, getAllCodeService } from '../../../services/userService';
@@ -34,7 +35,7 @@ class DetailSpecialty extends Component {
                 id: specialtyId,
                 provinceId: 'ALL'
             });
-            
+
             let arrProvince = await getAllCodeService('PROVINCE');
             let dataProvince = this.buildInputInfoSelect(arrProvince.data, 'PROVINCE');
 
@@ -95,7 +96,7 @@ class DetailSpecialty extends Component {
                 id: specialtyId,
                 provinceId: provinceId,
             });
-    
+
             if (specialtyInfo && specialtyInfo.errCode === 0) {
                 let data = specialtyInfo.data;
                 let arrDoctorId = [];
@@ -116,7 +117,7 @@ class DetailSpecialty extends Component {
     }
     render() {
         let { arrDoctorId, dataProvince, specialtyData } = this.state;
-        let {language} = this.props;
+        let { language } = this.props;
         // console.log('check state sent to Detail Specialty: ', this.state)
         return (
             <>
@@ -129,7 +130,7 @@ class DetailSpecialty extends Component {
                             specialtyData && !_.isEmpty(specialtyData) &&
                             <div className='specialty-detail-info'
                                 dangerouslySetInnerHTML={{ __html: specialtyData.htmlDesc }}
-                            ></div>                    
+                            ></div>
                         }
                     </div>
                     <div className='specialty-doctor-list row'>
@@ -169,6 +170,7 @@ class DetailSpecialty extends Component {
                         }
                     </div>
                 </div>
+                <HomeFooter />
             </>
         );
     }
