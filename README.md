@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# <img src="https://github.com/kanechan25/kanechan25/blob/main/img/interface/logo_ce2dev.png" width="30px"> Hi, I'm Khoa Tran <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px" height="25px"> A Full-stack Web Developer 
+## <a href="https://frontend-bookingcare-reactjs.herokuapp.com/" target="_blank" rel="noopener noreferrer" >Click here to go to Bookingcare website</a>
 
-## Available Scripts
+- This is a real project in Health care industry.
+- Website is deployed bu Heroku, SERN-stack: <br> <strong> SQL, ExpressJs, ReactJs, NodeJs </strong> <br>
+&nbsp;
+<h3>Backend: </h3>
+<span><img src="https://img.shields.io/badge/Node.js-282C34?logo=node.js&logoColor=00F200" alt="Node.js logo" title="Node.js" height="25" /></span>
+&nbsp;
+<span><img src="https://img.shields.io/badge/Express-282C34?logo=express&logoColor=FFFFFF" alt="Express.js logo" title="Express.js" height="25" /></span>
+&nbsp;
+<span><img src="https://img.shields.io/badge/MySQL-%23092E20.svg?logo=mysql&logoColor=white" alt="MySQL logo" title="MySQL" height="25" /></span>
+&nbsp;
+<h3>Frontend: </h3>
+<span><img src="https://img.shields.io/badge/ReactJS-282C34?logo=react&logoColor=61DAFB" alt="ReactJS logo" title="ReactJS" height="25" /></span>
+&nbsp;
+<span><img src="https://img.shields.io/badge/Redux-282C34?logo=redux&logoColor=764ABC" alt="Redux logo" title="Redux" height="25" /></span>
+&nbsp;
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+- And of course, the Website is Responsive web design.
+- <img src="https://github.com/kanechan25/frontend-bookingcare.github.io/blob/main/src/assets/images/11_deploy/responsive_bookingcare.gif">
+&nbsp;
+- Some typical features in the Website:
+<h4>Log In and Sign up: </h4>
+<img src="https://github.com/kanechan25/frontend-bookingcare.github.io/blob/main/src/assets/images/11_deploy/login_signout_bookingcare.gif">
+&nbsp;
+<h4>Toggle Bilingual: </h4>
+<img src="https://github.com/kanechan25/frontend-bookingcare.github.io/blob/main/src/assets/images/11_deploy/bilingual_bookingcare.gif">
+&nbsp;
+<h4>Patient books appointment with a Doctor: </h4>
+<img src="https://github.com/kanechan25/frontend-bookingcare.github.io/blob/main/src/assets/images/11_deploy/booking_bookingcare.gif">
+&nbsp;
+<h4>Prescribe and pay fees: </h4>
+<img src="https://github.com/kanechan25/frontend-bookingcare.github.io/blob/main/src/assets/images/11_deploy/prescription_bookingcare.gif">
+&nbsp;
+<h4>And some other features... </h4>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Hoping it make you enjoy!
+---
+### <img src="https://github.com/kanechan25/kanechan25/blob/main/img/interface/logo_ce2dev.png" width="25px"> 📫 Contact me via:
+  <a href="https://www.linkedin.com/in/khoatran2425/" target="blank">
+    <img src="https://img.icons8.com/bubbles/100/000000/linkedin.png" alt="khoatran2425-linkedin" />
+  </a>
+  <a href="https://www.youtube.com/c/CE2Dev" target="blank">
+    <img src="https://img.icons8.com/bubbles/100/000000/youtube-squared.png" alt="CE2Dev-youtube" />
+  </a>
+  <a href="https://www.facebook.com/khoa2425/" target="blank">
+    <img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" alt="khoa2425-facebook" />
+  </a>
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+  <br />
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- kt.itengineer@gmail.com
+- [Reading for funny (Vietnamese)](https://ngoatv.blogspot.com/)
+### <img src="https://github.com/kanechan25/kanechan25/blob/main/img/interface/logo_ce2dev.png" width="25px"> © 2022 kanechan25
