@@ -2,7 +2,7 @@
 ## <a href="https://frontend-bookingcare-reactjs.herokuapp.com/" target="_blank" rel="noopener noreferrer" >Click here to go to Bookingcare website</a>
 
 - This is a real project in Health care industry.
-- Website is deployed bu Heroku, SERN-stack: <br> <strong> SQL, ExpressJs, ReactJs, NodeJs </strong> <br>
+- Website is deployed by Heroku, SERN-stack: <br> <strong> SQL, ExpressJs, ReactJs, NodeJs </strong> <br>
 &nbsp;
 <h3>Backend: </h3>
 <span><img src="https://img.shields.io/badge/Node.js-282C34?logo=node.js&logoColor=00F200" alt="Node.js logo" title="Node.js" height="25" /></span>
