@@ -24,6 +24,9 @@
 &nbsp;
 - Some typical features in the Website:
 <h4>Log In and Sign up: </h4>
+<h5>You can try with:<h5>
+<h5>Username: kt.itengineer@gmail.com<h5>
+<h5>Password: kt<h5>
 <img src="https://github.com/kanechan25/frontend-bookingcare.github.io/blob/main/src/assets/images/11_deploy/login_signout_bookingcare.gif">
 &nbsp;
 <h4>Toggle Bilingual: </h4>
